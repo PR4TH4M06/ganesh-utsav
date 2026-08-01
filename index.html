@@ -20,17 +20,19 @@
   <div class="petals-layer" id="petalsLayer" aria-hidden="true"></div>
   <div class="butterflies-layer" id="butterfliesLayer" aria-hidden="true"></div>
 
+  <!-- Music control — always visible -->
+  <div class="music-control" id="musicControl">
+    <button class="music-toggle muted" id="musicBtn" type="button" aria-pressed="false" aria-label="Unmute Ganesh Aarti">
+      <span class="music-toggle-icon" aria-hidden="true">🔇</span>
+      <span class="music-toggle-text">
+        <span class="music-toggle-label" id="musicToggleLabel">Aarti Off</span>
+        <span class="music-toggle-sub" id="musicToggleSub">Tap to unmute</span>
+      </span>
+    </button>
+  </div>
+
   <!-- Floating action buttons -->
   <div class="fab-group hidden" id="fabGroup">
-    <button class="music-btn" id="musicBtn" aria-label="Toggle background music">
-      <svg class="icon-music-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
-      </svg>
-      <svg class="icon-music-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
-        <line x1="2" y1="2" x2="22" y2="22"/>
-      </svg>
-    </button>
     <button class="share-btn" id="shareBtn" aria-label="Share invitation">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
@@ -43,7 +45,7 @@
   <nav class="section-nav hidden" id="sectionNav" aria-label="Page sections"></nav>
 
   <audio id="bgMusic" loop preload="auto">
-    <source src="assets/aarti.mp3" type="audio/mpeg" />
+    <source src="assets/ganesh-aarti.mp3" type="audio/mpeg" />
   </audio>
 
   <!-- ===== ENVELOPE (swapnil-ritu + deeksha-chetan inspired) ===== -->
@@ -98,6 +100,7 @@
     <section class="countdown-section section" id="section-countdown">
       <div class="container">
         <div class="scratch-card" id="scratchCard">
+          <div class="paper-bomb-burst" id="paperBombBurst" aria-hidden="true"><span></span><span></span><span></span></div>
           <div class="scratch-card-inner">
             <p class="section-label">Save the Date</p>
             <h2 class="section-title">Counting Down to Bappa's Arrival</h2>
@@ -117,8 +120,8 @@
             <div class="scratch-hint" id="scratchHint">
               <span class="scratch-hint-icon">✦</span>
               <p class="scratch-hint-label">GANESH UTSAV</p>
-              <p class="scratch-hint-title">Scratch Karo!</p>
-              <p class="scratch-hint-sub">Swipe karke countdown dekho</p>
+              <p class="scratch-hint-title">Scratch to Reveal</p>
+              <p class="scratch-hint-sub">Swipe to see the countdown</p>
               <div class="scratch-hand">👆</div>
             </div>
           </div>
@@ -137,11 +140,11 @@
               <img class="intro-image" id="introImage" src="" alt="Lalbaug Cha Raja" loading="lazy" />
               <div class="intro-image-overlay"></div>
             </div>
-            <div class="intro-unified-body">
-              <p class="intro-verse" aria-hidden="true">॥ गणपती बाप्पा मोरया ॥</p>
+            <div class="intro-unified-body" lang="mr">
+              <p class="intro-verse" id="introVerse">॥ गणपती बाप्पा मोरया ॥</p>
               <div class="intro-text-divider" aria-hidden="true"><span>✦</span><span>🪷</span><span>✦</span></div>
-              <p class="intro-para intro-para--lead">Every year, our home transforms into a temple of devotion as we welcome <em>Lord Ganesha</em> — the remover of obstacles and harbinger of wisdom.</p>
-              <p class="intro-para">From the sacred Sthapana to the emotional Visarjan, each moment is filled with aarti, bhajan, Miravnuk, Mahaprasad and the warmth of family &amp; friends.</p>
+              <p class="intro-para intro-para--lead" id="introParaLead"></p>
+              <p class="intro-para" id="introPara"></p>
               <div class="intro-text-ornament" aria-hidden="true">❧</div>
             </div>
           </div>

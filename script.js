@@ -44,12 +44,18 @@ const CONFIG = {
   closingSign: '— प्रेमाने, ओं साई राम मित्र मंडळ —',
   hashtag: '#GanpatiBappaMorya #SatpurchaRaja',
   shareMessage: "You're invited to Om Sai Ram Mitra Mandal's Ganesh Utsav — Satpurcha Raja! 🙏 Ganpati Bappa Morya!",
-  musicFile: 'assets/aarti.mp3',
+  musicFile: 'assets/ganesh-aarti.mp3',
+  musicTitle: 'श्री गणपती आरती — सुखकर्ता दुःखहर्ता',
 
   sealImage:
     'https://scontent.cdninstagram.com/v/t51.82787-19/518458308_17985160766837067_5474200944853567070_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_cat=107&ccb=7-5&_nc_sid=f7ccc5&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=Y5y_Ml8EORgQ7kNvwEJmNDI&_nc_oc=Adre_RcTjraWYN3ZhRMsgKiA9uk14HZUcDAmi4Ld0NWNr-1p7EFrAjr5aXC3B6pbTx4fGMKHbeGcTPTVfSyq9KuB&_nc_zt=24&_nc_ht=scontent.cdninstagram.com&_nc_gid=JKAJfR7zzD9-dYL62zDbSw&_nc_ss=7b689&oh=00_AQFTFSHjPMWhwa4ljkZjqlNd5-rx4NuHMYN9MiodcP6d0g&oe=6A735DD3',
   introImage: LALBAGH.rajaClose,
   closingGanesh: LALBAGH.bappa,
+  introVerse: '॥ गणपती बाप्पा मोरया ॥',
+  introTextLead:
+    'दर वर्षी आमचे घर भक्तीच्या मंदिरात रूपांतरित होते, जेव्हा आम्ही विघ्नहर्ता व बुद्धीचे दाते <em>श्री गणेशराया</em> यांचे हार्दिक स्वागत करतो.',
+  introText:
+    'पवित्र स्थापनेपासून भावपूर्ण विसर्जनापर्यंत — आरती, भजन, मिरवणूक, महाप्रसाद आणि कुटुंब-मित्रांच्या उबनेने प्रत्येक क्षण उत्सवाने भरून राहतो.',
 
   petalImages: {
     daisy: 'https://swapnil-ritu.invitationmedia.in/assets/falling-daisy-DWyrh5i3.png',
@@ -129,6 +135,8 @@ const invitationMain = document.getElementById('invitationMain');
 const envelopeWrap = document.getElementById('envelopeWrap');
 const musicBtn = document.getElementById('musicBtn');
 const bgMusic = document.getElementById('bgMusic');
+const musicToggleLabel = document.getElementById('musicToggleLabel');
+const musicToggleSub = document.getElementById('musicToggleSub');
 const petalsLayer = document.getElementById('petalsLayer');
 const butterfliesLayer = document.getElementById('butterfliesLayer');
 const diyaLayer = document.getElementById('diyaLayer');
@@ -146,6 +154,9 @@ function initContent() {
   document.getElementById('inviteHashtag').textContent = CONFIG.hashtag;
   document.getElementById('heroGaneshDeco').src = LALBAGH.chaRaja;
   document.getElementById('introImage').src = CONFIG.introImage;
+  document.getElementById('introVerse').textContent = CONFIG.introVerse;
+  document.getElementById('introParaLead').innerHTML = CONFIG.introTextLead;
+  document.getElementById('introPara').textContent = CONFIG.introText;
   document.getElementById('closingGaneshImg').src = CONFIG.closingGanesh;
   document.getElementById('heroTitle').textContent = CONFIG.heroTitle;
   document.getElementById('introTitle').textContent = CONFIG.heroTitle;
@@ -164,6 +175,7 @@ function initContent() {
     bgMusic.querySelector('source').src = CONFIG.musicFile;
     bgMusic.load();
   }
+  updateMusicUI();
 
   renderEvents();
   renderGallery();
@@ -373,6 +385,68 @@ function fireConfetti() {
   fireCelebration();
 }
 
+function firePaperBomb(originX, originY) {
+  if (typeof confetti !== 'function') return;
+  const colors = ['#FFD700', '#FF6B00', '#8B1538', '#FFFFFF', '#FF4500', '#D4AF37', '#FF1744', '#FFF8F0'];
+  const origin = { x: originX, y: originY };
+
+  confetti({
+    particleCount: 140,
+    spread: 360,
+    startVelocity: 58,
+    gravity: 0.85,
+    ticks: 110,
+    origin,
+    colors,
+    scalar: 1.25,
+    shapes: ['square', 'circle'],
+  });
+
+  setTimeout(() => {
+    confetti({
+      particleCount: 90,
+      spread: 100,
+      startVelocity: 50,
+      origin: { x: originX, y: originY - 0.04 },
+      colors,
+      scalar: 1.1,
+    });
+  }, 80);
+
+  setTimeout(() => {
+    confetti({ particleCount: 60, angle: 55, spread: 95, startVelocity: 48, origin: { x: originX - 0.08, y: originY }, colors });
+    confetti({ particleCount: 60, angle: 125, spread: 95, startVelocity: 48, origin: { x: originX + 0.08, y: originY }, colors });
+  }, 160);
+
+  setTimeout(() => {
+    confetti({
+      particleCount: 70,
+      spread: 360,
+      startVelocity: 35,
+      ticks: 80,
+      origin,
+      colors,
+      shapes: ['star'],
+      scalar: 0.95,
+    });
+  }, 280);
+
+  const end = Date.now() + 1800;
+  (function paperShower() {
+    confetti({
+      particleCount: 6,
+      angle: 270,
+      spread: 50,
+      startVelocity: 22,
+      origin: { x: originX + (Math.random() - 0.5) * 0.25, y: originY - 0.08 },
+      colors,
+      scalar: 1.15,
+      shapes: ['square'],
+    });
+    if (Date.now() < end) requestAnimationFrame(paperShower);
+  })();
+}
+
 document.getElementById('openEnvelope').addEventListener('click', openInvitation);
 
 function startCountdown() {
@@ -393,15 +467,56 @@ function startCountdown() {
   setInterval(update, 1000);
 }
 
+function updateMusicUI() {
+  const icon = musicBtn.querySelector('.music-toggle-icon');
+  if (musicPlaying) {
+    musicBtn.classList.remove('muted');
+    musicBtn.classList.add('is-playing');
+    musicBtn.setAttribute('aria-pressed', 'true');
+    musicBtn.setAttribute('aria-label', 'Mute Ganesh Aarti');
+    if (icon) icon.textContent = '🔊';
+    if (musicToggleLabel) musicToggleLabel.textContent = 'Aarti On';
+    if (musicToggleSub) musicToggleSub.textContent = CONFIG.musicTitle;
+  } else {
+    musicBtn.classList.add('muted');
+    musicBtn.classList.remove('is-playing');
+    musicBtn.setAttribute('aria-pressed', 'false');
+    musicBtn.setAttribute('aria-label', 'Unmute Ganesh Aarti');
+    if (icon) icon.textContent = '🔇';
+    if (musicToggleLabel) musicToggleLabel.textContent = 'Aarti Off';
+    if (musicToggleSub) musicToggleSub.textContent = 'Tap to unmute';
+  }
+}
+
 function tryPlayMusic() {
-  bgMusic.volume = 0.22;
-  bgMusic.play().then(() => { musicPlaying = true; musicBtn.classList.remove('muted'); })
-    .catch(() => { musicPlaying = false; musicBtn.classList.add('muted'); });
+  bgMusic.volume = 0.35;
+  bgMusic.play()
+    .then(() => {
+      musicPlaying = true;
+      updateMusicUI();
+    })
+    .catch(() => {
+      musicPlaying = false;
+      updateMusicUI();
+    });
 }
 
 musicBtn.addEventListener('click', () => {
-  if (musicPlaying) { bgMusic.pause(); musicPlaying = false; musicBtn.classList.add('muted'); }
-  else { bgMusic.play().then(() => { musicPlaying = true; musicBtn.classList.remove('muted'); }).catch(() => musicBtn.classList.add('muted')); }
+  if (musicPlaying) {
+    bgMusic.pause();
+    musicPlaying = false;
+    updateMusicUI();
+  } else {
+    bgMusic.play()
+      .then(() => {
+        musicPlaying = true;
+        updateMusicUI();
+      })
+      .catch(() => {
+        musicPlaying = false;
+        updateMusicUI();
+      });
+  }
 });
 
 function shareWhatsApp() {
@@ -671,17 +786,21 @@ function initScratchCard() {
     revealed = true;
     hint.classList.add('is-hidden');
     overlay.classList.add('is-revealing');
-    card.classList.add('is-revealed');
+    card.classList.add('is-revealed', 'paper-bomb-pop');
 
-    if (typeof confetti === 'function') {
-      const rect = card.getBoundingClientRect();
-      confetti({
-        particleCount: 60,
-        spread: 70,
-        origin: { x: (rect.left + rect.width / 2) / window.innerWidth, y: (rect.top + rect.height / 2) / window.innerHeight },
-        colors: ['#FFD700', '#FF6B00', '#8B1538'],
-      });
+    const rect = card.getBoundingClientRect();
+    const originX = (rect.left + rect.width / 2) / window.innerWidth;
+    const originY = (rect.top + rect.height / 2) / window.innerHeight;
+    firePaperBomb(originX, originY);
+
+    const burst = document.getElementById('paperBombBurst');
+    if (burst) {
+      burst.classList.remove('is-active');
+      void burst.offsetWidth;
+      burst.classList.add('is-active');
     }
+
+    setTimeout(() => card.classList.remove('paper-bomb-pop'), 700);
 
     setTimeout(() => {
       overlay.classList.add('is-done');
