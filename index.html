@@ -10,7 +10,7 @@
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Great+Vibes&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Great+Vibes&family=Cinzel:wght@400;500;600;700&family=Tiro+Devanagari+Marathi:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -53,18 +53,19 @@
     <div class="floral-border top" aria-hidden="true">🪷 🌿 🪷 🌿 🪷 🌿 🪷 🌿 🪷</div>
 
     <div class="envelope-wrapper">
-      <img class="ganesh-idol-hero" id="envelopeGaneshImg" src="" alt="Lalbaug Cha Raja" width="130" height="160" />
-
       <button class="envelope-btn" id="openEnvelope" aria-label="Open invitation envelope">
         <div class="envelope-img-wrap" id="envelopeWrap">
           <div class="envelope-pulse-ring" aria-hidden="true"></div>
           <img class="envelope-img" src="https://swapnil-ritu.invitationmedia.in/assets/maroonenvelop-DVcZBctQ.png" alt="Invitation envelope" width="280" height="200" />
-          <span class="envelope-seal" id="envelopeInitials">G &amp; U</span>
+          <img class="envelope-seal" id="envelopeSeal" src="" alt="Om Sai Ram Mitra Mandal" width="58" height="58" />
         </div>
       </button>
 
       <p class="invite-pre">You're invited to</p>
-      <h1 class="invite-event" id="inviteEventName">Patil Parivar's Ganesh Utsav</h1>
+      <h1 class="invite-event">
+        <span class="invite-event-marathi" id="inviteEventMarathi" lang="mr">सातपुरचा राजा</span>
+        <span class="invite-event-label" id="inviteEventLabel">Invitation</span>
+      </h1>
       <p class="invite-hashtag" id="inviteHashtag">#GanpatiBappaMorya</p>
       <p class="invite-subtitle">Tap the envelope to open your invitation</p>
       <p class="invite-tap">✦ Tap to open ✦</p>
@@ -82,11 +83,9 @@
       <div class="hero-content">
         <p class="hero-blessing reveal">॥ श्री गणेशाय नमः ॥</p>
         <div class="hero-names reveal">
-          <span class="hero-name-script" id="heroName1">Ganpati</span>
-          <span class="hero-ampersand">&amp;</span>
-          <span class="hero-name-script" id="heroName2">Bappa</span>
+          <h1 class="hero-title-marathi" id="heroTitle" lang="mr">सातपुरचा राजा</h1>
         </div>
-        <p class="hero-family reveal" id="heroFamily">Patil Parivar Invites You</p>
+        <p class="hero-family reveal" id="heroFamily" lang="mr">ओं साई राम मित्र मंडळ — आपले हार्दिक स्वागत</p>
         <p class="hero-date reveal" id="heroDate">14th September 2026</p>
         <div class="hero-divider reveal"><span>✦</span><span>🪷</span><span>✦</span></div>
         <p class="hero-tagline reveal" id="heroTagline"></p>
@@ -117,7 +116,8 @@
             <canvas id="scratchCanvas" aria-hidden="true"></canvas>
             <div class="scratch-hint" id="scratchHint">
               <span class="scratch-hint-icon">✦</span>
-              <p class="scratch-hint-title">Scratch to Reveal</p>
+              <p class="scratch-hint-label">GANESH UTSAV</p>
+              <p class="scratch-hint-title">Scratch Karo!</p>
               <p class="scratch-hint-sub">Swipe karke countdown dekho</p>
               <div class="scratch-hand">👆</div>
             </div>
@@ -129,16 +129,21 @@
     <section class="intro-section section" id="section-intro">
       <div class="container">
         <p class="section-label reveal">Our Utsav</p>
-        <h2 class="section-title reveal">A Celebration of Faith &amp; Joy</h2>
-        <div class="intro-grid">
-          <div class="intro-image-wrap reveal">
-            <img class="intro-image" id="introImage" src="" alt="Lalbaug Cha Raja" loading="lazy" />
-            <div class="intro-image-overlay"></div>
-          </div>
-          <div class="intro-text reveal">
-            <p>Every year, our home transforms into a temple of devotion as we welcome <em>Lord Ganesha</em> — the remover of obstacles and harbinger of wisdom.</p>
-            <p>From the sacred Sthapana to the emotional Visarjan, each moment is filled with aarti, bhajan, Miravnuk, Mahaprasad and the warmth of family &amp; friends.</p>
-            <p class="intro-highlight">We would be honoured by your gracious presence.</p>
+        <h2 class="intro-title-marathi reveal" id="introTitle">सातपुरचा राजा</h2>
+        <p class="intro-subtitle reveal">A Celebration of Faith &amp; Joy</p>
+        <div class="intro-unified reveal">
+          <div class="intro-unified-card">
+            <div class="intro-unified-media">
+              <img class="intro-image" id="introImage" src="" alt="Lalbaug Cha Raja" loading="lazy" />
+              <div class="intro-image-overlay"></div>
+            </div>
+            <div class="intro-unified-body">
+              <p class="intro-verse" aria-hidden="true">॥ गणपती बाप्पा मोरया ॥</p>
+              <div class="intro-text-divider" aria-hidden="true"><span>✦</span><span>🪷</span><span>✦</span></div>
+              <p class="intro-para intro-para--lead">Every year, our home transforms into a temple of devotion as we welcome <em>Lord Ganesha</em> — the remover of obstacles and harbinger of wisdom.</p>
+              <p class="intro-para">From the sacred Sthapana to the emotional Visarjan, each moment is filled with aarti, bhajan, Miravnuk, Mahaprasad and the warmth of family &amp; friends.</p>
+              <div class="intro-text-ornament" aria-hidden="true">❧</div>
+            </div>
           </div>
         </div>
       </div>
@@ -146,40 +151,73 @@
 
     <section class="events-section section" id="section-events">
       <div class="container-wide">
-        <p class="section-label reveal">Events Schedule</p>
-        <h2 class="section-title reveal">Utsav Celebrations</h2>
+        <div class="section-header reveal">
+          <p class="section-label">Events Schedule</p>
+          <h2 class="section-title">Utsav Celebrations</h2>
+          <div class="section-divider" aria-hidden="true"><span>✦</span><span>🪷</span><span>✦</span></div>
+          <p class="section-subtitle">Five days of devotion, dance &amp; divine blessings with Bappa</p>
+        </div>
         <div class="events-list" id="eventsList"></div>
       </div>
     </section>
 
     <section class="details-section section" id="section-details">
       <div class="container">
-        <p class="section-label reveal">Additional Details</p>
-        <h2 class="section-title reveal">Good to Know</h2>
-        <div class="details-grid" id="detailsGrid"></div>
+        <div class="section-header reveal">
+          <p class="section-label">Additional Details</p>
+          <h2 class="section-title">Good to Know</h2>
+          <div class="section-divider" aria-hidden="true"><span>✦</span><span>🪔</span><span>✦</span></div>
+          <p class="section-subtitle">Everything you need to know before you join us</p>
+        </div>
+        <div class="details-layout">
+          <aside class="details-intro reveal">
+            <div class="details-intro-card">
+              <p class="details-intro-om">॥ श्री गणेशाय नमः ॥</p>
+              <h3 class="details-intro-heading">Guest Information</h3>
+              <p class="details-intro-text">We want your visit to be comfortable and blessed. Here are a few helpful notes for all our dear guests joining the Utsav.</p>
+              <ul class="details-intro-list">
+                <li>Traditional festive attire welcome</li>
+                <li>All family &amp; friends cordially invited</li>
+                <li>Prasad for everyone — please join us</li>
+              </ul>
+            </div>
+          </aside>
+          <div class="details-grid" id="detailsGrid"></div>
+        </div>
       </div>
     </section>
 
     <section class="gallery-section section" id="section-gallery">
       <div class="container">
-        <p class="section-label reveal">Gallery</p>
-        <h2 class="section-title reveal">Moments of Devotion</h2>
+        <div class="section-header reveal">
+          <p class="section-label">Gallery</p>
+          <h2 class="section-title">Moments of Devotion</h2>
+          <div class="section-divider" aria-hidden="true"><span>✦</span><span>📸</span><span>✦</span></div>
+          <p class="section-subtitle">Sacred memories from Bappa's celebration</p>
+        </div>
         <div class="gallery-grid" id="galleryGrid"></div>
       </div>
     </section>
 
     <section class="venue-section section" id="section-venue">
       <div class="container">
-        <p class="section-label reveal">Venue</p>
-        <h2 class="section-title reveal">Where We Celebrate</h2>
+        <div class="section-header reveal">
+          <p class="section-label">Venue</p>
+          <h2 class="section-title">Where We Celebrate</h2>
+          <div class="section-divider" aria-hidden="true"><span>✦</span><span>📍</span><span>✦</span></div>
+          <p class="section-subtitle">Join us at Satpur Cha Raja, Nashik</p>
+        </div>
         <div class="venues-list" id="venuesList"></div>
       </div>
     </section>
 
     <section class="family-section section" id="section-family">
       <div class="container">
-        <p class="section-label reveal">With Love</p>
-        <h2 class="section-title reveal">The Host Family</h2>
+        <div class="section-header reveal section-header--light">
+          <p class="section-label">With Love</p>
+          <h2 class="section-title">Our Mandal</h2>
+          <div class="section-divider" aria-hidden="true"><span>✦</span><span>🪷</span><span>✦</span></div>
+        </div>
         <div class="family-card reveal">
           <p class="family-text" id="familyText"></p>
           <div class="family-names" id="familyNames"></div>
@@ -200,9 +238,22 @@
     </section>
 
     <footer class="footer section">
-      <div class="container">
+      <div class="container footer-inner">
+        <div class="footer-divider" aria-hidden="true"><span>✦</span><span>🪔</span><span>✦</span></div>
+        <p class="footer-om" aria-hidden="true">॥ श्री गणेशाय नमः ॥</p>
         <p class="footer-hashtag" id="footerHashtag"></p>
-        <p class="footer-blessing">Ganpati Bappa Morya! Pudhchya Varshi Lavkar Ya!</p>
+        <p class="footer-blessing">Ganpati Bappa Morya!</p>
+        <p class="footer-blessing-sub">Pudhchya Varshi Lavkar Ya!</p>
+
+        <div class="footer-contact reveal">
+          <p class="footer-contact-label">Custom invitation websites available</p>
+          <div class="footer-contact-row">
+            <a class="footer-contact-link" href="tel:+919822866632">9822866632</a>
+            <span class="footer-contact-sep" aria-hidden="true">|</span>
+            <a class="footer-contact-link footer-contact-link--wa" href="https://wa.me/919822866632?text=Hi%2C%20I%20need%20a%20custom%20invitation%20website" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          </div>
+        </div>
+
         <p class="footer-copy">Ganesh Utsav Invitation &copy; <span id="footerYear"></span></p>
       </div>
     </footer>

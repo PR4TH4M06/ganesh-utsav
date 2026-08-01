@@ -25,29 +25,29 @@ const LALBAGH = {
  * GANESH UTSAV INVITATION — Config
  */
 const CONFIG = {
-  initials: 'G & U',
-  inviteEventName: "Patil Parivar's Ganesh Utsav",
-  heroName1: 'Ganpati',
-  heroName2: 'Bappa',
-  familyName: 'Patil Parivar Invites You',
+  orgName: 'ओं साई राम मित्र मंडळ',
+  inviteEventLabel: 'Invitation',
+  heroTitle: 'सातपुरचा राजा',
+  familyName: 'ओं साई राम मित्र मंडळ — आपले हार्दिक स्वागत',
   mainDate: '14th September 2026',
   heroTagline: 'Because welcoming Bappa home requires twice the devotion — and you!',
   countdownTarget: '2026-09-14T08:00:00',
   countdownMessage: 'Awaiting Your Noble Presence',
-  calendarTitle: 'Ganesh Utsav — Patil Parivar',
+  calendarTitle: 'Ganesh Utsav — Om Sai Ram Mitra Mandal',
   calendarStart: '20260914T080000',
   calendarEnd: '20260919T210000',
-  calendarLocation: 'Shivaji Nagar, Pune, Maharashtra',
+  calendarLocation: 'Satpur Cha Raja, Satpur, Nashik, Maharashtra',
   familyText:
-    'The Patil Family warmly welcomes you to join us in welcoming <em>Lord Ganesha</em> into our home and hearts.<br><br>From Sthapana to Visarjan — every aarti, every Miravnuk, every modak — is shared with love. Your blessings complete our celebration.',
-  familyNames: '— Rajesh & Sunita Patil —',
+    '<em>Om Sai Ram Mitra Mandal</em> warmly welcomes you to join us in welcoming <em>Lord Ganesha</em> into our hearts and community.<br><br>From Sthapana to Visarjan — every aarti, every Miravnuk, every modak — is shared with love. Your blessings complete our celebration.',
+  familyNames: '— ओं साई राम मित्र मंडळ —',
   closingMessage: 'Your presence and blessings will make our Ganesh Utsav truly divine.<br>We eagerly await you!',
-  closingSign: '— With Love, Patil Parivar —',
-  hashtag: '#GanpatiBappaMorya #LalbaugInspired',
-  shareMessage: "You're invited to Patil Parivar's Ganesh Utsav! 🙏 Ganpati Bappa Morya!",
+  closingSign: '— प्रेमाने, ओं साई राम मित्र मंडळ —',
+  hashtag: '#GanpatiBappaMorya #SatpurchaRaja',
+  shareMessage: "You're invited to Om Sai Ram Mitra Mandal's Ganesh Utsav — Satpurcha Raja! 🙏 Ganpati Bappa Morya!",
   musicFile: 'assets/aarti.mp3',
 
-  envelopeGanesh: LALBAGH.rajaClassic,
+  sealImage:
+    'https://scontent.cdninstagram.com/v/t51.82787-19/518458308_17985160766837067_5474200944853567070_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_cat=107&ccb=7-5&_nc_sid=f7ccc5&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=Y5y_Ml8EORgQ7kNvwEJmNDI&_nc_oc=Adre_RcTjraWYN3ZhRMsgKiA9uk14HZUcDAmi4Ld0NWNr-1p7EFrAjr5aXC3B6pbTx4fGMKHbeGcTPTVfSyq9KuB&_nc_zt=24&_nc_ht=scontent.cdninstagram.com&_nc_gid=JKAJfR7zzD9-dYL62zDbSw&_nc_ss=7b689&oh=00_AQFTFSHjPMWhwa4ljkZjqlNd5-rx4NuHMYN9MiodcP6d0g&oe=6A735DD3',
   introImage: LALBAGH.rajaClose,
   closingGanesh: LALBAGH.bappa,
 
@@ -66,25 +66,25 @@ const CONFIG = {
   ],
 
   details: [
-    { icon: '👔', title: 'Dress Code', text: 'Traditional Indian attire — kurta, saree or festive wear in maroon, gold & saffron.' },
-    { icon: '🪔', title: 'Aarti Timings', text: 'Morning 7:30 AM · Madhyahna 12:00 PM · Evening 7:00 PM — daily during Utsav.' },
-    { icon: '🍬', title: 'Prasad', text: 'Mahaprasad & ukdiche modak served at 1:00 PM and 8:00 PM daily. All are welcome.' },
-    { icon: '🅿️', title: 'Parking', text: 'Street parking available near Patil Wada. Please arrive 15 minutes early for Sthapana.' },
-    { icon: '📵', title: 'During Aarti', text: 'Kindly maintain silence during aarti. Mobile phones on silent mode, please.' },
-    { icon: '🎁', title: 'Offerings', text: 'Flowers, modak and fruits are welcome. Please avoid plastic garlands.' },
+    { icon: '👔', title: 'Dress Code', text: 'Traditional Indian attire preferred — kurta, saree or festive wear in maroon, gold & saffron.', tag: 'Attire' },
+    { icon: '🪔', title: 'Aarti Timings', text: 'Morning 7:30 AM · Madhyahna 12:00 PM · Evening 7:00 PM — daily during Utsav.', tag: 'Schedule' },
+    { icon: '🍬', title: 'Prasad', text: 'Mahaprasad & ukdiche modak served at 1:00 PM and 8:00 PM daily. All are welcome.', tag: 'Food' },
+    { icon: '🅿️', title: 'Parking', text: 'Street parking available near Om Sai Ram Mitra Mandal, Satpur. Please arrive 15 minutes early for Sthapana.', tag: 'Travel' },
+    { icon: '📵', title: 'During Aarti', text: 'Kindly maintain silence during aarti. Mobile phones on silent mode, please.', tag: 'Etiquette' },
+    { icon: '🎁', title: 'Offerings', text: 'Flowers, modak and fruits are welcome. Please avoid plastic garlands.', tag: 'Puja' },
   ],
 
   events: [
-    { name: 'Ganpati Sthapana', date: 'September 14, 2026', time: '08:00 AM onwards', venue: 'Patil Wada, Pune', description: 'Sacred installation of Lord Ganesha with Vedic mantras, pranpratishtha, kalash puja and the first family aarti welcoming Bappa home.', image: LALBAGH.rajaClassic, alt: 'Lalbaug Cha Raja — Sthapana' },
-    { name: 'Madhyahna Aarti', date: 'September 14, 2026', time: '12:00 PM', venue: 'Patil Wada, Pune', description: 'Midday aarti with camphor, flowers and devotional hymns — the heart of daily worship during the Utsav.', image: LALBAGH.rajaClose, alt: 'Lalbaug Cha Raja — Aarti' },
-    { name: 'Miravnuk', date: 'September 14, 2026', time: '05:00 PM onwards', venue: 'Patil Wada to Main Road, Pune', description: "Traditional Miravnuk procession with lezim, dhol, tasha and folk dance — Bappa's grand welcome parade!", image: LALBAGH.pandal, alt: 'Lalbaug Cha Raja — Miravnuk procession' },
-    { name: 'Bhajan Sandhya', date: 'September 14 – 16, 2026', time: '07:00 PM onwards', venue: 'Patil Wada, Pune', description: 'Evenings filled with soulful bhajans, kirtan and devotional singing under diyas and festoon lights.', image: LALBAGH.ganpatiDays, alt: 'Lalbaug Cha Raja — Bhajan Sandhya' },
-    { name: 'Dhol Tasha Pathak', date: 'September 15, 2026', time: '06:00 PM onwards', venue: 'Patil Wada, Pune', description: 'Thunderous dhol-tasha performance — rhythm, energy and pure Maharashtrian festive spirit!', image: LALBAGH.folk, alt: 'Lalbaug Cha Raja — Dhol Tasha' },
-    { name: 'Mahaprasad & Modak', date: 'Daily during Utsav', time: '01:00 PM & 08:00 PM', venue: 'Patil Wada, Pune', description: 'Blessed prasad and freshly prepared ukdiche modak served with love to all devotees and guests.', image: LALBAGH.bappa, alt: 'Lalbaug Cha Raja — Mahaprasad' },
-    { name: 'Lezim & Folk Dance', date: 'September 15, 2026', time: '08:00 PM onwards', venue: 'Patil Wada, Pune', description: "Vibrant lezim, lavani and folk dance celebrating Maharashtra's rich cultural heritage.", image: LALBAGH.festival, alt: 'Lalbaug Cha Raja — Folk dance' },
-    { name: 'Atharvashirsha Paath', date: 'September 16, 2026', time: '07:30 AM', venue: 'Patil Wada, Pune', description: 'Morning recitation of Ganesh Atharvashirsha — a sacred Vedic hymn for wisdom and prosperity.', image: LALBAGH.raja2011, alt: 'Lalbaug Cha Raja 2011 — Paath' },
-    { name: 'Haldi-Kumkum', date: 'September 16, 2026', time: '04:00 PM onwards', venue: 'Patil Wada, Pune', description: 'Traditional haldi-kumkum for women devotees — suhasini puja, songs and celebration.', image: LALBAGH.raja2011alt, alt: 'Lalbaug Cha Raja — Haldi Kumkum' },
-    { name: 'Visarjan', date: 'September 19, 2026', time: '06:00 PM onwards', venue: 'Mula-Mutha River Ghat, Pune', description: 'Emotional farewell procession — Ganpati Bappa Morya, Pudhchya Varshi Lavkar Ya!', image: LALBAGH.visarjan, alt: 'Lalbaug Cha Raja — Visarjan' },
+    { day: 'Day One', dayDate: '14th September 2026', name: 'Ganpati Sthapana', date: 'September 14, 2026', time: '08:00 AM onwards', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Sacred installation of Lord Ganesha with Vedic mantras, pranpratishtha, kalash puja and the first family aarti welcoming Bappa home.', image: LALBAGH.rajaClassic, alt: 'Lalbaug Cha Raja — Sthapana' },
+    { day: 'Day One', dayDate: '14th September 2026', name: 'Madhyahna Aarti', date: 'September 14, 2026', time: '12:00 PM', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Midday aarti with camphor, flowers and devotional hymns — the heart of daily worship during the Utsav.', image: LALBAGH.rajaClose, alt: 'Lalbaug Cha Raja — Aarti' },
+    { day: 'Day One', dayDate: '14th September 2026', name: 'Miravnuk', date: 'September 14, 2026', time: '05:00 PM onwards', venue: 'Om Sai Ram Mitra Mandal to Main Road, Satpur', description: "Traditional Miravnuk procession with lezim, dhol, tasha and folk dance — Bappa's grand welcome parade!", image: LALBAGH.pandal, alt: 'Lalbaug Cha Raja — Miravnuk procession' },
+    { day: 'Day One', dayDate: '14th September 2026', name: 'Bhajan Sandhya', date: 'September 14, 2026', time: '07:00 PM onwards', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Evenings filled with soulful bhajans, kirtan and devotional singing under diyas and festoon lights.', image: LALBAGH.ganpatiDays, alt: 'Lalbaug Cha Raja — Bhajan Sandhya' },
+    { day: 'Day Two', dayDate: '15th September 2026', name: 'Dhol Tasha Pathak', date: 'September 15, 2026', time: '06:00 PM onwards', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Thunderous dhol-tasha performance — rhythm, energy and pure Maharashtrian festive spirit!', image: LALBAGH.folk, alt: 'Lalbaug Cha Raja — Dhol Tasha' },
+    { day: 'Day Two', dayDate: '15th September 2026', name: 'Lezim & Folk Dance', date: 'September 15, 2026', time: '08:00 PM onwards', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: "Vibrant lezim, lavani and folk dance celebrating Maharashtra's rich cultural heritage.", image: LALBAGH.festival, alt: 'Lalbaug Cha Raja — Folk dance' },
+    { day: 'Day Three', dayDate: '16th September 2026', name: 'Atharvashirsha Paath', date: 'September 16, 2026', time: '07:30 AM', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Morning recitation of Ganesh Atharvashirsha — a sacred Vedic hymn for wisdom and prosperity.', image: LALBAGH.raja2011, alt: 'Lalbaug Cha Raja 2011 — Paath' },
+    { day: 'Day Three', dayDate: '16th September 2026', name: 'Haldi-Kumkum', date: 'September 16, 2026', time: '04:00 PM onwards', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Traditional haldi-kumkum for women devotees — suhasini puja, songs and celebration.', image: LALBAGH.raja2011alt, alt: 'Lalbaug Cha Raja — Haldi Kumkum' },
+    { day: 'Daily', dayDate: 'During Utsav', name: 'Mahaprasad & Modak', date: 'Daily during Utsav', time: '01:00 PM & 08:00 PM', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Blessed prasad and freshly prepared ukdiche modak served with love to all devotees and guests.', image: LALBAGH.bappa, alt: 'Lalbaug Cha Raja — Mahaprasad' },
+    { day: 'Visarjan', dayDate: '19th September 2026', name: 'Visarjan', date: 'September 19, 2026', time: '06:00 PM onwards', venue: 'Mula-Mutha River Ghat, Pune', description: 'Emotional farewell procession — Ganpati Bappa Morya, Pudhchya Varshi Lavkar Ya!', image: LALBAGH.visarjan, alt: 'Lalbaug Cha Raja — Visarjan' },
   ],
 
   gallery: [
@@ -98,9 +98,29 @@ const CONFIG = {
     { src: LALBAGH.chaRaja, alt: 'Lalbaug Cha Raja' },
   ],
 
+  mainMap: {
+    lat: 19.9905579,
+    lng: 73.7224986,
+    zoom: 18,
+    placeName: 'Satpur Cha Raja',
+    mapUrl: 'https://maps.app.goo.gl/2JQkJKa42cKmRgEF7',
+    directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=19.9905579,73.7224986',
+  },
+
   venues: [
-    { name: 'Patil Wada — Main Celebration', address: 'Shivaji Nagar, Pune, Maharashtra 411005', mapUrl: 'https://maps.google.com/?q=Shivaji+Nagar+Pune', note: 'Sthapana, Aarti, Miravnuk, Bhajan & all daily programs' },
-    { name: 'Mula-Mutha River Ghat — Visarjan', address: 'Near Bund Garden, Pune, Maharashtra 411001', mapUrl: 'https://maps.google.com/?q=Bund+Garden+Pune+Visarjan', note: 'Final Visarjan procession on 19th September' },
+    {
+      name: 'Om Sai Ram Mitra Mandal — Satpur Cha Raja',
+      address: 'Satpur Cha Raja, Satpur, Nashik, Maharashtra 422007',
+      mapUrl: 'https://maps.app.goo.gl/2JQkJKa42cKmRgEF7',
+      note: 'Sthapana, Aarti, Miravnuk, Bhajan & all daily programs',
+      showMap: true,
+    },
+    {
+      name: 'Visarjan Ghat',
+      address: 'Near Godavari River Ghat, Nashik, Maharashtra',
+      mapUrl: 'https://maps.google.com/?q=Godavari+Ghat+Nashik+Visarjan',
+      note: 'Final Visarjan procession on 19th September',
+    },
   ],
 };
 
@@ -120,15 +140,15 @@ let isOpened = false;
 let musicPlaying = false;
 
 function initContent() {
-  document.getElementById('envelopeInitials').textContent = CONFIG.initials;
-  document.getElementById('inviteEventName').textContent = CONFIG.inviteEventName;
+  document.getElementById('envelopeSeal').src = CONFIG.sealImage;
+  document.getElementById('inviteEventMarathi').textContent = CONFIG.heroTitle;
+  document.getElementById('inviteEventLabel').textContent = CONFIG.inviteEventLabel;
   document.getElementById('inviteHashtag').textContent = CONFIG.hashtag;
-  document.getElementById('envelopeGaneshImg').src = CONFIG.envelopeGanesh;
   document.getElementById('heroGaneshDeco').src = LALBAGH.chaRaja;
   document.getElementById('introImage').src = CONFIG.introImage;
   document.getElementById('closingGaneshImg').src = CONFIG.closingGanesh;
-  document.getElementById('heroName1').textContent = CONFIG.heroName1;
-  document.getElementById('heroName2').textContent = CONFIG.heroName2;
+  document.getElementById('heroTitle').textContent = CONFIG.heroTitle;
+  document.getElementById('introTitle').textContent = CONFIG.heroTitle;
   document.getElementById('heroFamily').textContent = CONFIG.familyName;
   document.getElementById('heroDate').textContent = CONFIG.mainDate;
   document.getElementById('heroTagline').textContent = CONFIG.heroTagline;
@@ -153,23 +173,72 @@ function initContent() {
 }
 
 function renderEvents() {
-  document.getElementById('eventsList').innerHTML = CONFIG.events
+  const groups = [];
+  CONFIG.events.forEach((ev, i) => {
+    const key = `${ev.day}|${ev.dayDate}`;
+    let group = groups.find((g) => g.key === key);
+    if (!group) {
+      group = { key, day: ev.day, dayDate: ev.dayDate, items: [] };
+      groups.push(group);
+    }
+    group.items.push({ ...ev, index: i });
+  });
+
+  document.getElementById('eventsList').innerHTML = groups
     .map(
-      (ev, i) => `
-      <article class="event-card ${i % 2 === 1 ? 'reverse' : ''} reveal" style="--delay:${i * 0.07}s">
-        <div class="event-image-wrap">
-          <img class="event-image" src="${ev.image}" alt="${ev.alt}" loading="lazy" />
-          <div class="event-image-shine"></div>
-          <span class="event-badge">Lalbaug Cha Raja</span>
+      (group) => `
+      <div class="event-day-group reveal">
+        <div class="event-day-header">
+          <span class="event-day-line"></span>
+          <div class="event-day-badge">
+            <span class="event-day-name">${group.day}</span>
+            <span class="event-day-date">${group.dayDate}</span>
+          </div>
+          <span class="event-day-line"></span>
         </div>
-        <div class="event-details">
-          <p class="event-date">${ev.date}</p>
-          <h3 class="event-name">${ev.name}</h3>
-          <p class="event-time">${ev.time}</p>
-          <p class="event-venue">📍 ${ev.venue}</p>
-          <p class="event-desc">${ev.description}</p>
+        ${group.items
+          .map(
+            (ev, j) => `
+          <article class="event-card ${ev.index % 2 === 1 ? 'reverse' : ''} reveal" style="--delay:${j * 0.06}s">
+            <div class="event-image-wrap">
+              <img class="event-image" src="${ev.image}" alt="${ev.alt}" loading="lazy" />
+              <div class="event-image-overlay"></div>
+              <div class="event-image-shine"></div>
+              <span class="event-num">${String(ev.index + 1).padStart(2, '0')}</span>
+              <span class="event-date-chip">${ev.date}</span>
+            </div>
+            <div class="event-details">
+              <div class="event-details-inner">
+                <h3 class="event-name">${ev.name}</h3>
+                <div class="event-meta">
+                  <span class="event-meta-item"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>${ev.time}</span>
+                  <span class="event-meta-item"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>${ev.venue}</span>
+                </div>
+                <div class="event-name-line"></div>
+                <p class="event-desc">${ev.description}</p>
+              </div>
+            </div>
+          </article>`
+          )
+          .join('')}
+      </div>`
+    )
+    .join('');
+}
+
+function renderDetails() {
+  document.getElementById('detailsGrid').innerHTML = CONFIG.details
+    .map(
+      (d, i) => `
+      <div class="detail-card reveal" style="--delay:${i * 0.05}s">
+        <div class="detail-card-top">
+          <span class="detail-icon-wrap">${d.icon}</span>
+          <span class="detail-tag">${d.tag}</span>
         </div>
-      </article>`
+        <h3 class="detail-title">${d.title}</h3>
+        <p class="detail-text">${d.text}</p>
+        <span class="detail-corner" aria-hidden="true">✦</span>
+      </div>`
     )
     .join('');
 }
@@ -187,30 +256,42 @@ function renderGallery() {
 }
 
 function renderVenues() {
+  const { lat, lng, zoom, placeName, directionsUrl } = CONFIG.mainMap;
+  const satelliteSrc = `https://maps.google.com/maps?q=${lat},${lng}&z=${zoom}&t=k&output=embed`;
+
   document.getElementById('venuesList').innerHTML = CONFIG.venues
-    .map(
-      (v) => `
+    .map((v) => {
+      if (v.showMap) {
+        return `
+      <div class="venue-card venue-card--merged reveal">
+        <div class="venue-map-wrap">
+          <iframe
+            title="${placeName} — satellite view"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen
+            src="${satelliteSrc}"
+          ></iframe>
+        </div>
+        <div class="venue-card-body">
+          <div class="venue-icon">📍</div>
+          <h3 class="venue-name">${v.name}</h3>
+          <p class="venue-address">${v.address}</p>
+          <p class="venue-note">${v.note}</p>
+          <a class="btn btn-gold" href="${directionsUrl}" target="_blank" rel="noopener noreferrer">Get Directions</a>
+        </div>
+      </div>`;
+      }
+
+      return `
       <div class="venue-card reveal">
         <div class="venue-icon">📍</div>
         <h3 class="venue-name">${v.name}</h3>
         <p class="venue-address">${v.address}</p>
         <p class="venue-note">${v.note}</p>
-        <a class="btn btn-gold" href="${v.mapUrl}" target="_blank" rel="noopener noreferrer">Venue Map</a>
-      </div>`
-    )
-    .join('');
-}
-
-function renderDetails() {
-  document.getElementById('detailsGrid').innerHTML = CONFIG.details
-    .map(
-      (d, i) => `
-      <div class="detail-card reveal" style="--delay:${i * 0.06}s">
-        <span class="detail-icon">${d.icon}</span>
-        <h3 class="detail-title">${d.title}</h3>
-        <p class="detail-text">${d.text}</p>
-      </div>`
-    )
+        <a class="btn btn-gold" href="${v.mapUrl}" target="_blank" rel="noopener noreferrer">Get Directions</a>
+      </div>`;
+    })
     .join('');
 }
 
@@ -224,7 +305,7 @@ function openInvitation() {
   if (isOpened) return;
   isOpened = true;
   envelopeWrap.classList.add('open');
-  fireConfetti();
+  fireCelebration();
   setTimeout(() => {
     envelopeScreen.classList.add('closing');
     setTimeout(() => {
@@ -244,17 +325,55 @@ function openInvitation() {
   }, 1200);
 }
 
-document.getElementById('openEnvelope').addEventListener('click', openInvitation);
+function fireCelebration() {
+  if (typeof confetti !== 'function') return;
+  const colors = ['#FFD700', '#FF6B00', '#8B1538', '#FF4500', '#D4AF37', '#FFAA00', '#FFF8F0'];
+
+  confetti({
+    particleCount: 160,
+    spread: 110,
+    startVelocity: 48,
+    origin: { x: 0.5, y: 0.42 },
+    colors,
+    scalar: 1.15,
+    ticks: 120,
+  });
+
+  setTimeout(() => {
+    confetti({ particleCount: 90, angle: 55, spread: 85, origin: { x: 0.05, y: 0.55 }, colors });
+    confetti({ particleCount: 90, angle: 125, spread: 85, origin: { x: 0.95, y: 0.55 }, colors });
+  }, 180);
+
+  setTimeout(() => {
+    confetti({
+      particleCount: 120,
+      spread: 360,
+      ticks: 90,
+      gravity: 0.75,
+      origin: { x: 0.5, y: 0.35 },
+      colors,
+      shapes: ['star', 'circle'],
+      scalar: 1.05,
+    });
+  }, 450);
+
+  setTimeout(() => {
+    confetti({ particleCount: 80, spread: 90, origin: { x: 0.5, y: 0.65 }, colors, scalar: 0.95 });
+  }, 850);
+
+  const end = Date.now() + 2200;
+  (function shower() {
+    confetti({ particleCount: 4, angle: 60, spread: 60, origin: { x: 0, y: 0.35 }, colors });
+    confetti({ particleCount: 4, angle: 120, spread: 60, origin: { x: 1, y: 0.35 }, colors });
+    if (Date.now() < end) requestAnimationFrame(shower);
+  })();
+}
 
 function fireConfetti() {
-  if (typeof confetti !== 'function') return;
-  const colors = ['#FFD700', '#FF6B00', '#8B1538', '#FF4500', '#D4AF37', '#FFAA00'];
-  confetti({ particleCount: 130, spread: 90, origin: { y: 0.5 }, colors });
-  setTimeout(() => {
-    confetti({ particleCount: 70, angle: 60, spread: 70, origin: { x: 0, y: 0.55 }, colors });
-    confetti({ particleCount: 70, angle: 120, spread: 70, origin: { x: 1, y: 0.55 }, colors });
-  }, 400);
+  fireCelebration();
 }
+
+document.getElementById('openEnvelope').addEventListener('click', openInvitation);
 
 function startCountdown() {
   const target = new Date(CONFIG.countdownTarget).getTime();
@@ -291,7 +410,7 @@ function shareWhatsApp() {
 }
 
 function shareInvitation() {
-  const data = { title: CONFIG.inviteEventName, text: CONFIG.shareMessage, url: window.location.href };
+  const data = { title: `${CONFIG.heroTitle} ${CONFIG.inviteEventLabel}`, text: CONFIG.shareMessage, url: window.location.href };
   if (navigator.share) navigator.share(data).catch(() => shareWhatsApp());
   else shareWhatsApp();
 }
@@ -487,15 +606,6 @@ function initScratchCard() {
     ctx.setLineDash([8, 6]);
     ctx.strokeRect(14, 14, width - 28, height - 28);
     ctx.setLineDash([]);
-
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.font = `600 ${Math.min(width * 0.07, 28)}px Cinzel, serif`;
-    ctx.fillStyle = 'rgba(74, 5, 18, 0.35)';
-    ctx.fillText('✦  GANESH UTSAV  ✦', width / 2, height * 0.38);
-    ctx.font = `italic ${Math.min(width * 0.055, 22)}px "Great Vibes", cursive`;
-    ctx.fillStyle = 'rgba(139, 21, 56, 0.45)';
-    ctx.fillText('Scratch Karo!', width / 2, height * 0.52);
 
     coverReady = true;
   }
