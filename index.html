@@ -10,7 +10,8 @@
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Great+Vibes&family=Cinzel:wght@400;500;600;700&family=Tiro+Devanagari+Marathi:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Great+Vibes&family=Cinzel:wght@400;500;600;700&family=Tiro+Devanagari+Marathi:ital,wght@0,400;0,700;1,400&family=Yatra+One&display=swap" rel="stylesheet" />
+  <link rel="preload" href="assets/fonts/AMSAakash.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -48,62 +49,89 @@
     <source src="assets/ganesh-aarti.mp3" type="audio/mpeg" />
   </audio>
 
-  <!-- ===== ENVELOPE (swapnil-ritu + deeksha-chetan inspired) ===== -->
-  <section class="envelope-screen" id="envelopeScreen">
-    <img class="envelope-bg-art" src="https://swapnil-ritu.invitationmedia.in/assets/g-envelope-bg-B_YE_ECq.png" alt="" aria-hidden="true" />
-
-    <div class="floral-border top" aria-hidden="true">🪷 🌿 🪷 🌿 🪷 🌿 🪷 🌿 🪷</div>
-
-    <div class="envelope-wrapper">
-      <button class="envelope-btn" id="openEnvelope" aria-label="Open invitation envelope">
-        <div class="envelope-img-wrap" id="envelopeWrap">
-          <div class="envelope-pulse-ring" aria-hidden="true"></div>
-          <img class="envelope-img" src="https://swapnil-ritu.invitationmedia.in/assets/maroonenvelop-DVcZBctQ.png" alt="Invitation envelope" width="280" height="200" />
-          <img class="envelope-seal" id="envelopeSeal" src="" alt="Om Sai Ram Mitra Mandal" width="58" height="58" />
+  <!-- ===== ROOPA-ANOOP LANDING (tap card to open) ===== -->
+  <section class="envelope-screen roopa-landing" id="envelopeScreen">
+    <button class="roopa-open-btn" id="openEnvelope" type="button" aria-label="Tap to open invitation">
+      <div class="roopa-media" id="envelopeWrap">
+        <img class="roopa-bg-fill" id="roopaBgFill" src="assets/ganesh-invitation-card.png" alt="" aria-hidden="true" />
+        <div class="roopa-scene-glow" aria-hidden="true"></div>
+        <div class="roopa-card-stage">
+          <img class="roopa-card-visual" id="roopaCardVisual" src="assets/ganesh-invitation-card.png" alt="" />
+          <div class="roopa-card-copy">
+            <p class="invite-pre">You're invited to</p>
+            <h1 class="invite-event">
+              <span class="invite-event-marathi" id="inviteEventMarathi" lang="mr">सातपुरचा राजा</span>
+              <span class="invite-event-label" id="inviteEventLabel">Invitation</span>
+            </h1>
+            <p class="invite-date" id="inviteDate">14th September 2026</p>
+            <p class="invite-hashtag" id="inviteHashtag">#GanpatiBappaMorya #SatpurchaRaja</p>
+          </div>
         </div>
-      </button>
+      </div>
+    </button>
 
-      <p class="invite-pre">You're invited to</p>
-      <h1 class="invite-event">
-        <span class="invite-event-marathi" id="inviteEventMarathi" lang="mr">सातपुरचा राजा</span>
-        <span class="invite-event-label" id="inviteEventLabel">Invitation</span>
-      </h1>
-      <p class="invite-hashtag" id="inviteHashtag">#GanpatiBappaMorya</p>
-      <p class="invite-subtitle">Tap the envelope to open your invitation</p>
-      <p class="invite-tap">✦ Tap to open ✦</p>
+    <div class="roopa-tap-pill" id="roopaTapPill" aria-hidden="true">
+      <svg class="roopa-sparkle" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M10,4 C10,8 14,12 18,12 C14,12 10,16 10,20 C10,16 6,12 2,12 C6,12 10,8 10,4 Z M18,2 C18,4 20,6 22,6 C20,6 18,8 18,10 C18,8 16,6 14,6 C16,6 18,4 18,2 Z"/>
+      </svg>
+      <span>TAP HERE</span>
+      <svg class="roopa-sparkle" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M10,4 C10,8 14,12 18,12 C14,12 10,16 10,20 C10,16 6,12 2,12 C6,12 10,8 10,4 Z M18,2 C18,4 20,6 22,6 C20,6 18,8 18,10 C18,8 16,6 14,6 C16,6 18,4 18,2 Z"/>
+      </svg>
     </div>
-
-    <div class="floral-border bottom" aria-hidden="true">🪷 🌿 🪷 🌿 🪷 🌿 🪷 🌿 🪷</div>
   </section>
 
   <!-- ===== MAIN ===== -->
   <main class="invitation-main hidden" id="invitationMain">
 
-    <section class="hero section" id="section-hero">
-      <div class="hero-bg-pattern" aria-hidden="true"></div>
-      <img class="hero-ganesh-deco" id="heroGaneshDeco" src="" alt="" aria-hidden="true" />
-      <div class="hero-content">
-        <p class="hero-blessing reveal">॥ श्री गणेशाय नमः ॥</p>
-        <div class="hero-names reveal">
-          <h1 class="hero-title-marathi" id="heroTitle" lang="mr">सातपुरचा राजा</h1>
+    <section class="hero section hero-roopa" id="section-hero">
+      <img class="hero-frame-mobile" src="assets/roopa-hero-frame.png" alt="" aria-hidden="true" />
+      <img class="hero-frame-desktop" src="assets/roopa-hero-desktop.jpg" alt="" aria-hidden="true" />
+      <div class="hero-frame-gradient" aria-hidden="true"></div>
+
+      <div class="hero-content hero-content-roopa">
+        <div class="hero-top reveal">
+          <img class="hero-ganesh-idol" id="heroGaneshIdol" src="assets/ganesh-idol.png" alt="Lord Ganesha" width="96" height="96" loading="lazy" />
+          <p class="hero-blessing" lang="mr">॥ श्री गणेशाय नमः ॥</p>
         </div>
-        <p class="hero-family reveal" id="heroFamily" lang="mr">ओं साई राम मित्र मंडळ — आपले हार्दिक स्वागत</p>
+
+        <p class="hero-invite-lead reveal" id="heroInviteLead"></p>
+
+        <h1 class="hero-title-marathi reveal" id="heroTitle" lang="mr">सातपुरचा राजा</h1>
+
+        <p class="hero-org reveal" id="heroFamily" lang="mr"></p>
+        <p class="hero-utsav-badge reveal">Ganesh Utsav</p>
+
         <p class="hero-date reveal" id="heroDate">14th September 2026</p>
-        <div class="hero-divider reveal"><span>✦</span><span>🪷</span><span>✦</span></div>
+
+        <div class="hero-divider reveal" aria-hidden="true"><span>✦</span><span>🪷</span><span>✦</span></div>
+
         <p class="hero-tagline reveal" id="heroTagline"></p>
-        <p class="hero-save reveal">SAVE THE DATE</p>
-        <button class="btn btn-gold btn-sm reveal" id="addMainCalendar">Add to Calendar</button>
+        <p class="hero-hashtag reveal" id="heroHashtag"></p>
+
+        <button class="btn btn-roopa btn-sm reveal" id="addMainCalendar" type="button">Add to Calendar</button>
       </div>
-      <div class="scroll-hint" aria-hidden="true"><span>Scroll</span><div class="scroll-line"></div></div>
+
+      <div class="scroll-hint scroll-hint-roopa" aria-hidden="true"><span>Scroll</span><div class="scroll-line"></div></div>
     </section>
 
-    <section class="countdown-section section" id="section-countdown">
-      <div class="container">
+    <section class="countdown-section section mandala-bg" id="section-countdown">
+      <span class="countdown-deco countdown-deco--tl" aria-hidden="true">🏵️</span>
+      <span class="countdown-deco countdown-deco--tr" aria-hidden="true">🪷</span>
+      <span class="countdown-deco countdown-deco--bl" aria-hidden="true">✨</span>
+      <span class="countdown-deco countdown-deco--br" aria-hidden="true">🏵️</span>
+
+      <div class="container countdown-section-inner">
+        <p class="countdown-top-label">✦ Mark Your Calendar ✦</p>
+        <h2 class="countdown-script-title">Save The Date</h2>
+        <p class="countdown-sub-label">✦ Save The Date ✦</p>
+
         <div class="scratch-card" id="scratchCard">
           <div class="paper-bomb-burst" id="paperBombBurst" aria-hidden="true"><span></span><span></span><span></span></div>
           <div class="scratch-card-inner">
             <p class="section-label">Save the Date</p>
-            <h2 class="section-title">Counting Down to Bappa's Arrival</h2>
+            <p class="countdown-date-badge" id="countdownDateBadge">14th September 2026</p>
+            <h2 class="scratch-inner-title">Counting Down to Bappa's Arrival</h2>
             <div class="countdown" id="countdown">
               <div class="countdown-item"><span class="countdown-num" id="days">00</span><span class="countdown-label">Days</span></div>
               <div class="countdown-sep">:</div>
@@ -119,10 +147,10 @@
             <canvas id="scratchCanvas" aria-hidden="true"></canvas>
             <div class="scratch-hint" id="scratchHint">
               <span class="scratch-hint-icon">✦</span>
-              <p class="scratch-hint-label">GANESH UTSAV</p>
+              <p class="scratch-hint-label">Ganesh Utsav</p>
               <p class="scratch-hint-title">Scratch to Reveal</p>
-              <p class="scratch-hint-sub">Swipe to see the countdown</p>
-              <div class="scratch-hand">👆</div>
+              <p class="scratch-hint-sub">Scratch the golden card to reveal</p>
+              <div class="scratch-hand" aria-hidden="true">👆</div>
             </div>
           </div>
         </div>

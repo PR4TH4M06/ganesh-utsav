@@ -28,7 +28,9 @@ const CONFIG = {
   orgName: 'ओं साई राम मित्र मंडळ',
   inviteEventLabel: 'Invitation',
   heroTitle: 'सातपुरचा राजा',
-  familyName: 'ओं साई राम मित्र मंडळ — आपले हार्दिक स्वागत',
+  heroInviteLead: 'We cordially invite you to join us in celebrating the divine arrival of',
+  heroGaneshIdol: 'assets/ganesh-idol.png',
+  familyName: 'ॐ साई राम मित्र मंडळ — आपले स्वागत करीत आहे.',
   mainDate: '14th September 2026',
   heroTagline: 'Because welcoming Bappa home requires twice the devotion — and you!',
   countdownTarget: '2026-09-14T08:00:00',
@@ -46,6 +48,7 @@ const CONFIG = {
   shareMessage: "You're invited to Om Sai Ram Mitra Mandal's Ganesh Utsav — Satpurcha Raja! 🙏 Ganpati Bappa Morya!",
   musicFile: 'assets/ganesh-aarti.mp3',
   musicTitle: 'श्री गणपती आरती — सुखकर्ता दुःखहर्ता',
+  envelopeCardArt: 'assets/ganesh-invitation-card.png',
 
   sealImage:
     'https://scontent.cdninstagram.com/v/t51.82787-19/518458308_17985160766837067_5474200944853567070_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_cat=107&ccb=7-5&_nc_sid=f7ccc5&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=Y5y_Ml8EORgQ7kNvwEJmNDI&_nc_oc=Adre_RcTjraWYN3ZhRMsgKiA9uk14HZUcDAmi4Ld0NWNr-1p7EFrAjr5aXC3B6pbTx4fGMKHbeGcTPTVfSyq9KuB&_nc_zt=24&_nc_ht=scontent.cdninstagram.com&_nc_gid=JKAJfR7zzD9-dYL62zDbSw&_nc_ss=7b689&oh=00_AQFTFSHjPMWhwa4ljkZjqlNd5-rx4NuHMYN9MiodcP6d0g&oe=6A735DD3',
@@ -148,11 +151,18 @@ let isOpened = false;
 let musicPlaying = false;
 
 function initContent() {
-  document.getElementById('envelopeSeal').src = CONFIG.sealImage;
+  const cardVisual = document.getElementById('roopaCardVisual');
+  const bgFill = document.getElementById('roopaBgFill');
+  const cardArt = CONFIG.envelopeCardArt || 'assets/ganesh-invitation-card.png';
+  if (cardVisual) cardVisual.src = cardArt;
+  if (bgFill) bgFill.src = cardArt;
   document.getElementById('inviteEventMarathi').textContent = CONFIG.heroTitle;
   document.getElementById('inviteEventLabel').textContent = CONFIG.inviteEventLabel;
   document.getElementById('inviteHashtag').textContent = CONFIG.hashtag;
-  document.getElementById('heroGaneshDeco').src = LALBAGH.chaRaja;
+  document.getElementById('inviteDate').textContent = CONFIG.mainDate;
+  const heroIdol = document.getElementById('heroGaneshIdol');
+  if (heroIdol) heroIdol.src = CONFIG.heroGaneshIdol || 'assets/ganesh-idol.png';
+  document.getElementById('heroInviteLead').textContent = CONFIG.heroInviteLead;
   document.getElementById('introImage').src = CONFIG.introImage;
   document.getElementById('introVerse').textContent = CONFIG.introVerse;
   document.getElementById('introParaLead').innerHTML = CONFIG.introTextLead;
@@ -163,7 +173,11 @@ function initContent() {
   document.getElementById('heroFamily').textContent = CONFIG.familyName;
   document.getElementById('heroDate').textContent = CONFIG.mainDate;
   document.getElementById('heroTagline').textContent = CONFIG.heroTagline;
+  const heroHashtag = document.getElementById('heroHashtag');
+  if (heroHashtag) heroHashtag.textContent = CONFIG.hashtag;
   document.getElementById('countdownMessage').textContent = CONFIG.countdownMessage;
+  const countdownDateBadge = document.getElementById('countdownDateBadge');
+  if (countdownDateBadge) countdownDateBadge.textContent = CONFIG.mainDate;
   document.getElementById('familyText').innerHTML = CONFIG.familyText;
   document.getElementById('familyNames').innerHTML = `<span>${CONFIG.familyNames}</span>`;
   document.getElementById('closingMessage').innerHTML = CONFIG.closingMessage;
@@ -317,6 +331,9 @@ function openInvitation() {
   if (isOpened) return;
   isOpened = true;
   envelopeWrap.classList.add('open');
+  envelopeScreen.classList.add('opening');
+  const tapPill = document.getElementById('roopaTapPill');
+  if (tapPill) tapPill.classList.add('hidden');
   fireCelebration();
   setTimeout(() => {
     envelopeScreen.classList.add('closing');
@@ -391,56 +408,56 @@ function firePaperBomb(originX, originY) {
   const origin = { x: originX, y: originY };
 
   confetti({
-    particleCount: 140,
+    particleCount: 180,
     spread: 360,
-    startVelocity: 58,
-    gravity: 0.85,
-    ticks: 110,
+    startVelocity: 62,
+    gravity: 0.82,
+    ticks: 120,
     origin,
     colors,
-    scalar: 1.25,
+    scalar: 1.35,
     shapes: ['square', 'circle'],
   });
 
   setTimeout(() => {
     confetti({
-      particleCount: 90,
-      spread: 100,
-      startVelocity: 50,
-      origin: { x: originX, y: originY - 0.04 },
+      particleCount: 110,
+      spread: 110,
+      startVelocity: 54,
+      origin: { x: originX, y: originY - 0.05 },
       colors,
-      scalar: 1.1,
+      scalar: 1.2,
     });
-  }, 80);
+  }, 60);
 
   setTimeout(() => {
-    confetti({ particleCount: 60, angle: 55, spread: 95, startVelocity: 48, origin: { x: originX - 0.08, y: originY }, colors });
-    confetti({ particleCount: 60, angle: 125, spread: 95, startVelocity: 48, origin: { x: originX + 0.08, y: originY }, colors });
-  }, 160);
+    confetti({ particleCount: 70, angle: 55, spread: 100, startVelocity: 52, origin: { x: originX - 0.1, y: originY }, colors });
+    confetti({ particleCount: 70, angle: 125, spread: 100, startVelocity: 52, origin: { x: originX + 0.1, y: originY }, colors });
+  }, 140);
 
   setTimeout(() => {
     confetti({
-      particleCount: 70,
+      particleCount: 90,
       spread: 360,
-      startVelocity: 35,
-      ticks: 80,
+      startVelocity: 38,
+      ticks: 90,
       origin,
       colors,
       shapes: ['star'],
-      scalar: 0.95,
+      scalar: 1.05,
     });
-  }, 280);
+  }, 220);
 
-  const end = Date.now() + 1800;
+  const end = Date.now() + 2200;
   (function paperShower() {
     confetti({
-      particleCount: 6,
+      particleCount: 8,
       angle: 270,
-      spread: 50,
-      startVelocity: 22,
-      origin: { x: originX + (Math.random() - 0.5) * 0.25, y: originY - 0.08 },
+      spread: 55,
+      startVelocity: 26,
+      origin: { x: originX + (Math.random() - 0.5) * 0.3, y: originY - 0.1 },
       colors,
-      scalar: 1.15,
+      scalar: 1.2,
       shapes: ['square'],
     });
     if (Date.now() < end) requestAnimationFrame(paperShower);
@@ -649,13 +666,17 @@ lightbox.addEventListener('click', (e) => {
 initContent();
 createFallingPetals();
 
-/* ===== Smooth Scratch Card ===== */
 function initScratchCard() {
+  const section = document.getElementById('section-countdown');
   const card = document.getElementById('scratchCard');
   const canvas = document.getElementById('scratchCanvas');
   const overlay = document.getElementById('scratchOverlay');
   const hint = document.getElementById('scratchHint');
   if (!card || !canvas || !overlay) return;
+
+  requestAnimationFrame(() => {
+    if (section) section.classList.add('is-visible');
+  });
 
   const ctx = canvas.getContext('2d', { willReadFrequently: true });
   let width = 0;
@@ -785,26 +806,27 @@ function initScratchCard() {
     if (revealed) return;
     revealed = true;
     hint.classList.add('is-hidden');
-    overlay.classList.add('is-revealing');
+
+    const burst = document.getElementById('paperBombBurst');
     card.classList.add('is-revealed', 'paper-bomb-pop');
+    if (section) section.classList.add('is-revealed');
 
     const rect = card.getBoundingClientRect();
     const originX = (rect.left + rect.width / 2) / window.innerWidth;
     const originY = (rect.top + rect.height / 2) / window.innerHeight;
+
     firePaperBomb(originX, originY);
 
-    const burst = document.getElementById('paperBombBurst');
     if (burst) {
       burst.classList.remove('is-active');
       void burst.offsetWidth;
       burst.classList.add('is-active');
     }
 
-    setTimeout(() => card.classList.remove('paper-bomb-pop'), 700);
+    setTimeout(() => overlay.classList.add('is-revealing'), 180);
 
-    setTimeout(() => {
-      overlay.classList.add('is-done');
-    }, 750);
+    setTimeout(() => card.classList.remove('paper-bomb-pop'), 900);
+    setTimeout(() => overlay.classList.add('is-done'), 950);
   }
 
   function onStart(e) {
@@ -836,7 +858,6 @@ function initScratchCard() {
   canvas.addEventListener('mousedown', onStart);
   canvas.addEventListener('mousemove', onMove);
   window.addEventListener('mouseup', onEnd);
-
   canvas.addEventListener('touchstart', onStart, { passive: false });
   canvas.addEventListener('touchmove', onMove, { passive: false });
   canvas.addEventListener('touchend', onEnd);
@@ -846,7 +867,6 @@ function initScratchCard() {
     if (!revealed) resize();
   });
   ro.observe(overlay);
-
   requestAnimationFrame(resize);
 }
 
