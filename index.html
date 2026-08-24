@@ -21,17 +21,6 @@
   <div class="petals-layer" id="petalsLayer" aria-hidden="true"></div>
   <div class="butterflies-layer" id="butterfliesLayer" aria-hidden="true"></div>
 
-  <!-- Music control — always visible -->
-  <div class="music-control" id="musicControl">
-    <button class="music-toggle muted" id="musicBtn" type="button" aria-pressed="false" aria-label="Unmute Ganesh Aarti">
-      <span class="music-toggle-icon" aria-hidden="true">🔇</span>
-      <span class="music-toggle-text">
-        <span class="music-toggle-label" id="musicToggleLabel">Aarti Off</span>
-        <span class="music-toggle-sub" id="musicToggleSub">Tap to unmute</span>
-      </span>
-    </button>
-  </div>
-
   <!-- Floating action buttons -->
   <div class="fab-group hidden" id="fabGroup">
     <button class="share-btn" id="shareBtn" aria-label="Share invitation">
@@ -40,14 +29,25 @@
         <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
       </svg>
     </button>
+    <div class="fab-music-item">
+      <button class="share-btn music-btn muted" id="musicBtn" type="button" aria-pressed="false" aria-label="Play SATPURCHA RAJA ALA">
+        <svg class="music-btn-icon music-btn-icon--off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M11 5L6 9H3v6h3l5 4V5z"/>
+          <line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>
+        </svg>
+        <svg class="music-btn-icon music-btn-icon--on hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M11 5L6 9H3v6h3l5 4V5z"/>
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+        </svg>
+      </button>
+      <span class="fab-music-title" id="musicToggleLabel">SATPURCHA RAJA ALA</span>
+    </div>
   </div>
 
   <!-- Section nav dots -->
   <nav class="section-nav hidden" id="sectionNav" aria-label="Page sections"></nav>
 
-  <audio id="bgMusic" loop preload="auto">
-    <source src="assets/ganesh-aarti.mp3" type="audio/mpeg" />
-  </audio>
+  <div id="youtubeAudioHost" class="youtube-audio-host" aria-hidden="true"></div>
 
   <!-- ===== ROOPA-ANOOP LANDING (tap card to open) ===== -->
   <section class="envelope-screen roopa-landing" id="envelopeScreen">
@@ -108,11 +108,121 @@
 
         <p class="hero-tagline reveal" id="heroTagline"></p>
         <p class="hero-hashtag reveal" id="heroHashtag"></p>
-
-        <button class="btn btn-roopa btn-sm reveal" id="addMainCalendar" type="button">Add to Calendar</button>
       </div>
 
       <div class="scroll-hint scroll-hint-roopa" aria-hidden="true"><span>Scroll</span><div class="scroll-line"></div></div>
+    </section>
+
+    <section class="aagaman-section section" id="section-aagaman">
+      <div class="aagaman-bg" aria-hidden="true">
+        <img class="aagaman-bg-mobile" id="aagamanBgMobile" src="" alt="" loading="lazy" />
+        <img class="aagaman-bg-desktop" id="aagamanBgDesktop" src="" alt="" loading="lazy" />
+        <div class="aagaman-bg-overlay"></div>
+        <div class="aagaman-curtain-rig" aria-hidden="true">
+          <div class="aagaman-curtain-rod"></div>
+          <div class="aagaman-curtain-rings"></div>
+        </div>
+        <div class="aagaman-curtain aagaman-curtain--left">
+          <div class="aagaman-curtain-cloth">
+            <div class="aagaman-curtain-folds" aria-hidden="true"></div>
+            <div class="aagaman-curtain-sheen" aria-hidden="true"></div>
+            <p class="aagaman-curtain-text">
+              <span class="aagaman-curtain-text-line">You are invited</span>
+            </p>
+            <div class="aagaman-curtain-hem" aria-hidden="true"></div>
+            <div class="aagaman-curtain-tassel-row" aria-hidden="true"></div>
+          </div>
+        </div>
+        <div class="aagaman-curtain aagaman-curtain--right">
+          <div class="aagaman-curtain-cloth">
+            <div class="aagaman-curtain-folds" aria-hidden="true"></div>
+            <div class="aagaman-curtain-sheen" aria-hidden="true"></div>
+            <p class="aagaman-curtain-text">
+              <span class="aagaman-curtain-text-line">for Aagaman Sohala</span>
+            </p>
+            <div class="aagaman-curtain-hem" aria-hidden="true"></div>
+            <div class="aagaman-curtain-tassel-row" aria-hidden="true"></div>
+          </div>
+        </div>
+        <div class="aagaman-curtain-seam" aria-hidden="true"></div>
+      </div>
+
+      <button type="button" class="aagaman-curtain-tap" id="aagamanCurtainTap" aria-label="Tap to reveal Aagaman background">
+        <span class="aagaman-curtain-label">Tap करा · Open Curtain</span>
+      </button>
+
+      <div class="aagaman-date-popup" id="aagamanDatePopup" aria-hidden="true" role="dialog" aria-labelledby="aagamanPopupDate">
+        <div class="aagaman-date-popup-backdrop" aria-hidden="true"></div>
+        <div class="paper-bomb-burst aagaman-date-popup-burst" id="aagamanDatePopupBurst" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div class="aagaman-date-popup-card" id="aagamanPopupCard">
+          <div class="aagaman-date-popup-frame" aria-hidden="true">
+            <span class="aagaman-date-popup-corner aagaman-date-popup-corner--tl">✦</span>
+            <span class="aagaman-date-popup-corner aagaman-date-popup-corner--tr">✦</span>
+            <span class="aagaman-date-popup-corner aagaman-date-popup-corner--bl">🪷</span>
+            <span class="aagaman-date-popup-corner aagaman-date-popup-corner--br">🪷</span>
+            <span class="aagaman-date-popup-ring aagaman-date-popup-ring--tl"></span>
+            <span class="aagaman-date-popup-ring aagaman-date-popup-ring--tr"></span>
+            <span class="aagaman-date-popup-ring aagaman-date-popup-ring--bl"></span>
+            <span class="aagaman-date-popup-ring aagaman-date-popup-ring--br"></span>
+          </div>
+          <p class="aagaman-date-popup-save">Save the Date</p>
+          <p class="aagaman-date-popup-marathi" id="aagamanPopupMarathi" lang="mr">आगमन सोहळा</p>
+          <p class="aagaman-date-popup-kicker" id="aagamanPopupKicker">Aagaman Sohala</p>
+          <div class="aagaman-date-popup-divider aagaman-date-popup-divider--top" aria-hidden="true"><span>✦</span><span>🪔</span><span>✦</span></div>
+          <div class="aagaman-date-popup-dateblock" id="aagamanPopupDate">
+            <div class="aagaman-date-popup-date-inner">
+              <span class="aagaman-date-popup-num" id="aagamanPopupDay">7</span>
+              <span class="aagaman-date-popup-date-sep" aria-hidden="true"></span>
+              <div class="aagaman-date-popup-month-col">
+                <span class="aagaman-date-popup-month" id="aagamanPopupMonth">SEPT</span>
+                <span class="aagaman-date-popup-year" id="aagamanPopupYear">2026</span>
+              </div>
+            </div>
+          </div>
+          <div class="aagaman-date-popup-divider" aria-hidden="true"><span>✦</span><span>🪷</span><span>✦</span></div>
+          <p class="aagaman-date-popup-sub" id="aagamanPopupSub">Monday · 5:00 PM</p>
+          <p class="aagaman-date-popup-verse" id="aagamanPopupVerse" lang="mr">॥ गणराया येई घरी आमच्या दारी ॥</p>
+        </div>
+      </div>
+
+      <span class="aagaman-deco aagaman-deco--tl" aria-hidden="true">🪔</span>
+      <span class="aagaman-deco aagaman-deco--tr" aria-hidden="true">🥁</span>
+      <span class="aagaman-deco aagaman-deco--bl" aria-hidden="true">🪷</span>
+      <span class="aagaman-deco aagaman-deco--br" aria-hidden="true">🏵️</span>
+
+      <div class="container aagaman-inner">
+        <header class="aagaman-header reveal">
+          <p class="section-label aagaman-label" id="aagamanLabel">Grand Arrival Celebration</p>
+          <h2 class="aagaman-title-marathi" id="aagamanTitle" lang="mr">आगमन सोहळा</h2>
+          <h3 class="aagaman-title-en" id="aagamanTitleEn">Aagaman Sohala</h3>
+          <div class="section-divider aagaman-divider" aria-hidden="true"><span>✦</span><span>🪔</span><span>✦</span></div>
+          <p class="aagaman-subtitle" id="aagamanSubtitle"></p>
+          <p class="aagaman-verse" id="aagamanVerse" lang="mr">॥ गणराया येई घरी आमच्या दारी ॥</p>
+          <p class="aagaman-desc" id="aagamanDesc"></p>
+          <p class="aagaman-event-badge reveal">Aagaman Sohala</p>
+          <p class="aagaman-date reveal" id="aagamanDate"></p>
+          <div class="aagaman-date-divider reveal" aria-hidden="true"><span>✦</span><span>🪷</span><span>✦</span></div>
+          <ul class="aagaman-highlights reveal" id="aagamanHighlights"></ul>
+        </header>
+      </div>
+    </section>
+
+    <section class="aagaman-route-section section is-showcase-layout" id="section-aagaman-route">
+      <div class="aagaman-showcase-wrap">
+        <div class="container aagaman-showcase-inner">
+          <header class="aagaman-showcase-head reveal">
+            <p class="section-label aagaman-showcase-label" id="aagamanRouteLabel">Miravnuk Route</p>
+            <h2 class="aagaman-showcase-title" id="aagamanRouteTitle" lang="mr">आगमन मिरवणूक</h2>
+            <p class="aagaman-showcase-title-en" id="aagamanRouteTitleEn">Aagaman Miravnuk Route</p>
+            <div class="section-divider aagaman-showcase-divider" aria-hidden="true"><span>✦</span><span>🥁</span><span>✦</span></div>
+            <p class="aagaman-showcase-subtitle" id="aagamanRouteSubtitle"></p>
+          </header>
+
+          <div class="aagaman-route-stops-wrap">
+            <div class="aagaman-route-stops" id="aagamanShowcaseTrack" role="list" aria-label="Miravnuk route stops"></div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="countdown-section section mandala-bg" id="section-countdown">
@@ -129,9 +239,9 @@
         <div class="scratch-card" id="scratchCard">
           <div class="paper-bomb-burst" id="paperBombBurst" aria-hidden="true"><span></span><span></span><span></span></div>
           <div class="scratch-card-inner">
-            <p class="section-label">Save the Date</p>
             <p class="countdown-date-badge" id="countdownDateBadge">14th September 2026</p>
-            <h2 class="scratch-inner-title">Counting Down to Bappa's Arrival</h2>
+            <p class="section-label scratch-card-kicker" id="scratchCardKicker">Save the Date</p>
+            <h2 class="scratch-inner-title" id="scratchInnerTitle">Counting Down to Bappa's Arrival</h2>
             <div class="countdown" id="countdown">
               <div class="countdown-item"><span class="countdown-num" id="days">00</span><span class="countdown-label">Days</span></div>
               <div class="countdown-sep">:</div>
@@ -181,6 +291,8 @@
     </section>
 
     <section class="events-section section" id="section-events">
+      <div class="events-ambient" id="eventsAmbient" aria-hidden="true"></div>
+      <div class="events-timeline" id="eventsTimeline" aria-hidden="true"><span class="events-timeline-fill"></span></div>
       <div class="container-wide">
         <div class="section-header reveal">
           <p class="section-label">Events Schedule</p>
@@ -296,6 +408,9 @@
     <img class="lightbox-img" id="lightboxImg" src="" alt="" />
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/MotionPathPlugin.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
   <script src="script.js"></script>
 </body>

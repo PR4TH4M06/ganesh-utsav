@@ -21,8 +21,34 @@ const LALBAGH = {
   folk: wiki('Indian Folk Ganpati Festival (1).jpg'),
 };
 
+/** Showcase-only images — not used elsewhere on the site */
+const AAGAMAN_SHOWCASE = {
+  agman: wiki('Ganesh Agman.jpg'),
+  miravnuk: wiki('Anant Chaturdashi.jpg'),
+  dholTasha: wiki('Ganesh Chaturthi Festival (12).jpg'),
+  festival: wiki('Ganesh Chaturthi Festival (100).jpg'),
+  bappa: 'assets/satpur-cha-raja.png',
+};
+
 /**
  * GANESH UTSAV INVITATION — Config
+ *
+ * ═══ UNDO / REVERT (sirf ye line badlo — poori site undo mat karo) ═══
+ * eventsLayout: 'classic'  → side-by-side event cards (current)
+ * eventsLayout: 'showcase' → Swapnil-Ritu style tall full-bleed cards
+ * eventsLayout: 'stack'    → alternate text-only stack cards (legacy)
+ * eventsStackScroll: false → normal classic scroll (current)
+ * eventsStackScroll: true  → pinned stack scroll on classic cards (same HTML)
+ * eventsStackBg: 'assets/roopa-hero-desktop.jpg' → pinned bg when stack scroll on
+ * eventsAnimations: true   → GSAP scroll animations (set false to disable)
+ * aagamanSectionMode: 'route' → miravnuk route section · 'partners' = sponsor cards
+ * aagamanRouteLayout: 'showcase' → horizontal location scroll (current, no map)
+ * aagamanRouteLayout: 'map'       → old scroll map (undo only — needs map HTML in index.html)
+ * aagamanRouteMap: true     → scroll route animation (when layout is 'map')
+ * aagamanRouteMapStyle: 'schematic' → point map only · 'real' = photo/satellite map
+ * aagamanRouteCamera: false   → fixed map + path draw (schematic default, no glitch)
+ * aagamanRouteCamera: true    → zoom/pan follow marker (real map only)
+ * ═══════════════════════════════════════════════════════════════════════
  */
 const CONFIG = {
   orgName: 'ओं साई राम मित्र मंडळ',
@@ -33,8 +59,165 @@ const CONFIG = {
   familyName: 'ॐ साई राम मित्र मंडळ — आपले स्वागत करीत आहे.',
   mainDate: '14th September 2026',
   heroTagline: 'Because welcoming Bappa home requires twice the devotion — and you!',
-  countdownTarget: '2026-09-14T08:00:00',
-  countdownMessage: 'Awaiting Your Noble Presence',
+  countdownTarget: '2026-09-07T17:00:00',
+  countdownMessage: 'Counting Down to Bappa\'s Arrival',
+  countdownArrivedMessage: 'Aagaman Sohala Has Begun! 🙏',
+  utsavCountdownTarget: '2026-09-14T08:00:00',
+  utsavCountdownMessage: 'Awaiting Your Noble Presence',
+  utsavCountdownArrivedMessage: 'Ganesh Utsav Has Begun! 🙏',
+
+  aagaman: {
+    label: 'Grand Arrival Celebration',
+    title: 'आगमन सोहळा',
+    titleEn: 'Aagaman Sohala',
+    subtitle: 'Join us as Bappa arrives in Satpur — dhol, tasha, lezim & pure devotion',
+    backgroundImageMobile: 'assets/aagaman-bg-mobile.jpg',
+    backgroundImageDesktop: 'assets/aagaman-bg-desktop.jpg',
+    dateDisplay: '7th September 2026',
+    popupDay: '7',
+    popupMonth: 'SEPT',
+    popupYear: '2026',
+    dayName: 'Monday',
+    time: '5:00 PM',
+    scratchKicker: 'Aagaman Sohala',
+    scratchTitle: 'Monday · 5:00 PM',
+    scratchLabel: '✦ Aagaman Sohala ✦',
+    hintLabel: 'Aagaman Sohala',
+    verse: '॥ गणराया येई घरी आमच्या दारी ॥',
+    description:
+      'The sacred Aagaman Sohala marks Bappa\'s grand welcome to Satpur — a vibrant procession with dhol-tasha, flowers, aarti and the collective joy of the entire mandal.',
+    highlights: ['5:00 PM onwards', 'Dhol · Tasha · Miravnuk'],
+    route: {
+      label: 'Miravnuk Route',
+      title: 'आगमन मिरवणूक',
+      titleEn: 'Aagaman Miravnuk Route',
+      subtitle: 'Five sacred stops on Bappa\'s miravnuk — one route through Satpur',
+      hint: '',
+      googleMapsUrl: 'https://maps.app.goo.gl/RS6Uuq6bHGiZwdTp8?g_st=aw',
+      mapStyle: 'schematic',
+      mapViewBox: '0 0 900 700',
+      scrollHeight: '220vh',
+      stops: [
+        {
+          id: 'sai-baba-temple',
+          step: '01',
+          tag: 'Start',
+          shortName: 'Sai Mandir',
+          name: 'Shri Sai Baba Temple',
+          area: 'Satpur, Nashik',
+          note: 'Miravnuk begins at Sai Baba Mandir — puja, gathering & the first beats of dhol-tasha.',
+          icon: '🛕',
+          lat: 19.991484,
+          lng: 73.7206575,
+        },
+        {
+          id: 'sai-circle',
+          step: '02',
+          tag: 'Stop',
+          shortName: 'Sai Circle',
+          name: 'Sai Circle',
+          area: 'Satpur, Nashik',
+          note: 'Procession flows through Sai Circle — flowers, cheers & pathak rhythms fill the street.',
+          icon: '⭕',
+          lat: 19.9906708,
+          lng: 73.7249769,
+        },
+        {
+          id: 'ambedkar-market',
+          step: '03',
+          tag: 'Stop',
+          shortName: 'Ambedkar Market',
+          name: 'Ambedkar Market',
+          area: 'Satpur Colony, Nashik',
+          note: 'Market chowk halts — lezim, tasha & devotees welcome Bappa with pure Satpur energy.',
+          icon: '🏪',
+          lat: 19.98945,
+          lng: 73.7241,
+        },
+        {
+          id: 'kamgar-bhavan',
+          step: '04',
+          tag: 'Stop',
+          shortName: 'Kamgar Bhavan',
+          name: 'Maharashtra Kamgar Kalyan Bhavan',
+          area: 'Satpur, Nashik',
+          note: 'Community welcome — aarti, slogans & the mandal\'s united festive spirit.',
+          icon: '🏛️',
+          lat: 19.9915639,
+          lng: 73.7241874,
+        },
+        {
+          id: 'satpur-cha-raja',
+          step: '05',
+          tag: 'Destination',
+          shortName: 'Satpurcha Raja',
+          name: 'Satpur Cha Raja — Om Sai Ram Mitra Mandal',
+          area: 'Satpur, Nashik',
+          address: 'Satpur Cha Raja, Satpur, Nashik, Maharashtra 422007',
+          note: 'Bappa\'s grand homecoming — diyas, aarti & open hearts await at the mandal.',
+          icon: '🪔',
+          lat: 19.9905579,
+          lng: 73.7224986,
+          isEnd: true,
+        },
+      ],
+    },
+    partners: {
+      label: 'With Gratitude',
+      title: 'आगमन सहभागी',
+      titleEn: 'Aagaman Partners & Sponsors',
+      subtitle: 'Heartfelt thanks to every team joining Bappa\'s grand welcome to Satpur',
+      groups: [
+        {
+          role: 'Sound',
+          tag: 'Audio & PA',
+          image: 'assets/partners/sjj-sound.png',
+          imageAlt: 'SJJ Sound — professional PA and sound system',
+          location: 'Satpur, Nashik',
+          description:
+            'Complete sound & PA setup for Aagaman Sohala — amplifiers, speakers and mics so every aarti, announcement and procession moment is heard clearly across Satpur.',
+          names: [{ name: 'SJJ Sound', detail: 'Sound · PA · Mandal programs' }],
+        },
+        {
+          role: 'Miravnuk',
+          tag: 'Dhol · Tasha · Pathak',
+          image: 'assets/partners/malhar-gajar.jpg',
+          imageAlt: 'Malhar Gajar Dhol Tasha Pathak — Satpur, Nashik',
+          location: 'Satpur, Nashik',
+          description:
+            'Renowned Nashik dhol-tasha pathak from Satpur — thunderous rhythms, synchronized beats and pure Maharashtrian festive energy for Bappa\'s grand Miravnuk welcome.',
+          names: [{ name: 'Malhar Gajar Dhol Tasha Pathak', detail: 'Miravnuk · Procession · Dhol-Tasha' }],
+        },
+        {
+          role: 'Event Decorations',
+          tag: 'Decor & Setup',
+          image: 'assets/partners/event-decor-nashik.jpg',
+          imageAlt: 'RB Event — stage and mandal decoration',
+          location: 'Satpur, Nashik',
+          description:
+            'Festive mandal décor, stage backdrops, lighting and thematic setup — transforming the Aagaman venue into a warm, royal welcome for Ganaraya.',
+          names: [{ name: 'RB Event', detail: 'Mandal décor · Stage · Lighting' }],
+        },
+        {
+          role: 'Event Decorations',
+          tag: 'Floral · Theme · Setup',
+          image: LALBAGH.pundal,
+          imageAlt: 'RC Event — Ganesh utsav pandal decoration',
+          location: 'Nashik',
+          description:
+            'Pandal styling, floral accents and complete event setup — crafting a beautiful, devotion-filled atmosphere for Bappa\'s arrival celebration.',
+          names: [{ name: 'RC Event', detail: 'Pandal · Floral · Event setup' }],
+        },
+      ],
+    },
+  },
+
+  utsavScratch: {
+    dateDisplay: '14th September 2026',
+    scratchKicker: 'Save the Date',
+    scratchTitle: "Counting Down to Bappa's Arrival",
+    countdownMessage: 'Awaiting Your Noble Presence',
+  },
   calendarTitle: 'Ganesh Utsav — Om Sai Ram Mitra Mandal',
   calendarStart: '20260914T080000',
   calendarEnd: '20260919T210000',
@@ -46,8 +229,19 @@ const CONFIG = {
   closingSign: '— प्रेमाने, ओं साई राम मित्र मंडळ —',
   hashtag: '#GanpatiBappaMorya #SatpurchaRaja',
   shareMessage: "You're invited to Om Sai Ram Mitra Mandal's Ganesh Utsav — Satpurcha Raja! 🙏 Ganpati Bappa Morya!",
-  musicFile: 'assets/ganesh-aarti.mp3',
-  musicTitle: 'श्री गणपती आरती — सुखकर्ता दुःखहर्ता',
+  musicYoutubeId: '605C7BkrKTo',
+  musicTitle: 'SATPURCHA RAJA ALA',
+
+  // Events layout: 'stack' | 'classic' | 'showcase'
+  eventsLayout: 'classic',
+  eventsStackScroll: false,
+  eventsStackBg: 'assets/roopa-hero-desktop.jpg',
+  eventsAnimations: true,
+  aagamanSectionMode: 'route',
+  aagamanRouteLayout: 'showcase',
+  aagamanRouteMap: true,
+  aagamanRouteMapStyle: 'schematic',
+  aagamanRouteCamera: false,
   envelopeCardArt: 'assets/ganesh-invitation-card.png',
 
   sealImage:
@@ -67,6 +261,8 @@ const CONFIG = {
 
   sections: [
     { id: 'section-hero', label: 'Home' },
+    { id: 'section-aagaman', label: 'Aagaman' },
+    { id: 'section-aagaman-route', label: 'Route' },
     { id: 'section-countdown', label: 'Countdown' },
     { id: 'section-events', label: 'Events' },
     { id: 'section-gallery', label: 'Gallery' },
@@ -84,6 +280,7 @@ const CONFIG = {
   ],
 
   events: [
+    { day: 'Aagaman', dayDate: '7th September 2026', name: 'Aagaman Sohala', date: 'September 7, 2026', time: '05:00 PM onwards', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Grand arrival procession welcoming Bappa to Satpur — dhol, tasha, lezim, flowers and the collective devotion of the entire mandal.', image: LALBAGH.visarjan, alt: 'Ganesh Aagaman Sohala procession' },
     { day: 'Day One', dayDate: '14th September 2026', name: 'Ganpati Sthapana', date: 'September 14, 2026', time: '08:00 AM onwards', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Sacred installation of Lord Ganesha with Vedic mantras, pranpratishtha, kalash puja and the first family aarti welcoming Bappa home.', image: LALBAGH.rajaClassic, alt: 'Lalbaug Cha Raja — Sthapana' },
     { day: 'Day One', dayDate: '14th September 2026', name: 'Madhyahna Aarti', date: 'September 14, 2026', time: '12:00 PM', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Midday aarti with camphor, flowers and devotional hymns — the heart of daily worship during the Utsav.', image: LALBAGH.rajaClose, alt: 'Lalbaug Cha Raja — Aarti' },
     { day: 'Day One', dayDate: '14th September 2026', name: 'Miravnuk', date: 'September 14, 2026', time: '05:00 PM onwards', venue: 'Om Sai Ram Mitra Mandal to Main Road, Satpur', description: "Traditional Miravnuk procession with lezim, dhol, tasha and folk dance — Bappa's grand welcome parade!", image: LALBAGH.pandal, alt: 'Lalbaug Cha Raja — Miravnuk procession' },
@@ -137,9 +334,7 @@ const envelopeScreen = document.getElementById('envelopeScreen');
 const invitationMain = document.getElementById('invitationMain');
 const envelopeWrap = document.getElementById('envelopeWrap');
 const musicBtn = document.getElementById('musicBtn');
-const bgMusic = document.getElementById('bgMusic');
 const musicToggleLabel = document.getElementById('musicToggleLabel');
-const musicToggleSub = document.getElementById('musicToggleSub');
 const petalsLayer = document.getElementById('petalsLayer');
 const butterfliesLayer = document.getElementById('butterfliesLayer');
 const diyaLayer = document.getElementById('diyaLayer');
@@ -149,6 +344,73 @@ const lightbox = document.getElementById('lightbox');
 
 let isOpened = false;
 let musicPlaying = false;
+let ytPlayer = null;
+let ytApiReady = false;
+
+function loadYouTubeMusic() {
+  if (!CONFIG.musicYoutubeId) return;
+  if (window.YT && window.YT.Player) {
+    createYouTubePlayer();
+    return;
+  }
+  const prevReady = window.onYouTubeIframeAPIReady;
+  window.onYouTubeIframeAPIReady = () => {
+    if (typeof prevReady === 'function') prevReady();
+    createYouTubePlayer();
+  };
+  if (!document.getElementById('youtube-iframe-api')) {
+    const tag = document.createElement('script');
+    tag.id = 'youtube-iframe-api';
+    tag.src = 'https://www.youtube.com/iframe_api';
+    document.head.appendChild(tag);
+  }
+}
+
+function createYouTubePlayer() {
+  if (ytPlayer || !CONFIG.musicYoutubeId) return;
+  const host = document.getElementById('youtubeAudioHost');
+  if (!host) return;
+
+  ytPlayer = new YT.Player('youtubeAudioHost', {
+    height: '0',
+    width: '0',
+    videoId: CONFIG.musicYoutubeId,
+    playerVars: {
+      autoplay: 0,
+      controls: 0,
+      disablekb: 1,
+      fs: 0,
+      loop: 1,
+      playlist: CONFIG.musicYoutubeId,
+      modestbranding: 1,
+      rel: 0,
+      playsinline: 1,
+    },
+    events: {
+      onReady: (event) => {
+        ytApiReady = true;
+        event.target.setVolume(35);
+        if (isOpened) tryPlayMusic();
+      },
+      onStateChange: (event) => {
+        if (event.data === YT.PlayerState.ENDED) event.target.playVideo();
+      },
+    },
+  });
+}
+
+function playBgMusic() {
+  if (!ytApiReady || !ytPlayer) return;
+  ytPlayer.playVideo();
+  musicPlaying = true;
+  updateMusicUI();
+}
+
+function pauseBgMusic() {
+  if (ytPlayer && ytApiReady) ytPlayer.pauseVideo();
+  musicPlaying = false;
+  updateMusicUI();
+}
 
 function initContent() {
   const cardVisual = document.getElementById('roopaCardVisual');
@@ -175,9 +437,56 @@ function initContent() {
   document.getElementById('heroTagline').textContent = CONFIG.heroTagline;
   const heroHashtag = document.getElementById('heroHashtag');
   if (heroHashtag) heroHashtag.textContent = CONFIG.hashtag;
-  document.getElementById('countdownMessage').textContent = CONFIG.countdownMessage;
-  const countdownDateBadge = document.getElementById('countdownDateBadge');
-  if (countdownDateBadge) countdownDateBadge.textContent = CONFIG.mainDate;
+  const ag = CONFIG.aagaman;
+  const utsav = CONFIG.utsavScratch;
+  const aagamanBgMobile = document.getElementById('aagamanBgMobile');
+  const aagamanBgDesktop = document.getElementById('aagamanBgDesktop');
+  if (aagamanBgMobile) {
+    aagamanBgMobile.src = ag.backgroundImageMobile;
+    aagamanBgMobile.alt = 'Aagaman Sohala — decorative frame';
+  }
+  if (aagamanBgDesktop) {
+    aagamanBgDesktop.src = ag.backgroundImageDesktop;
+    aagamanBgDesktop.alt = 'Aagaman Sohala — decorative frame';
+  }
+  const aagamanLabel = document.getElementById('aagamanLabel');
+  if (aagamanLabel) aagamanLabel.textContent = ag.label;
+  const aagamanTitle = document.getElementById('aagamanTitle');
+  if (aagamanTitle) aagamanTitle.textContent = ag.title;
+  const aagamanTitleEn = document.getElementById('aagamanTitleEn');
+  if (aagamanTitleEn) aagamanTitleEn.textContent = ag.titleEn;
+  const aagamanSubtitle = document.getElementById('aagamanSubtitle');
+  if (aagamanSubtitle) aagamanSubtitle.textContent = ag.subtitle;
+  const aagamanVerse = document.getElementById('aagamanVerse');
+  if (aagamanVerse) aagamanVerse.textContent = ag.verse;
+  const aagamanDesc = document.getElementById('aagamanDesc');
+  if (aagamanDesc) aagamanDesc.textContent = ag.description;
+  const aagamanDate = document.getElementById('aagamanDate');
+  if (aagamanDate) aagamanDate.textContent = `${ag.dayName}, ${ag.dateDisplay}`;
+  const aagamanHighlights = document.getElementById('aagamanHighlights');
+  if (aagamanHighlights) {
+    aagamanHighlights.innerHTML = ag.highlights
+      .map((item) => `<li><span class="aagaman-highlight-icon">✦</span>${item}</li>`)
+      .join('');
+  }
+  if (CONFIG.aagamanSectionMode === 'partners') renderAagamanPartners();
+  else renderAagamanRoute();
+
+  const setText = (id, text) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = text;
+  };
+  setText('countdownDateBadge', utsav.dateDisplay);
+  setText('aagamanPopupDay', ag.popupDay || '7');
+  setText('aagamanPopupMonth', ag.popupMonth || 'SEPT');
+  setText('aagamanPopupYear', ag.popupYear || '2026');
+  setText('aagamanPopupMarathi', ag.title || 'आगमन सोहळा');
+  setText('aagamanPopupKicker', ag.titleEn || 'Aagaman Sohala');
+  setText('aagamanPopupSub', `${ag.dayName} · ${ag.time}`);
+  setText('aagamanPopupVerse', ag.verse || '');
+  setText('scratchCardKicker', utsav.scratchKicker);
+  setText('scratchInnerTitle', utsav.scratchTitle);
+  setText('countdownMessage', utsav.countdownMessage);
   document.getElementById('familyText').innerHTML = CONFIG.familyText;
   document.getElementById('familyNames').innerHTML = `<span>${CONFIG.familyNames}</span>`;
   document.getElementById('closingMessage').innerHTML = CONFIG.closingMessage;
@@ -185,11 +494,18 @@ function initContent() {
   document.getElementById('footerHashtag').textContent = CONFIG.hashtag;
   document.getElementById('footerYear').textContent = new Date().getFullYear();
 
-  if (CONFIG.musicFile) {
-    bgMusic.querySelector('source').src = CONFIG.musicFile;
-    bgMusic.load();
-  }
   updateMusicUI();
+
+  const eventsSection = document.getElementById('section-events');
+  if (eventsSection) {
+    eventsSection.classList.toggle('events-section--showcase', CONFIG.eventsLayout === 'showcase');
+    eventsSection.classList.toggle('events-section--classic', CONFIG.eventsLayout === 'classic');
+    eventsSection.classList.toggle('events-section--stack', CONFIG.eventsLayout === 'stack');
+    eventsSection.classList.toggle(
+      'events-section--classic-stack',
+      CONFIG.eventsLayout === 'classic' && CONFIG.eventsStackScroll
+    );
+  }
 
   renderEvents();
   renderGallery();
@@ -198,7 +514,115 @@ function initContent() {
   renderSectionNav();
 }
 
+function getShowcaseMeta(ev) {
+  const map = {
+    'Aagaman Sohala': { hashtag: '#BappaAagman', join: 'Please join us for the grand arrival', decor: '🥁 🪔 🥁 🪔' },
+    'Ganpati Sthapana': { hashtag: '#BappaAagman', join: 'Please join us for a sacred morning', decor: '🪔 🪷 🪔 🪷' },
+    'Madhyahna Aarti': { hashtag: '#GanpatiBappaMorya', join: 'Please join us for a noon aarti', decor: '🪷 ✨ 🪷 ✨' },
+    Miravnuk: { hashtag: '#MiravnukMoments', join: 'Please join us for an afternoon procession', decor: '🏵️ 🥁 🏵️ 🥁' },
+    'Bhajan Sandhya': { hashtag: '#BhajanSandhya', join: 'Please join us for an evening', decor: '🎵 🪔 🎵 🪔' },
+    'Dhol Tasha Pathak': { hashtag: '#DholTasha', join: 'Please join us for an evening', decor: '🥁 ✨ 🥁 ✨' },
+    'Lezim & Folk Dance': { hashtag: '#MaharashtraCulture', join: 'Please join us for an evening', decor: '💃 🪷 💃 🪷' },
+    'Atharvashirsha Paath': { hashtag: '#Atharvashirsha', join: 'Please join us for a sacred morning', decor: '📿 🪔 📿 🪔' },
+    'Haldi-Kumkum': { hashtag: '#SuhasiniPuja', join: 'Please join us for an afternoon', decor: '🌸 🪷 🌸 🪷' },
+    'Mahaprasad & Modak': { hashtag: '#Mahaprasad', join: 'Please join us daily', decor: '🍬 🪔 🍬 🪔' },
+    Visarjan: { hashtag: '#PudhchyaVarshi', join: 'Please join us for a farewell evening', decor: '🌊 🪷 🌊 🪷' },
+  };
+  return map[ev.name] || { hashtag: '#SatpurchaRaja', join: 'Please join us in celebration', decor: '✨ 🪷 ✨ 🪷' };
+}
+
 function renderEvents() {
+  if (CONFIG.eventsLayout === 'showcase') renderEventsShowcase();
+  else if (CONFIG.eventsLayout === 'stack') renderEventsStack();
+  else renderEventsClassic();
+}
+
+const EVENT_STACK_THEMES = [
+  { bg: '#F3EEFC', accent: '#4B1A9A' },
+  { bg: '#FDF1ED', accent: '#E54C1E' },
+  { bg: '#ECF6FE', accent: '#033968' },
+  { bg: '#FFF8E8', accent: '#8B1538' },
+  { bg: '#FCE7F3', accent: '#701A3A' },
+  { bg: '#FFEDD5', accent: '#92400E' },
+];
+
+function renderEventsStack() {
+  const bg = CONFIG.eventsStackBg || 'assets/roopa-hero-desktop.jpg';
+  document.getElementById('eventsList').innerHTML = `
+    <div class="events-stack-scene">
+      <div class="events-stack-bg" aria-hidden="true">
+        <img class="events-stack-bg-image" src="${bg}" alt="" loading="lazy" />
+        <div class="events-stack-bg-overlay"></div>
+      </div>
+      <div class="events-stack-cards">
+        ${CONFIG.events
+          .map((ev, i) => {
+            const theme = EVENT_STACK_THEMES[i % EVENT_STACK_THEMES.length];
+            const meta = getShowcaseMeta(ev);
+            return `
+        <div class="event-stack-card-wrap" style="--stack-index: ${i}; --card-bg: ${theme.bg}; --card-accent: ${theme.accent}">
+          <article class="event-stack-card">
+            <div class="event-stack-card-head">
+              <span class="event-stack-index">${String(i + 1).padStart(2, '0')}</span>
+              <img class="event-stack-thumb" src="${ev.image}" alt="${ev.alt}" loading="lazy" />
+            </div>
+            <p class="event-stack-tag">${meta.hashtag}</p>
+            <p class="event-stack-kicker">${meta.join}</p>
+            <h3 class="event-stack-title">${ev.name}</h3>
+            <p class="event-stack-desc">${ev.description}</p>
+            <p class="event-stack-meta">${ev.dayDate}<span>·</span>${ev.time}</p>
+            <p class="event-stack-venue">${ev.venue}</p>
+          </article>
+        </div>`;
+          })
+          .join('')}
+      </div>
+    </div>`;
+}
+
+function renderEventsShowcase() {
+  document.getElementById('eventsList').innerHTML = CONFIG.events
+    .map(
+      (ev, i) => {
+        const meta = getShowcaseMeta(ev);
+        return `
+      <article class="event-showcase reveal" style="--delay:${i * 0.05}s">
+        <div class="event-showcase-media">
+          <img class="event-showcase-image" src="${ev.image}" alt="${ev.alt}" loading="lazy" />
+          <div class="event-showcase-media-overlay"></div>
+        </div>
+        <div class="event-showcase-deco" aria-hidden="true">${meta.decor}</div>
+        <div class="event-showcase-body">
+          <p class="event-showcase-tag">${meta.hashtag}</p>
+          <p class="event-showcase-join">${meta.join}</p>
+          <p class="event-showcase-desc">${ev.description}</p>
+          <h3 class="event-showcase-name">${ev.name.toUpperCase()}</h3>
+          <p class="event-showcase-when">${ev.dayDate}<span class="event-showcase-sep">|</span>${ev.time}</p>
+          <p class="event-showcase-venue">${ev.venue}</p>
+        </div>
+      </article>`;
+      }
+    )
+    .join('');
+}
+
+function injectClassicStackBg() {
+  const list = document.getElementById('eventsList');
+  if (!list || list.querySelector('.events-classic-stack-bg')) return;
+  const bg = CONFIG.eventsStackBg || 'assets/roopa-hero-desktop.jpg';
+  list.insertAdjacentHTML(
+    'afterbegin',
+    `<div class="events-classic-stack-bg" aria-hidden="true">
+      <img class="events-classic-stack-bg-image" src="${bg}" alt="" loading="lazy" />
+      <div class="events-classic-stack-bg-overlay"></div>
+    </div>`
+  );
+}
+
+function renderEventsClassic() {
+  const useStackScroll = CONFIG.eventsStackScroll && CONFIG.eventsAnimations;
+  const useGsap = CONFIG.eventsAnimations && CONFIG.eventsLayout === 'classic' && !useStackScroll;
+
   const groups = [];
   CONFIG.events.forEach((ev, i) => {
     const key = `${ev.day}|${ev.dayDate}`;
@@ -212,8 +636,8 @@ function renderEvents() {
 
   document.getElementById('eventsList').innerHTML = groups
     .map(
-      (group) => `
-      <div class="event-day-group reveal">
+      (group, gi) => `
+      <div class="event-day-group${useGsap ? '' : ' reveal'}" ${useGsap ? '' : `style="--delay:${gi * 0.04}s"`}>
         <div class="event-day-header">
           <span class="event-day-line"></span>
           <div class="event-day-badge">
@@ -225,12 +649,12 @@ function renderEvents() {
         ${group.items
           .map(
             (ev, j) => `
-          <article class="event-card ${ev.index % 2 === 1 ? 'reverse' : ''} reveal" style="--delay:${j * 0.06}s">
+          <article class="event-card ${ev.index % 2 === 1 ? 'reverse' : ''}${useGsap ? ' event-card-animated' : useStackScroll ? '' : ' reveal'}" ${useGsap || useStackScroll ? '' : `style="--delay:${j * 0.06}s"`}>
             <div class="event-image-wrap">
               <img class="event-image" src="${ev.image}" alt="${ev.alt}" loading="lazy" />
               <div class="event-image-overlay"></div>
               <div class="event-image-shine"></div>
-              <span class="event-num">${String(ev.index + 1).padStart(2, '0')}</span>
+              <span class="event-num" data-num="${ev.index + 1}">${String(ev.index + 1).padStart(2, '0')}</span>
               <span class="event-date-chip">${ev.date}</span>
             </div>
             <div class="event-details">
@@ -250,6 +674,8 @@ function renderEvents() {
       </div>`
     )
     .join('');
+
+  if (useStackScroll) injectClassicStackBg();
 }
 
 function renderDetails() {
@@ -327,6 +753,66 @@ function renderSectionNav() {
     .join('');
 }
 
+function fireAagamanDatePopup() {
+  const popup = document.getElementById('aagamanDatePopup');
+  const burst = document.getElementById('aagamanDatePopupBurst');
+  const card = document.getElementById('aagamanPopupCard');
+  if (!popup) return;
+
+  popup.classList.remove('is-active', 'is-closing');
+  popup.setAttribute('aria-hidden', 'false');
+  void popup.offsetWidth;
+  popup.classList.add('is-active');
+
+  if (card) {
+    card.classList.remove('paper-bomb-pop');
+    void card.offsetWidth;
+    card.classList.add('paper-bomb-pop');
+    setTimeout(() => card.classList.remove('paper-bomb-pop'), 900);
+  }
+
+  firePaperBomb(0.5, 0.44);
+
+  if (burst) {
+    burst.classList.remove('is-active');
+    void burst.offsetWidth;
+    burst.classList.add('is-active');
+  }
+
+  setTimeout(() => popup.classList.add('is-closing'), 2600);
+  setTimeout(() => {
+    popup.classList.remove('is-active', 'is-closing');
+    popup.setAttribute('aria-hidden', 'true');
+  }, 3100);
+}
+
+function initAagamanCurtain() {
+  const section = document.getElementById('section-aagaman');
+  const tap = document.getElementById('aagamanCurtainTap');
+  const inner = section?.querySelector('.aagaman-inner');
+  if (!section || !tap) return;
+
+  if (inner) inner.setAttribute('aria-hidden', 'true');
+
+  const openCurtain = () => {
+    if (section.classList.contains('is-curtain-open')) return;
+    section.classList.add('is-curtain-open');
+    tap.disabled = true;
+    tap.setAttribute('aria-hidden', 'true');
+    if (inner) inner.removeAttribute('aria-hidden');
+
+    setTimeout(() => fireAagamanDatePopup(), 380);
+
+    setTimeout(() => {
+      section.querySelectorAll('.aagaman-inner .reveal').forEach((el) => {
+        el.classList.add('visible');
+      });
+    }, 1100);
+  };
+
+  tap.addEventListener('click', openCurtain);
+}
+
 function openInvitation() {
   if (isOpened) return;
   isOpened = true;
@@ -343,13 +829,18 @@ function openInvitation() {
       fabGroup.classList.remove('hidden');
       sectionNav.classList.remove('hidden');
       initScrollReveal();
+      initEventsExperience();
       initSectionNav();
       initGalleryLightbox();
       startCountdown();
       tryPlayMusic();
       startButterflies();
       createDiyas();
-      initScratchCard();
+      initScratchCards();
+      initAagamanCurtain();
+      if (CONFIG.aagamanSectionMode === 'route' && CONFIG.aagamanRouteLayout === 'map' && CONFIG.aagamanRouteMap) {
+        initAagamanRouteMap();
+      }
     }, 700);
   }, 1200);
 }
@@ -466,74 +957,589 @@ function firePaperBomb(originX, originY) {
 
 document.getElementById('openEnvelope').addEventListener('click', openInvitation);
 
+function renderAagamanPartners() {
+  const grid = document.getElementById('aagamanPartnersGrid');
+  const partners = CONFIG.aagaman?.partners;
+  if (!grid || !partners) return;
+
+  const label = document.getElementById('aagamanPartnersLabel');
+  const title = document.getElementById('aagamanPartnersTitle');
+  const titleEn = document.getElementById('aagamanPartnersTitleEn');
+  const subtitle = document.getElementById('aagamanPartnersSubtitle');
+  if (label) label.textContent = partners.label;
+  if (title) title.textContent = partners.title;
+  if (titleEn) titleEn.textContent = partners.titleEn;
+  if (subtitle) subtitle.textContent = partners.subtitle;
+
+  grid.innerHTML = partners.groups
+    .map(
+      (group, index) => `
+      <article class="aagaman-partner-card" style="--partner-delay: ${index * 0.1}s">
+        <div class="aagaman-partner-media">
+          <img class="aagaman-partner-image" src="${group.image}" alt="${group.imageAlt || group.role}" loading="lazy" />
+          <div class="aagaman-partner-media-overlay" aria-hidden="true"></div>
+          <span class="aagaman-partner-tag">${group.tag}</span>
+        </div>
+        <div class="aagaman-partner-body">
+          <h3 class="aagaman-partner-role">${group.role}</h3>
+          ${group.location ? `<p class="aagaman-partner-location">${group.location}</p>` : ''}
+          ${group.description ? `<p class="aagaman-partner-desc">${group.description}</p>` : ''}
+          <ul class="aagaman-partner-names">
+            ${(group.names || []).map((entry) => {
+              const n = typeof entry === 'string' ? { name: entry, detail: '' } : entry;
+              return `<li><span class="aagaman-partner-name">${n.name}</span>${n.detail ? `<span class="aagaman-partner-name-detail">${n.detail}</span>` : ''}</li>`;
+            }).join('')}
+          </ul>
+        </div>
+      </article>`
+    )
+    .join('');
+}
+
+function getAagamanRouteBounds(stops, pad = 0.0011) {
+  const lats = stops.map((s) => s.lat);
+  const lngs = stops.map((s) => s.lng);
+  return {
+    minLat: Math.min(...lats) - pad,
+    maxLat: Math.max(...lats) + pad,
+    minLng: Math.min(...lngs) - pad,
+    maxLng: Math.max(...lngs) + pad,
+  };
+}
+
+function createAagamanProjector(bounds, canvas = { w: 1500, h: 1500, pad: 120 }) {
+  const { minLat, maxLat, minLng, maxLng } = bounds;
+  return (lat, lng) => ({
+    x: canvas.pad + ((lng - minLng) / (maxLng - minLng)) * (canvas.w - 2 * canvas.pad),
+    y: canvas.pad + ((maxLat - lat) / (maxLat - minLat)) * (canvas.h - 2 * canvas.pad),
+  });
+}
+
+function buildSatelliteMapUrl(bounds, size = 900) {
+  const { minLng, minLat, maxLng, maxLat } = bounds;
+  return `https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/export?bbox=${minLng},${minLat},${maxLng},${maxLat}&bboxSR=4326&size=${size},${size}&format=jpg&f=image`;
+}
+
+function buildFallbackPathD(projected) {
+  let pathD = `M ${projected[0].x.toFixed(1)} ${projected[0].y.toFixed(1)}`;
+  for (let i = 1; i < projected.length; i += 1) {
+    const prev = projected[i - 1];
+    const curr = projected[i];
+    const mx = (prev.x + curr.x) / 2;
+    const my = (prev.y + curr.y) / 2;
+    pathD += ` Q ${mx.toFixed(1)} ${my.toFixed(1)} ${curr.x.toFixed(1)} ${curr.y.toFixed(1)}`;
+  }
+  return pathD;
+}
+
+async function fetchMiravnukPathD(stops, project) {
+  const coords = stops.map((s) => `${s.lng},${s.lat}`).join(';');
+  const url = `https://router.project-osrm.org/route/v1/foot/${coords}?overview=full&geometries=geojson`;
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+    if (data.code !== 'Ok' || !data.routes?.[0]?.geometry?.coordinates?.length) return null;
+    return data.routes[0].geometry.coordinates
+      .map((c, i) => {
+        const p = project(c[1], c[0]);
+        return `${i === 0 ? 'M' : 'L'} ${p.x.toFixed(1)} ${p.y.toFixed(1)}`;
+      })
+      .join(' ');
+  } catch {
+    return null;
+  }
+}
+
+function buildAagamanRouteGeometry(route) {
+  const stops = route.stops || [];
+  if (!stops.length) return null;
+
+  const isSchematic = route.mapStyle === 'schematic' || CONFIG.aagamanRouteMapStyle === 'schematic';
+
+  if (isSchematic && stops[0]?.lat != null) {
+    const bounds = getAagamanRouteBounds(stops);
+    const canvas = { w: 900, h: 700, pad: 110 };
+    const project = createAagamanProjector(bounds, canvas);
+    const projected = stops.map((stop) => ({ ...stop, ...project(stop.lat, stop.lng) }));
+    return {
+      projected,
+      pathD: buildFallbackPathD(projected),
+      viewBox: route.mapViewBox || '0 0 900 700',
+      isSchematic: true,
+    };
+  }
+
+  if (route.mapImage && route.pathD) {
+    const projected = stops.map((stop) => ({ ...stop, x: stop.x, y: stop.y }));
+    return {
+      projected,
+      pathD: route.pathD,
+      mapImage: route.mapImage,
+      viewBox: route.mapViewBox || '0 0 1080 1920',
+      mapImageWidth: route.mapImageWidth || 1080,
+      mapImageHeight: route.mapImageHeight || 1920,
+      isImageMap: true,
+    };
+  }
+
+  if (route.mapImage && stops[0]?.lat != null) {
+    const bounds = getAagamanRouteBounds(stops);
+    const canvas = {
+      w: route.mapImageWidth || 1080,
+      h: route.mapImageHeight || 1920,
+      pad: 90,
+    };
+    const project = createAagamanProjector(bounds, canvas);
+    const projected = stops.map((stop) => ({ ...stop, ...project(stop.lat, stop.lng) }));
+    return {
+      projected,
+      pathD: buildFallbackPathD(projected),
+      mapImage: route.mapImage,
+      viewBox: route.mapViewBox || `0 0 ${canvas.w} ${canvas.h}`,
+      mapImageWidth: canvas.w,
+      mapImageHeight: canvas.h,
+      project,
+    };
+  }
+
+  const bounds = getAagamanRouteBounds(stops);
+  const canvas = { w: 1500, h: 1500, pad: 120 };
+  const project = createAagamanProjector(bounds, canvas);
+  const projected = stops.map((stop) => ({ ...stop, ...project(stop.lat, stop.lng) }));
+
+  return {
+    projected,
+    pathD: buildFallbackPathD(projected),
+    bounds,
+    canvas,
+    mapImage: buildSatelliteMapUrl(bounds),
+    viewBox: `0 0 ${canvas.w} ${canvas.h}`,
+    project,
+  };
+}
+
+function getAagamanViewBoxCenter(viewBox) {
+  const parts = String(viewBox || '0 0 1500 1500').trim().split(/\s+/).map(Number);
+  const [x = 0, y = 0, w = 1500, h = 1500] = parts;
+  return { cx: x + w / 2, cy: y + h / 2 };
+}
+
+function updateAagamanRoutePanels(section, seg) {
+  const panels = section.querySelectorAll('.aagaman-route-panel');
+  const stopDots = section.querySelectorAll('.aagaman-route-stop-dot');
+  panels.forEach((panel, i) => {
+    panel.classList.toggle('is-active', i === seg);
+    panel.classList.toggle('is-passed', i < seg);
+  });
+  stopDots.forEach((dot, i) => {
+    dot.classList.toggle('is-reached', i <= seg);
+    dot.classList.toggle('is-current', i === seg);
+  });
+}
+
+function renderAagamanRoute() {
+  const section = document.getElementById('section-aagaman-route');
+  const route = CONFIG.aagaman?.route;
+  if (!section || !route) return;
+
+  const showRoute = CONFIG.aagamanSectionMode === 'route';
+  const isShowcase = CONFIG.aagamanRouteLayout !== 'map';
+  section.classList.toggle('is-disabled', !showRoute);
+  section.classList.toggle('is-showcase-layout', isShowcase);
+  section.classList.toggle('is-map-layout', !isShowcase);
+
+  const label = document.getElementById('aagamanRouteLabel');
+  const title = document.getElementById('aagamanRouteTitle');
+  const titleEn = document.getElementById('aagamanRouteTitleEn');
+  const subtitle = document.getElementById('aagamanRouteSubtitle');
+  if (label) label.textContent = route.label;
+  if (title) title.textContent = route.title;
+  if (titleEn) titleEn.textContent = route.titleEn;
+  if (subtitle) subtitle.textContent = route.subtitle;
+  const hint = document.getElementById('aagamanRouteHint');
+  if (hint) {
+    hint.textContent = route.hint || '';
+    hint.classList.toggle('hidden', !route.hint);
+  }
+
+  if (isShowcase) {
+    renderAagamanShowcaseCards(route);
+    return;
+  }
+
+  if (route.scrollHeight) section.style.setProperty('--aagaman-route-scroll', route.scrollHeight);
+  renderAagamanRouteMap(route, section);
+}
+
+const AAGAMAN_ROUTE_ICONS = {
+  'sai-baba-temple': '🛕',
+  'sai-circle': '⭕',
+  'ambedkar-market': '🏪',
+  'kamgar-bhavan': '🏛️',
+  'satpur-cha-raja': '🪔',
+};
+
+function renderAagamanShowcaseCards(route) {
+  const track = document.getElementById('aagamanShowcaseTrack');
+  const stops = route.stops || [];
+  if (!track || !stops.length) return;
+
+  track.innerHTML = stops
+    .map((stop) => {
+      const displayName = stop.shortName || stop.name;
+      const icon = stop.icon || AAGAMAN_ROUTE_ICONS[stop.id] || '📍';
+      return `
+        <article class="aagaman-route-stop${stop.isEnd ? ' is-destination' : ''}${stop.tag === 'Start' ? ' is-start' : ''}" role="listitem" data-stop-id="${stop.id}" title="${stop.name}">
+          <span class="aagaman-route-stop-icon" aria-hidden="true">${icon}</span>
+          <h3 class="aagaman-route-stop-name">${displayName}</h3>
+        </article>`;
+    })
+    .join('');
+}
+
+function renderAagamanRouteMap(route, section) {
+  const geometry = buildAagamanRouteGeometry(route);
+  if (!geometry) return;
+
+  const { projected, pathD, viewBox } = geometry;
+  section._aagamanGeometry = geometry;
+  section.classList.toggle('is-schematic-map', Boolean(geometry.isSchematic));
+
+  const pathEl = document.getElementById('aagamanRoutePath');
+  const pathBgEl = document.getElementById('aagamanRoutePathBg');
+  const svg = document.getElementById('aagamanRouteSvg');
+  const mapImg = document.getElementById('aagamanRouteMapImg');
+  const mapsLink = document.getElementById('aagamanRouteMapsLink');
+  const dotStart = document.getElementById('aagamanRouteDotStart');
+  if (!pathEl) return;
+
+  if (pathEl) pathEl.setAttribute('d', pathD);
+  if (pathBgEl) pathBgEl.setAttribute('d', pathD);
+  if (svg) svg.setAttribute('viewBox', viewBox);
+  if (mapImg) {
+    if (geometry.isSchematic) {
+      mapImg.removeAttribute('href');
+    } else if (geometry.mapImage) {
+      mapImg.setAttribute('width', geometry.mapImageWidth || 1080);
+      mapImg.setAttribute('height', geometry.mapImageHeight || 1920);
+      mapImg.setAttribute('href', geometry.mapImage);
+    }
+  }
+  if (mapsLink && route.googleMapsUrl) {
+    mapsLink.href = route.googleMapsUrl;
+    mapsLink.classList.remove('hidden');
+  }
+
+  const start = projected[0];
+  if (dotStart) {
+    dotStart.setAttribute('cx', start.x);
+    dotStart.setAttribute('cy', start.y);
+  }
+
+  const marker = document.getElementById('aagamanRouteMarker');
+  const markerRing = document.getElementById('aagamanRouteMarkerRing');
+  if (marker) {
+    marker.setAttribute('cx', start.x);
+    marker.setAttribute('cy', start.y);
+  }
+  if (markerRing) {
+    markerRing.setAttribute('cx', start.x);
+    markerRing.setAttribute('cy', start.y);
+  }
+
+  const stopsLayer = document.getElementById('aagamanRouteStops');
+  if (stopsLayer) {
+    stopsLayer.innerHTML = projected
+      .map(
+        (stop) => `
+        <g class="aagaman-route-stop-dot${stop.isEnd ? ' is-end' : ''}${stop.tag === 'Start' ? ' is-start' : ''}" data-stop-id="${stop.id}">
+          <circle class="aagaman-route-stop-halo" cx="${stop.x.toFixed(1)}" cy="${stop.y.toFixed(1)}" r="28" />
+          <circle class="aagaman-route-stop-pin" cx="${stop.x.toFixed(1)}" cy="${stop.y.toFixed(1)}" r="10" />
+          <text class="aagaman-route-stop-num" x="${stop.x.toFixed(1)}" y="${(stop.y + 4).toFixed(1)}" text-anchor="middle">${stop.step}</text>
+          ${stop.shortName ? `<text class="aagaman-route-stop-label" x="${stop.x.toFixed(1)}" y="${(stop.y + 36).toFixed(1)}" text-anchor="middle">${stop.shortName}</text>` : ''}
+        </g>`
+      )
+      .join('');
+  }
+
+  const panels = document.getElementById('aagamanRoutePanels');
+  if (panels) {
+    panels.innerHTML = projected
+      .map(
+        (stop, index) => `
+        <article class="aagaman-route-panel${index === 0 ? ' is-active' : ''}" data-stop-id="${stop.id}" data-stop-index="${index}">
+          <span class="aagaman-route-panel-step">${stop.step}</span>
+          <span class="aagaman-route-panel-tag">${stop.tag}</span>
+          <h3 class="aagaman-route-panel-name">${stop.name}</h3>
+          <p class="aagaman-route-panel-area">${stop.area}</p>
+          ${stop.address ? `<p class="aagaman-route-panel-address">${stop.address}</p>` : ''}
+          <p class="aagaman-route-panel-note">${stop.note}</p>
+        </article>`
+      )
+      .join('');
+  }
+}
+
+let aagamanRouteMapInited = false;
+let aagamanRouteScrollTrigger = null;
+
+function killAagamanRouteScroll() {
+  if (aagamanRouteScrollTrigger) {
+    aagamanRouteScrollTrigger.kill();
+    aagamanRouteScrollTrigger = null;
+  }
+}
+
+function placeAagamanRouteMarker(marker, markerRing, x, y) {
+  marker.setAttribute('cx', x);
+  marker.setAttribute('cy', y);
+  if (markerRing) {
+    markerRing.setAttribute('cx', x);
+    markerRing.setAttribute('cy', y);
+  }
+}
+
+function initAagamanRouteMapSchematic(section, pinWrap, sticky, path, marker, markerRing, route, geometry) {
+  const pov = section.querySelector('.aagaman-route-pov');
+  const povInner = section.querySelector('.aagaman-route-pov-inner');
+  gsap.set([pov, povInner, marker, markerRing].filter(Boolean), { clearProps: 'transform,x,y,scale' });
+
+  const pathLen = path.getTotalLength();
+  const stopCount = route.stops.length;
+  let activeSeg = 0;
+  const start = geometry.projected[0];
+
+  placeAagamanRouteMarker(marker, markerRing, start.x, start.y);
+  path.style.strokeDasharray = `${pathLen}`;
+  path.style.strokeDashoffset = `${pathLen}`;
+
+  killAagamanRouteScroll();
+
+  aagamanRouteScrollTrigger = ScrollTrigger.create({
+    trigger: pinWrap,
+    start: 'top top',
+    end: 'bottom bottom',
+    pin: sticky,
+    pinSpacing: true,
+    anticipatePin: 1,
+    scrub: 0.45,
+    invalidateOnRefresh: true,
+    onUpdate: (self) => {
+      const drawLen = pathLen * self.progress;
+      path.style.strokeDashoffset = `${pathLen - drawLen}`;
+
+      const pt = path.getPointAtLength(Math.max(0, Math.min(drawLen, pathLen)));
+      placeAagamanRouteMarker(marker, markerRing, pt.x, pt.y);
+
+      const seg = Math.min(Math.floor(self.progress * stopCount), stopCount - 1);
+      if (seg !== activeSeg) {
+        activeSeg = seg;
+        updateAagamanRoutePanels(section, seg);
+      }
+    },
+  });
+
+  requestAnimationFrame(() => ScrollTrigger.refresh());
+}
+
+function initAagamanRouteMapCinematic(section, pinWrap, sticky, path, marker, markerRing, route, geometry) {
+  const pov = section.querySelector('.aagaman-route-pov');
+  const povInner = section.querySelector('.aagaman-route-pov-inner');
+  if (!pov || !povInner) return;
+
+  gsap.registerPlugin(ScrollTrigger);
+  if (typeof MotionPathPlugin !== 'undefined') gsap.registerPlugin(MotionPathPlugin);
+
+  const viewport = getAagamanViewBoxCenter(route.mapViewBox || geometry.viewBox);
+  const pathLen = path.getTotalLength();
+  const stopCount = route.stops.length;
+  let activeSeg = 0;
+
+  gsap.set(path, { strokeDasharray: pathLen, strokeDashoffset: pathLen });
+  gsap.set(pov, { x: viewport.cx, y: viewport.cy, scale: 1.5, transformOrigin: '50% 50%' });
+
+  const syncCamera = () => {
+    const mx = gsap.getProperty(marker, 'x') || 0;
+    const my = gsap.getProperty(marker, 'y') || 0;
+    const cx = parseFloat(marker.getAttribute('cx')) + mx;
+    const cy = parseFloat(marker.getAttribute('cy')) + my;
+    placeAagamanRouteMarker(marker, markerRing, cx, cy);
+    return { cx, cy };
+  };
+
+  const xTo = gsap.quickTo(povInner, 'x', { duration: 0.55, ease: 'expo.out' });
+  const yTo = gsap.quickTo(povInner, 'y', { duration: 0.55, ease: 'expo.out' });
+
+  const startCam = syncCamera();
+  gsap.set(povInner, { x: viewport.cx - startCam.cx, y: viewport.cy - startCam.cy });
+
+  killAagamanRouteScroll();
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: pinWrap,
+      start: 'top top',
+      end: 'bottom bottom',
+      pin: sticky,
+      pinSpacing: true,
+      anticipatePin: 1,
+      scrub: 0.8,
+      invalidateOnRefresh: true,
+    },
+    onUpdate: () => {
+      const { cx, cy } = syncCamera();
+      xTo(viewport.cx - cx);
+      yTo(viewport.cy - cy);
+
+      const seg = Math.min(Math.floor(tl.progress() * stopCount), stopCount - 1);
+      if (seg !== activeSeg) {
+        activeSeg = seg;
+        updateAagamanRoutePanels(section, seg);
+      }
+    },
+  });
+
+  aagamanRouteScrollTrigger = tl.scrollTrigger;
+
+  tl.fromTo(path, { strokeDashoffset: pathLen }, { strokeDashoffset: 0, ease: 'none', duration: 1 }, 0)
+    .fromTo(pov, { scale: 1.5 }, { scale: 2.05, ease: 'power1.inOut', duration: 1 }, 0);
+
+  if (typeof MotionPathPlugin !== 'undefined') {
+    tl.to(
+      marker,
+      {
+        motionPath: { path, align: path, alignOrigin: [0.5, 0.5], autoRotate: false },
+        ease: 'none',
+        duration: 1,
+        immediateRender: true,
+      },
+      0
+    );
+  } else {
+    const motion = { at: 0 };
+    tl.to(
+      motion,
+      {
+        at: pathLen,
+        ease: 'none',
+        duration: 1,
+        onUpdate: () => {
+          const pt = path.getPointAtLength(motion.at);
+          marker.setAttribute('cx', pt.x);
+          marker.setAttribute('cy', pt.y);
+        },
+      },
+      0
+    );
+  }
+
+  requestAnimationFrame(() => ScrollTrigger.refresh());
+}
+
+async function initAagamanRouteMap() {
+  if (aagamanRouteMapInited || !CONFIG.aagamanRouteMap || CONFIG.aagamanSectionMode !== 'route') return;
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const section = document.getElementById('section-aagaman-route');
+  const pinWrap = section?.querySelector('.aagaman-route-pin');
+  const sticky = section?.querySelector('.aagaman-route-sticky');
+  const path = document.getElementById('aagamanRoutePath');
+  const marker = document.getElementById('aagamanRouteMarker');
+  const markerRing = document.getElementById('aagamanRouteMarkerRing');
+  const route = CONFIG.aagaman?.route;
+  const geometry = section?._aagamanGeometry;
+  if (!section || !pinWrap || !sticky || !path || !marker || !route?.stops?.length || !geometry) return;
+
+  aagamanRouteMapInited = true;
+  gsap.registerPlugin(ScrollTrigger);
+
+  const isSchematic = route.mapStyle === 'schematic' || CONFIG.aagamanRouteMapStyle === 'schematic';
+  const useCamera = CONFIG.aagamanRouteCamera === true && !isSchematic;
+
+  if (!route.pathD && geometry.project && !isSchematic) {
+    const osrmPath = await fetchMiravnukPathD(route.stops, geometry.project);
+    if (osrmPath) {
+      path.setAttribute('d', osrmPath);
+      const pathBg = document.getElementById('aagamanRoutePathBg');
+      if (pathBg) pathBg.setAttribute('d', osrmPath);
+    }
+  }
+
+  if (useCamera) {
+    initAagamanRouteMapCinematic(section, pinWrap, sticky, path, marker, markerRing, route, geometry);
+  } else {
+    initAagamanRouteMapSchematic(section, pinWrap, sticky, path, marker, markerRing, route, geometry);
+  }
+}
+
 function startCountdown() {
-  const target = new Date(CONFIG.countdownTarget).getTime();
+  startCountdownInstance({
+    target: CONFIG.utsavCountdownTarget,
+    ids: ['days', 'hours', 'minutes', 'seconds'],
+    messageId: 'countdownMessage',
+    activeMessage: CONFIG.utsavCountdownMessage,
+    arrivedMessage: CONFIG.utsavCountdownArrivedMessage,
+  });
+}
+
+function startCountdownInstance({ target, ids, messageId, activeMessage, arrivedMessage }) {
+  const end = new Date(target).getTime();
+  const [daysId, hoursId, minutesId, secondsId] = ids;
   function update() {
-    const diff = target - Date.now();
+    const diff = end - Date.now();
+    const msgEl = document.getElementById(messageId);
     if (diff <= 0) {
-      ['days', 'hours', 'minutes', 'seconds'].forEach((id) => (document.getElementById(id).textContent = '00'));
-      document.getElementById('countdownMessage').textContent = 'Bappa Has Arrived! 🙏';
+      [daysId, hoursId, minutesId, secondsId].forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = '00';
+      });
+      if (msgEl) msgEl.textContent = arrivedMessage;
       return;
     }
-    document.getElementById('days').textContent = String(Math.floor(diff / 86400000)).padStart(2, '0');
-    document.getElementById('hours').textContent = String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0');
-    document.getElementById('minutes').textContent = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
-    document.getElementById('seconds').textContent = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+    const set = (id, val) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = String(val).padStart(2, '0');
+    };
+    set(daysId, Math.floor(diff / 86400000));
+    set(hoursId, Math.floor((diff % 86400000) / 3600000));
+    set(minutesId, Math.floor((diff % 3600000) / 60000));
+    set(secondsId, Math.floor((diff % 60000) / 1000));
+    if (msgEl) msgEl.textContent = activeMessage;
   }
   update();
   setInterval(update, 1000);
 }
 
 function updateMusicUI() {
-  const icon = musicBtn.querySelector('.music-toggle-icon');
+  const offIcon = musicBtn.querySelector('.music-btn-icon--off');
+  const onIcon = musicBtn.querySelector('.music-btn-icon--on');
+  if (musicToggleLabel) musicToggleLabel.textContent = CONFIG.musicTitle;
+
   if (musicPlaying) {
     musicBtn.classList.remove('muted');
     musicBtn.classList.add('is-playing');
     musicBtn.setAttribute('aria-pressed', 'true');
-    musicBtn.setAttribute('aria-label', 'Mute Ganesh Aarti');
-    if (icon) icon.textContent = '🔊';
-    if (musicToggleLabel) musicToggleLabel.textContent = 'Aarti On';
-    if (musicToggleSub) musicToggleSub.textContent = CONFIG.musicTitle;
+    musicBtn.setAttribute('aria-label', `Pause ${CONFIG.musicTitle}`);
+    if (offIcon) offIcon.classList.add('hidden');
+    if (onIcon) onIcon.classList.remove('hidden');
   } else {
     musicBtn.classList.add('muted');
     musicBtn.classList.remove('is-playing');
     musicBtn.setAttribute('aria-pressed', 'false');
-    musicBtn.setAttribute('aria-label', 'Unmute Ganesh Aarti');
-    if (icon) icon.textContent = '🔇';
-    if (musicToggleLabel) musicToggleLabel.textContent = 'Aarti Off';
-    if (musicToggleSub) musicToggleSub.textContent = 'Tap to unmute';
+    musicBtn.setAttribute('aria-label', `Play ${CONFIG.musicTitle}`);
+    if (offIcon) offIcon.classList.remove('hidden');
+    if (onIcon) onIcon.classList.add('hidden');
   }
 }
 
 function tryPlayMusic() {
-  bgMusic.volume = 0.35;
-  bgMusic.play()
-    .then(() => {
-      musicPlaying = true;
-      updateMusicUI();
-    })
-    .catch(() => {
-      musicPlaying = false;
-      updateMusicUI();
-    });
+  playBgMusic();
 }
 
 musicBtn.addEventListener('click', () => {
-  if (musicPlaying) {
-    bgMusic.pause();
-    musicPlaying = false;
-    updateMusicUI();
-  } else {
-    bgMusic.play()
-      .then(() => {
-        musicPlaying = true;
-        updateMusicUI();
-      })
-      .catch(() => {
-        musicPlaying = false;
-        updateMusicUI();
-      });
-  }
+  if (musicPlaying) pauseBgMusic();
+  else playBgMusic();
 });
 
 function shareWhatsApp() {
@@ -549,23 +1555,6 @@ function shareInvitation() {
 
 document.getElementById('shareBtn').addEventListener('click', shareInvitation);
 document.getElementById('shareWhatsApp').addEventListener('click', shareWhatsApp);
-
-function addToCalendar() {
-  const ics = [
-    'BEGIN:VCALENDAR', 'VERSION:2.0', 'BEGIN:VEVENT',
-    `DTSTART:${CONFIG.calendarStart}`, `DTEND:${CONFIG.calendarEnd}`,
-    `SUMMARY:${CONFIG.calendarTitle}`, `LOCATION:${CONFIG.calendarLocation}`,
-    `DESCRIPTION:${CONFIG.shareMessage}`, 'END:VEVENT', 'END:VCALENDAR',
-  ].join('\r\n');
-  const blob = new Blob([ics], { type: 'text/calendar' });
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'ganesh-utsav.ics';
-  a.click();
-  URL.revokeObjectURL(a.href);
-}
-
-document.getElementById('addMainCalendar').addEventListener('click', addToCalendar);
 
 function createFallingPetals() {
   const types = [
@@ -629,6 +1618,524 @@ function initScrollReveal() {
   document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 }
 
+let eventsExperienceInited = false;
+
+function initEventsExperience() {
+  if (eventsExperienceInited || !CONFIG.eventsAnimations) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const section = document.getElementById('section-events');
+  if (!section) return;
+
+  if (CONFIG.eventsLayout === 'classic' && CONFIG.eventsStackScroll) {
+    initEventsClassicStackScroll();
+    return;
+  }
+
+  if (CONFIG.eventsLayout === 'stack') {
+    initEventsStackScroll();
+    return;
+  }
+
+  if (CONFIG.eventsLayout !== 'classic') return;
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+  gsap.registerPlugin(ScrollTrigger);
+  eventsExperienceInited = true;
+  section.classList.add('events-section--animated');
+
+  createEventsAmbient();
+
+  const header = section.querySelector('.section-header');
+  if (header) {
+    gsap.from(header.children, {
+      scrollTrigger: { trigger: header, start: 'top 85%', toggleActions: 'play none none none' },
+      y: 36,
+      opacity: 0,
+      duration: 0.85,
+      stagger: 0.1,
+      ease: 'power3.out',
+    });
+  }
+
+  const timelineFill = section.querySelector('.events-timeline-fill');
+  if (timelineFill) {
+    gsap.fromTo(
+      timelineFill,
+      { scaleY: 0, transformOrigin: 'top center' },
+      {
+        scaleY: 1,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 60%',
+          end: 'bottom 20%',
+          scrub: 0.6,
+        },
+      }
+    );
+  }
+
+  section.querySelectorAll('.event-day-group').forEach((group) => {
+    const badge = group.querySelector('.event-day-badge');
+    const lines = group.querySelectorAll('.event-day-line');
+
+    if (badge) {
+      gsap.from(badge, {
+        scrollTrigger: { trigger: group, start: 'top 82%', toggleActions: 'play none none none' },
+        scale: 0.8,
+        opacity: 0,
+        duration: 0.65,
+        ease: 'back.out(1.5)',
+      });
+    }
+
+    if (lines.length) {
+      gsap.from(lines, {
+        scrollTrigger: { trigger: group, start: 'top 82%', toggleActions: 'play none none none' },
+        scaleX: 0,
+        opacity: 0,
+        duration: 0.75,
+        stagger: 0.08,
+        ease: 'power2.out',
+      });
+    }
+
+    ScrollTrigger.create({
+      trigger: group,
+      start: 'top 78%',
+      once: true,
+      onEnter: () => fireEventDaySparkle(group),
+    });
+
+    group.querySelectorAll('.event-card-animated').forEach((card, ci) => {
+      const fromX = card.classList.contains('reverse') ? 72 : -72;
+      const image = card.querySelector('.event-image');
+      const nameLine = card.querySelector('.event-name-line');
+      const num = card.querySelector('.event-num');
+
+      gsap.set(card, { opacity: 0, x: fromX });
+      gsap.to(card, {
+        scrollTrigger: { trigger: card, start: 'top 88%', toggleActions: 'play none none none' },
+        x: 0,
+        opacity: 1,
+        duration: 0.95,
+        delay: ci * 0.07,
+        ease: 'power3.out',
+      });
+
+      if (image) {
+        gsap.to(image, {
+          scrollTrigger: { trigger: card, start: 'top bottom', end: 'bottom top', scrub: 1.2 },
+          y: -14,
+          ease: 'none',
+        });
+      }
+
+      if (nameLine) {
+        gsap.from(nameLine, {
+          scrollTrigger: { trigger: card, start: 'top 75%', toggleActions: 'play none none none' },
+          scaleX: 0,
+          duration: 0.7,
+          ease: 'power2.out',
+          delay: 0.15,
+        });
+      }
+
+      if (num) {
+        ScrollTrigger.create({
+          trigger: card,
+          start: 'top 78%',
+          once: true,
+          onEnter: () => animateEventNum(num),
+        });
+      }
+
+      initEventCardTilt(card);
+    });
+  });
+
+  ScrollTrigger.refresh();
+}
+
+function initEventsClassicStackScroll() {
+  if (eventsExperienceInited) return;
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+  const section = document.getElementById('section-events');
+  const list = document.getElementById('eventsList');
+  if (!section || !list) return;
+
+  gsap.registerPlugin(ScrollTrigger);
+  eventsExperienceInited = true;
+  section.classList.add('events-section--stack-scroll');
+
+  createEventsAmbient();
+
+  const header = section.querySelector('.section-header');
+  if (header) {
+    gsap.from(header.children, {
+      scrollTrigger: { trigger: header, start: 'top 85%', toggleActions: 'play none none none' },
+      y: 32,
+      opacity: 0,
+      duration: 0.85,
+      stagger: 0.1,
+      ease: 'power3.out',
+    });
+  }
+
+  section.querySelectorAll('.event-day-group').forEach((group) => {
+    const badge = group.querySelector('.event-day-badge');
+    const lines = group.querySelectorAll('.event-day-line');
+    if (badge) {
+      gsap.from(badge, {
+        scrollTrigger: { trigger: group, start: 'top 88%', toggleActions: 'play none none none' },
+        scale: 0.85,
+        opacity: 0,
+        duration: 0.6,
+        ease: 'back.out(1.4)',
+      });
+    }
+    if (lines.length) {
+      gsap.from(lines, {
+        scrollTrigger: { trigger: group, start: 'top 88%', toggleActions: 'play none none none' },
+        scaleX: 0,
+        opacity: 0,
+        duration: 0.65,
+        stagger: 0.06,
+        ease: 'power2.out',
+      });
+    }
+  });
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isMobile = window.innerWidth < 768;
+  if (reducedMotion || isMobile) {
+    ScrollTrigger.refresh();
+    return;
+  }
+
+  const bg = list.querySelector('.events-classic-stack-bg');
+  const cards = gsap.utils.toArray('.event-card', list);
+  if (!cards.length) return;
+
+  const pinTop = 96;
+  const stackOffset = 16;
+  const scrollPerCard = () => window.innerHeight * 0.88;
+  const totalEnd = () => scrollPerCard() * cards.length + window.innerHeight * 0.35;
+  const sceneTrigger = bg || cards[0];
+
+  if (bg) {
+    const bgImg = bg.querySelector('.events-classic-stack-bg-image');
+    ScrollTrigger.create({
+      trigger: sceneTrigger,
+      start: 'top top',
+      end: totalEnd,
+      pin: bg,
+      pinSpacing: false,
+      invalidateOnRefresh: true,
+    });
+    if (bgImg) {
+      gsap.fromTo(
+        bgImg,
+        { scale: 1.12, yPercent: -3 },
+        {
+          scale: 1,
+          yPercent: 0,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: sceneTrigger,
+            start: 'top top',
+            end: totalEnd,
+            scrub: 0.6,
+            invalidateOnRefresh: true,
+          },
+        }
+      );
+    }
+  }
+
+  cards.forEach((card, i) => {
+    gsap.set(card, { zIndex: 40 + i, transformOrigin: 'center top' });
+
+    ScrollTrigger.create({
+      trigger: card,
+      start: () => `top top+=${pinTop + i * stackOffset}`,
+      endTrigger: cards[cards.length - 1],
+      end: 'bottom bottom',
+      pin: card,
+      pinSpacing: false,
+      anticipatePin: 1,
+      invalidateOnRefresh: true,
+    });
+
+    if (i === 0) return;
+
+    gsap.fromTo(
+      card,
+      { y: () => window.innerHeight * 0.58, scale: 0.9, opacity: 0.6, rotation: -1.5 },
+      {
+        y: 0,
+        scale: 1,
+        opacity: 1,
+        rotation: 0,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: card,
+          start: 'top bottom',
+          end: () => `top top+=${pinTop + i * stackOffset}`,
+          scrub: 0.45,
+          invalidateOnRefresh: true,
+        },
+      }
+    );
+
+    for (let j = 0; j < i; j++) {
+      gsap.to(cards[j], {
+        scale: () => 0.968 - j * 0.02,
+        y: () => -8 - j * 6,
+        filter: 'brightness(0.95) saturate(0.94)',
+        ease: 'none',
+        scrollTrigger: {
+          trigger: card,
+          start: 'top bottom',
+          end: () => `top top+=${pinTop + i * stackOffset}`,
+          scrub: 0.45,
+          invalidateOnRefresh: true,
+        },
+      });
+    }
+  });
+
+  ScrollTrigger.addEventListener('refreshInit', () => {
+    cards.forEach((card, i) => {
+      gsap.set(card, { clearProps: 'transform,filter,opacity' });
+      gsap.set(card, { zIndex: 40 + i });
+    });
+  });
+
+  ScrollTrigger.refresh();
+}
+
+function initEventsStackScroll() {
+  if (eventsExperienceInited) return;
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+  const section = document.getElementById('section-events');
+  const scene = section?.querySelector('.events-stack-scene');
+  if (!section || !scene) return;
+
+  gsap.registerPlugin(ScrollTrigger);
+  eventsExperienceInited = true;
+  section.classList.add('events-section--stack-scroll');
+
+  createEventsAmbient();
+
+  const header = section.querySelector('.section-header');
+  if (header) {
+    gsap.from(header.children, {
+      scrollTrigger: { trigger: header, start: 'top 85%', toggleActions: 'play none none none' },
+      y: 32,
+      opacity: 0,
+      duration: 0.85,
+      stagger: 0.1,
+      ease: 'power3.out',
+    });
+  }
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isMobile = window.innerWidth < 768;
+  if (reducedMotion || isMobile) {
+    ScrollTrigger.refresh();
+    return;
+  }
+
+  const bg = scene.querySelector('.events-stack-bg');
+  const wraps = gsap.utils.toArray('.event-stack-card-wrap');
+  if (!wraps.length) return;
+
+  const pinTop = 88;
+  const stackOffset = 18;
+  const scrollPerCard = () => window.innerHeight * 0.88;
+  const totalEnd = () => scrollPerCard() * wraps.length + window.innerHeight * 0.4;
+
+  if (bg) {
+    const bgImg = bg.querySelector('.events-stack-bg-image');
+    ScrollTrigger.create({
+      trigger: scene,
+      start: 'top top',
+      end: totalEnd,
+      pin: bg,
+      pinSpacing: false,
+      invalidateOnRefresh: true,
+    });
+    if (bgImg) {
+      gsap.fromTo(
+        bgImg,
+        { scale: 1.14, yPercent: -4 },
+        {
+          scale: 1,
+          yPercent: 0,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: scene,
+            start: 'top top',
+            end: totalEnd,
+            scrub: 0.6,
+            invalidateOnRefresh: true,
+          },
+        }
+      );
+    }
+  }
+
+  wraps.forEach((wrap, i) => {
+    const card = wrap.querySelector('.event-stack-card');
+    gsap.set(wrap, { zIndex: 40 + i, transformOrigin: 'center top' });
+    if (card) gsap.set(card, { transformOrigin: 'center top' });
+
+    ScrollTrigger.create({
+      trigger: wrap,
+      start: () => `top top+=${pinTop + i * stackOffset}`,
+      endTrigger: wraps[wraps.length - 1],
+      end: 'bottom bottom',
+      pin: wrap,
+      pinSpacing: false,
+      anticipatePin: 1,
+      invalidateOnRefresh: true,
+    });
+
+    if (i === 0) return;
+
+    gsap.fromTo(
+      wrap,
+      { y: () => window.innerHeight * 0.62, scale: 0.88, opacity: 0.55, rotation: -2.5 },
+      {
+        y: 0,
+        scale: 1,
+        opacity: 1,
+        rotation: 0,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: wrap,
+          start: 'top bottom',
+          end: () => `top top+=${pinTop + i * stackOffset}`,
+          scrub: 0.45,
+          invalidateOnRefresh: true,
+        },
+      }
+    );
+
+    for (let j = 0; j < i; j++) {
+      const prevWrap = wraps[j];
+      const prevCard = prevWrap.querySelector('.event-stack-card');
+      gsap.to(prevWrap, {
+        scale: () => 0.965 - j * 0.022,
+        y: () => -10 - j * 7,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: wrap,
+          start: 'top bottom',
+          end: () => `top top+=${pinTop + i * stackOffset}`,
+          scrub: 0.45,
+          invalidateOnRefresh: true,
+        },
+      });
+      if (prevCard) {
+        gsap.to(prevCard, {
+          filter: 'brightness(0.94) saturate(0.92)',
+          ease: 'none',
+          scrollTrigger: {
+            trigger: wrap,
+            start: 'top bottom',
+            end: () => `top top+=${pinTop + i * stackOffset}`,
+            scrub: 0.45,
+            invalidateOnRefresh: true,
+          },
+        });
+      }
+    }
+  });
+
+  ScrollTrigger.addEventListener('refreshInit', () => {
+    wraps.forEach((wrap, i) => {
+      gsap.set(wrap, { clearProps: 'transform,filter,opacity' });
+      gsap.set(wrap, { zIndex: 40 + i });
+      const card = wrap.querySelector('.event-stack-card');
+      if (card) gsap.set(card, { clearProps: 'filter' });
+    });
+  });
+
+  ScrollTrigger.refresh();
+}
+
+function animateEventNum(el) {
+  const target = parseInt(el.dataset.num || el.textContent, 10);
+  if (!target || typeof gsap === 'undefined') return;
+  const counter = { val: 0 };
+  gsap.to(counter, {
+    val: target,
+    duration: 1.1,
+    ease: 'power2.out',
+    onUpdate: () => {
+      el.textContent = String(Math.round(counter.val)).padStart(2, '0');
+    },
+  });
+}
+
+function fireEventDaySparkle(group) {
+  if (typeof confetti !== 'function') return;
+  const rect = group.getBoundingClientRect();
+  const x = (rect.left + rect.width / 2) / window.innerWidth;
+  const y = Math.max(0.08, rect.top / window.innerHeight);
+  const colors = ['#FFD700', '#FF6B00', '#8B1538', '#FFF8F0'];
+  confetti({
+    particleCount: 40,
+    spread: 55,
+    startVelocity: 28,
+    origin: { x, y },
+    colors,
+    scalar: 0.85,
+    ticks: 70,
+  });
+}
+
+function createEventsAmbient() {
+  const layer = document.getElementById('eventsAmbient');
+  if (!layer || layer.children.length) return;
+  const icons = ['🪷', '✨', '🏵️', '🪔', '🌺'];
+  const count = window.innerWidth < 640 ? 8 : 14;
+  for (let i = 0; i < count; i++) {
+    const particle = document.createElement('span');
+    particle.className = 'events-ambient-particle';
+    particle.textContent = icons[i % icons.length];
+    particle.style.left = `${Math.random() * 100}%`;
+    particle.style.top = `${Math.random() * 100}%`;
+    particle.style.animationDuration = `${14 + Math.random() * 16}s`;
+    particle.style.animationDelay = `${Math.random() * 10}s`;
+    layer.appendChild(particle);
+  }
+}
+
+function initEventCardTilt(card) {
+  if (window.matchMedia('(pointer: coarse)').matches) return;
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    gsap.to(card, {
+      rotateY: x * 5,
+      rotateX: -y * 3,
+      duration: 0.35,
+      ease: 'power2.out',
+      transformPerspective: 900,
+    });
+  });
+  card.addEventListener('mouseleave', () => {
+    gsap.to(card, { rotateY: 0, rotateX: 0, duration: 0.45, ease: 'power2.out' });
+  });
+}
+
 function initSectionNav() {
   const dots = sectionNav.querySelectorAll('.nav-dot');
   const sections = CONFIG.sections.map((s) => document.getElementById(s.id)).filter(Boolean);
@@ -665,23 +2172,33 @@ lightbox.addEventListener('click', (e) => {
 
 initContent();
 createFallingPetals();
+loadYouTubeMusic();
 
-function initScratchCard() {
-  const section = document.getElementById('section-countdown');
-  const card = document.getElementById('scratchCard');
-  const canvas = document.getElementById('scratchCanvas');
-  const overlay = document.getElementById('scratchOverlay');
-  const hint = document.getElementById('scratchHint');
-  if (!card || !canvas || !overlay) return;
+function initScratchCards() {
+  const countdownSection = document.getElementById('section-countdown');
 
   requestAnimationFrame(() => {
-    if (section) section.classList.add('is-visible');
+    if (countdownSection) countdownSection.classList.add('is-visible');
   });
+
+  initScratchCardInstance({
+    card: document.getElementById('scratchCard'),
+    canvas: document.getElementById('scratchCanvas'),
+    overlay: document.getElementById('scratchOverlay'),
+    hint: document.getElementById('scratchHint'),
+    burst: document.getElementById('paperBombBurst'),
+    section: countdownSection,
+  });
+}
+
+function initScratchCardInstance({ card, canvas, overlay, hint, burst, section }) {
+  if (!card || !canvas || !overlay) return;
 
   const ctx = canvas.getContext('2d', { willReadFrequently: true });
   let width = 0;
   let height = 0;
   let dpr = 1;
+  let bleed = 6;
   let isDrawing = false;
   let lastX = 0;
   let lastY = 0;
@@ -695,12 +2212,16 @@ function initScratchCard() {
   function resize() {
     const rect = overlay.getBoundingClientRect();
     dpr = Math.min(window.devicePixelRatio || 1, 2);
-    width = Math.floor(rect.width);
-    height = Math.floor(rect.height);
-    canvas.width = Math.floor(width * dpr);
-    canvas.height = Math.floor(height * dpr);
-    canvas.style.width = `${width}px`;
-    canvas.style.height = `${height}px`;
+    width = rect.width;
+    height = rect.height;
+    const drawW = width + bleed * 2;
+    const drawH = height + bleed * 2;
+    canvas.width = Math.ceil(drawW * dpr);
+    canvas.height = Math.ceil(drawH * dpr);
+    canvas.style.width = `${drawW}px`;
+    canvas.style.height = `${drawH}px`;
+    canvas.style.left = `${-bleed}px`;
+    canvas.style.top = `${-bleed}px`;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     if (!revealed) drawCover();
   }
@@ -708,49 +2229,57 @@ function initScratchCard() {
   function drawCover() {
     coverReady = false;
     ctx.globalCompositeOperation = 'source-over';
-    ctx.clearRect(0, 0, width, height);
+    ctx.clearRect(0, 0, width + bleed * 2, height + bleed * 2);
 
-    const bg = ctx.createLinearGradient(0, 0, width, height);
+    ctx.fillStyle = '#C9A227';
+    ctx.fillRect(0, 0, width + bleed * 2, height + bleed * 2);
+
+    const x = bleed;
+    const y = bleed;
+    const w = width;
+    const h = height;
+
+    const bg = ctx.createLinearGradient(x, y, x + w, y + h);
     bg.addColorStop(0, '#FFD700');
     bg.addColorStop(0.25, '#F5C842');
     bg.addColorStop(0.5, '#D4AF37');
     bg.addColorStop(0.75, '#FF9933');
     bg.addColorStop(1, '#C9A227');
     ctx.fillStyle = bg;
-    ctx.fillRect(0, 0, width, height);
+    ctx.fillRect(x - 3, y - 3, w + 6, h + 6);
 
-    ctx.globalAlpha = 0.15;
-    for (let i = 0; i < width; i += 12) {
-      for (let j = 0; j < height; j += 12) {
+    ctx.globalAlpha = 0.1;
+    for (let i = 0; i < w + 12; i += 12) {
+      for (let j = 0; j < h + 12; j += 12) {
         if ((i + j) % 24 === 0) {
-          ctx.fillStyle = '#fff';
-          ctx.fillRect(i, j, 6, 6);
+          ctx.fillStyle = 'rgba(255, 193, 37, 0.45)';
+          ctx.fillRect(x + i - 6, y + j - 6, 6, 6);
         }
       }
     }
     ctx.globalAlpha = 1;
 
-    const shine = ctx.createLinearGradient(0, 0, width * 0.6, height);
-    shine.addColorStop(0, 'rgba(255,255,255,0.45)');
-    shine.addColorStop(0.4, 'rgba(255,255,255,0.08)');
-    shine.addColorStop(1, 'rgba(255,255,255,0)');
+    const shine = ctx.createLinearGradient(x, y, x + w * 0.55, y + h);
+    shine.addColorStop(0, 'rgba(255, 215, 0, 0.22)');
+    shine.addColorStop(0.45, 'rgba(255, 215, 0, 0.05)');
+    shine.addColorStop(1, 'rgba(255, 215, 0, 0)');
     ctx.fillStyle = shine;
-    ctx.fillRect(0, 0, width, height);
+    ctx.fillRect(x - 2, y - 2, w + 4, h + 4);
 
-    ctx.strokeStyle = 'rgba(139, 21, 56, 0.25)';
-    ctx.lineWidth = 2;
+    ctx.strokeStyle = 'rgba(139, 21, 56, 0.18)';
+    ctx.lineWidth = 1.5;
     ctx.setLineDash([8, 6]);
-    ctx.strokeRect(14, 14, width - 28, height - 28);
+    ctx.strokeRect(x + 12, y + 12, w - 24, h - 24);
     ctx.setLineDash([]);
 
     coverReady = true;
   }
 
   function getPos(e) {
-    const rect = canvas.getBoundingClientRect();
+    const rect = overlay.getBoundingClientRect();
     const clientX = e.touches ? e.touches[0].clientX : e.clientX;
     const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-    return { x: clientX - rect.left, y: clientY - rect.top };
+    return { x: clientX - rect.left + bleed, y: clientY - rect.top + bleed };
   }
 
   function scratchAt(x, y, size = BRUSH) {
@@ -783,9 +2312,9 @@ function initScratchCard() {
     const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
     let transparent = 0;
     let total = 0;
-    for (let y = 0; y < canvas.height; y += sample) {
-      for (let x = 0; x < canvas.width; x += sample) {
-        const i = (y * canvas.width + x) * 4 + 3;
+    for (let py = 0; py < canvas.height; py += sample) {
+      for (let px = 0; px < canvas.width; px += sample) {
+        const i = (py * canvas.width + px) * 4 + 3;
         if (data[i] === 0) transparent++;
         total++;
       }
@@ -805,9 +2334,8 @@ function initScratchCard() {
   function completeReveal() {
     if (revealed) return;
     revealed = true;
-    hint.classList.add('is-hidden');
+    if (hint) hint.classList.add('is-hidden');
 
-    const burst = document.getElementById('paperBombBurst');
     card.classList.add('is-revealed', 'paper-bomb-pop');
     if (section) section.classList.add('is-revealed');
 
@@ -824,7 +2352,6 @@ function initScratchCard() {
     }
 
     setTimeout(() => overlay.classList.add('is-revealing'), 180);
-
     setTimeout(() => card.classList.remove('paper-bomb-pop'), 900);
     setTimeout(() => overlay.classList.add('is-done'), 950);
   }
@@ -833,7 +2360,7 @@ function initScratchCard() {
     if (revealed) return;
     e.preventDefault();
     isDrawing = true;
-    hint.classList.add('is-hidden');
+    if (hint) hint.classList.add('is-hidden');
     const { x, y } = getPos(e);
     lastX = x;
     lastY = y;
@@ -855,13 +2382,13 @@ function initScratchCard() {
     isDrawing = false;
   }
 
-  canvas.addEventListener('mousedown', onStart);
-  canvas.addEventListener('mousemove', onMove);
+  overlay.addEventListener('mousedown', onStart);
+  overlay.addEventListener('mousemove', onMove);
   window.addEventListener('mouseup', onEnd);
-  canvas.addEventListener('touchstart', onStart, { passive: false });
-  canvas.addEventListener('touchmove', onMove, { passive: false });
-  canvas.addEventListener('touchend', onEnd);
-  canvas.addEventListener('touchcancel', onEnd);
+  overlay.addEventListener('touchstart', onStart, { passive: false });
+  overlay.addEventListener('touchmove', onMove, { passive: false });
+  overlay.addEventListener('touchend', onEnd);
+  overlay.addEventListener('touchcancel', onEnd);
 
   const ro = new ResizeObserver(() => {
     if (!revealed) resize();
