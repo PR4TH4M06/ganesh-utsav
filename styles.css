@@ -2059,9 +2059,9 @@ html.marathi-jodakshar-fix .aagaman-attractions-subtitle {
 
 .aagaman-attractions-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(12px, 2vw, 20px);
-  max-width: 52rem;
+  max-width: 36rem;
   margin: 0 auto;
 }
 
@@ -2244,6 +2244,37 @@ html.marathi-jodakshar-fix .aagaman-attractions-subtitle {
 }
 .aagaman-attraction--mangala-banjo .aagaman-attraction-name {
   max-width: 18ch;
+}
+
+/* Gold — RB Event */
+.aagaman-attraction--rb-event {
+  --attraction-icon: #3a2818;
+  --attraction-accent: #D4AF37;
+  --attraction-name: #5C4200;
+  background: linear-gradient(165deg, #fffdf8 0%, rgba(255, 215, 0, 0.14) 48%, rgba(212, 175, 55, 0.12) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.48);
+  box-shadow:
+    0 12px 30px rgba(212, 175, 55, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+.aagaman-attraction--rb-event:hover {
+  box-shadow:
+    0 18px 38px rgba(212, 175, 55, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+.aagaman-attraction--rb-event .aagaman-attraction-icon-wrap {
+  box-shadow:
+    6px 6px 14px rgba(180, 150, 60, 0.2),
+    -5px -5px 12px rgba(255, 255, 255, 0.98),
+    inset 1px 1px 0 rgba(255, 255, 255, 0.9);
+}
+.aagaman-attraction--rb-event .aagaman-attraction-tag {
+  color: #7A5A00;
+  background: rgba(255, 215, 0, 0.22);
+  border-color: rgba(212, 175, 55, 0.38);
+}
+.aagaman-attraction--rb-event .aagaman-attraction-name {
+  max-width: 12ch;
 }
 
 /* Maroon — Malhar Gajar Pathak */

@@ -270,18 +270,8 @@ const CONFIG = {
         label: 'Vishesh Aakarshan',
         title: 'विशेष आकर्षण',
         titleEn: 'Special Attractions',
-        subtitle: 'मिरवणुकीला साजरा देणारे साउंड, पथक आणि उत्सवी साथ',
+        subtitle: 'मिरवणुकीला साजरा देणारे पथक आणि उत्सवी सजावट',
         items: [
-          {
-            id: 'sjj-sound',
-            category: 'Sound',
-            shortName: 'SJJ Sound',
-            name: 'SJJ Sound',
-            iconKey: 'sound',
-            image: 'assets/partners/sjj-sound.png',
-            imageAlt: 'SJJ Sound — PA and sound system',
-            tag: 'Sound · PA',
-          },
           {
             id: 'mangala-banjo',
             category: 'Pathak',
@@ -293,14 +283,14 @@ const CONFIG = {
             tag: 'Banjo · Pathak',
           },
           {
-            id: 'malhar-gajar',
-            category: 'Pathak',
-            shortName: 'Malhar Gajar',
-            name: 'Malhar Gajar Dhol Tasha Pathak',
-            iconKey: 'dhol',
-            image: 'assets/partners/malhar-gajar.jpg',
-            imageAlt: 'Malhar Gajar Dhol Tasha Pathak',
-            tag: 'Dhol · Tasha',
+            id: 'rb-event',
+            category: 'Decor',
+            shortName: 'RB Event',
+            name: 'RB Event',
+            iconKey: 'decor',
+            image: 'assets/partners/event-decor-nashik.jpg',
+            imageAlt: 'RB Event — stage and mandal decoration',
+            tag: 'Decor · Stage · Lighting',
           },
         ],
       },
@@ -1516,6 +1506,14 @@ const ATTRACTION_ICONS = {
     <ellipse cx="24" cy="14" rx="14" ry="5.5" stroke="currentColor" stroke-width="2"/>
     <path d="M24 19v8" stroke="var(--attraction-accent)" stroke-width="2.8" stroke-linecap="round"/>
     <path d="M20 23h8" stroke="var(--attraction-accent)" stroke-width="2.8" stroke-linecap="round"/>
+  </svg>`,
+  decor: `<svg class="aagaman-attraction-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M8 30c4-8 10-12 16-12s12 4 16 12" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+    <path d="M12 30c3-5 7.5-8 12-8s9 3 12 8" stroke="var(--attraction-accent)" stroke-width="2.4" stroke-linecap="round"/>
+    <circle cx="24" cy="12" r="4.5" fill="var(--attraction-accent)"/>
+    <path d="M24 16v4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M18 36h12" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/>
+    <path d="M20 36v4M28 36v4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
   </svg>`,
 };
 
