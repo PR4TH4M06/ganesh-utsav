@@ -21,6 +21,66 @@ const LALBAGH = {
   folk: wiki('Indian Folk Ganpati Festival (1).jpg'),
 };
 
+const GALLERY_LALBAGH = [
+  { src: LALBAGH.rajaClassic, alt: 'Lalbaug Cha Raja — Classic' },
+  { src: LALBAGH.rajaClose, alt: 'Lalbaug Cha Raja — Close up' },
+  { src: LALBAGH.raja2011, alt: 'Lalbaug Cha Raja 2011' },
+  { src: LALBAGH.pandal, alt: 'Lalbaug Cha Raja — Pandal' },
+  { src: LALBAGH.ganpatiDays2, alt: 'Lalbaug — Ganpati days' },
+  { src: LALBAGH.visarjan, alt: 'Lalbaug Cha Raja — Visarjan' },
+  { src: LALBAGH.pundal, alt: 'Lalbaug Cha Raja — Ganesh Pandal' },
+  { src: LALBAGH.chaRaja, alt: 'Lalbaug Cha Raja' },
+];
+
+/** Real Satpurcha Raja mandal photos — intro, events, gallery */
+const SATPURA = {
+  goldenThrone1: 'assets/gallery/satpura-golden-throne-1.jpg',
+  goldenThrone2: 'assets/gallery/satpura-golden-throne-2.jpg',
+  blueShankha: 'assets/gallery/satpura-blue-shankha.jpg',
+  greenConch: 'assets/gallery/satpura-green-conch.jpg',
+  orangeEightArm: 'assets/gallery/satpura-orange-eight-arm.jpg',
+  archerStanding: 'assets/gallery/satpura-archer-standing.jpg',
+  archerMiravnuk: 'assets/gallery/satpura-archer-miravnuk.jpg',
+};
+
+const GALLERY_SATPURA = [
+  { src: SATPURA.goldenThrone1, alt: 'सातपुरचा राजा — Golden throne darshan' },
+  { src: SATPURA.goldenThrone2, alt: 'सातपुरचा राजा — Sinhasan darshan' },
+  { src: SATPURA.blueShankha, alt: 'सातपुरचा राजा — Shankha darshan' },
+  { src: SATPURA.greenConch, alt: 'सातपुरचा राजा — Mandal darshan' },
+  { src: SATPURA.orangeEightArm, alt: 'सातपुरचा राजा — Ashtabhuj darshan' },
+  { src: SATPURA.archerStanding, alt: 'सातपुरचा राजा — Archer form' },
+  { src: SATPURA.archerMiravnuk, alt: 'सातपुरचा राजा — Miravnuk darshan' },
+];
+
+const EVENTS_LALBAGH = [
+  { day: 'Aagaman', dayDate: '7th September 2026', name: 'Aagaman Sohala', date: 'September 7, 2026', time: '05:00 PM onwards', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Grand arrival procession welcoming Bappa to Satpur — dhol, tasha, lezim, flowers and the collective devotion of the entire mandal.', image: LALBAGH.visarjan, alt: 'Ganesh Aagaman Sohala procession' },
+  { day: 'Day One', dayDate: '14th September 2026', name: 'Ganpati Sthapana', date: 'September 14, 2026', time: '08:00 AM onwards', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Sacred installation of Lord Ganesha with Vedic mantras, pranpratishtha, kalash puja and the first family aarti welcoming Bappa home.', image: LALBAGH.rajaClassic, alt: 'Lalbaug Cha Raja — Sthapana' },
+  { day: 'Day One', dayDate: '14th September 2026', name: 'Madhyahna Aarti', date: 'September 14, 2026', time: '12:00 PM', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Midday aarti with camphor, flowers and devotional hymns — the heart of daily worship during the Utsav.', image: LALBAGH.rajaClose, alt: 'Lalbaug Cha Raja — Aarti' },
+  { day: 'Day One', dayDate: '14th September 2026', name: 'Miravnuk', date: 'September 14, 2026', time: '05:00 PM onwards', venue: 'Om Sai Ram Mitra Mandal to Main Road, Satpur', description: "Traditional Miravnuk procession with lezim, dhol, tasha and folk dance — Bappa's grand welcome parade!", image: LALBAGH.pandal, alt: 'Lalbaug Cha Raja — Miravnuk procession' },
+  { day: 'Day One', dayDate: '14th September 2026', name: 'Bhajan Sandhya', date: 'September 14, 2026', time: '07:00 PM onwards', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Evenings filled with soulful bhajans, kirtan and devotional singing under diyas and festoon lights.', image: LALBAGH.ganpatiDays, alt: 'Lalbaug Cha Raja — Bhajan Sandhya' },
+  { day: 'Day Two', dayDate: '15th September 2026', name: 'Dhol Tasha Pathak', date: 'September 15, 2026', time: '06:00 PM onwards', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Thunderous dhol-tasha performance — rhythm, energy and pure Maharashtrian festive spirit!', image: LALBAGH.folk, alt: 'Lalbaug Cha Raja — Dhol Tasha' },
+  { day: 'Day Two', dayDate: '15th September 2026', name: 'Lezim & Folk Dance', date: 'September 15, 2026', time: '08:00 PM onwards', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: "Vibrant lezim, lavani and folk dance celebrating Maharashtra's rich cultural heritage.", image: LALBAGH.festival, alt: 'Lalbaug Cha Raja — Folk dance' },
+  { day: 'Day Three', dayDate: '16th September 2026', name: 'Atharvashirsha Paath', date: 'September 16, 2026', time: '07:30 AM', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Morning recitation of Ganesh Atharvashirsha — a sacred Vedic hymn for wisdom and prosperity.', image: LALBAGH.raja2011, alt: 'Lalbaug Cha Raja 2011 — Paath' },
+  { day: 'Day Three', dayDate: '16th September 2026', name: 'Haldi-Kumkum', date: 'September 16, 2026', time: '04:00 PM onwards', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Traditional haldi-kumkum for women devotees — suhasini puja, songs and celebration.', image: LALBAGH.raja2011alt, alt: 'Lalbaug Cha Raja — Haldi Kumkum' },
+  { day: 'Daily', dayDate: 'During Utsav', name: 'Mahaprasad & Modak', date: 'Daily during Utsav', time: '01:00 PM & 08:00 PM', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Blessed prasad and freshly prepared ukdiche modak served with love to all devotees and guests.', image: LALBAGH.bappa, alt: 'Lalbaug Cha Raja — Mahaprasad' },
+  { day: 'Visarjan', dayDate: '19th September 2026', name: 'Visarjan', date: 'September 19, 2026', time: '06:00 PM onwards', venue: 'Mula-Mutha River Ghat, Pune', description: 'Emotional farewell procession — Ganpati Bappa Morya, Pudhchya Varshi Lavkar Ya!', image: LALBAGH.visarjan, alt: 'Lalbaug Cha Raja — Visarjan' },
+];
+
+const EVENTS_SATPURA = [
+  { day: 'Aagaman', dayDate: '7th September 2026', name: 'Aagaman Sohala', date: 'September 7, 2026', time: '05:00 PM onwards', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Grand arrival procession welcoming Bappa to Satpur — dhol, tasha, lezim, flowers and the collective devotion of the entire mandal.', image: SATPURA.archerMiravnuk, alt: 'सातपुरचा राजा — Aagaman Sohala' },
+  { day: 'Day One', dayDate: '14th September 2026', name: 'Ganpati Sthapana', date: 'September 14, 2026', time: '08:00 AM onwards', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Sacred installation of Lord Ganesha with Vedic mantras, pranpratishtha, kalash puja and the first family aarti welcoming Bappa home.', image: SATPURA.goldenThrone1, alt: 'सातपुरचा राजा — Sthapana' },
+  { day: 'Day One', dayDate: '14th September 2026', name: 'Madhyahna Aarti', date: 'September 14, 2026', time: '12:00 PM', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Midday aarti with camphor, flowers and devotional hymns — the heart of daily worship during the Utsav.', image: SATPURA.goldenThrone2, alt: 'सातपुरचा राजा — Madhyahna Aarti' },
+  { day: 'Day One', dayDate: '14th September 2026', name: 'Miravnuk', date: 'September 14, 2026', time: '05:00 PM onwards', venue: 'Om Sai Ram Mitra Mandal to Main Road, Satpur', description: "Traditional Miravnuk procession with lezim, dhol, tasha and folk dance — Bappa's grand welcome parade!", image: SATPURA.archerStanding, alt: 'सातपुरचा राजा — Miravnuk' },
+  { day: 'Day One', dayDate: '14th September 2026', name: 'Bhajan Sandhya', date: 'September 14, 2026', time: '07:00 PM onwards', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Evenings filled with soulful bhajans, kirtan and devotional singing under diyas and festoon lights.', image: SATPURA.greenConch, alt: 'सातपुरचा राजा — Bhajan Sandhya' },
+  { day: 'Day Two', dayDate: '15th September 2026', name: 'Dhol Tasha Pathak', date: 'September 15, 2026', time: '06:00 PM onwards', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Thunderous dhol-tasha performance — rhythm, energy and pure Maharashtrian festive spirit!', image: SATPURA.archerMiravnuk, alt: 'सातपुरचा राजा — Dhol Tasha Pathak' },
+  { day: 'Day Two', dayDate: '15th September 2026', name: 'Lezim & Folk Dance', date: 'September 15, 2026', time: '08:00 PM onwards', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: "Vibrant lezim, lavani and folk dance celebrating Maharashtra's rich cultural heritage.", image: SATPURA.orangeEightArm, alt: 'सातपुरचा राजा — Lezim & Folk Dance' },
+  { day: 'Day Three', dayDate: '16th September 2026', name: 'Atharvashirsha Paath', date: 'September 16, 2026', time: '07:30 AM', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Morning recitation of Ganesh Atharvashirsha — a sacred Vedic hymn for wisdom and prosperity.', image: SATPURA.blueShankha, alt: 'सातपुरचा राजा — Atharvashirsha Paath' },
+  { day: 'Day Three', dayDate: '16th September 2026', name: 'Haldi-Kumkum', date: 'September 16, 2026', time: '04:00 PM onwards', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Traditional haldi-kumkum for women devotees — suhasini puja, songs and celebration.', image: SATPURA.greenConch, alt: 'सातपुरचा राजा — Haldi-Kumkum' },
+  { day: 'Daily', dayDate: 'During Utsav', name: 'Mahaprasad & Modak', date: 'Daily during Utsav', time: '01:00 PM & 08:00 PM', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Blessed prasad and freshly prepared ukdiche modak served with love to all devotees and guests.', image: SATPURA.goldenThrone2, alt: 'सातपुरचा राजा — Mahaprasad' },
+  { day: 'Visarjan', dayDate: '19th September 2026', name: 'Visarjan', date: 'September 19, 2026', time: '06:00 PM onwards', venue: 'Mula-Mutha River Ghat, Pune', description: 'Emotional farewell procession — Ganpati Bappa Morya, Pudhchya Varshi Lavkar Ya!', image: SATPURA.archerStanding, alt: 'सातपुरचा राजा — Visarjan' },
+];
+
 /** Showcase-only images — not used elsewhere on the site */
 const AAGAMAN_SHOWCASE = {
   agman: wiki('Ganesh Agman.jpg'),
@@ -48,6 +108,10 @@ const AAGAMAN_SHOWCASE = {
  * aagamanRouteMapStyle: 'schematic' → point map only · 'real' = photo/satellite map
  * aagamanRouteCamera: false   → fixed map + path draw (schematic default, no glitch)
  * aagamanRouteCamera: true    → zoom/pan follow marker (real map only)
+ * gallerySource: 'satpura'    → real Satpurcha Raja photos — intro, events, gallery
+ * gallerySource: 'lalbaug'    → Wikimedia Lalbaug placeholder images
+ * marathiJodaksharFix: true  → Tiro Devanagari + conjunct-safe typography (current)
+ * marathiJodaksharFix: false → legacy AMS Aakash / letter-spacing (jodakshar may break)
  * ═══════════════════════════════════════════════════════════════════════
  */
 const CONFIG = {
@@ -242,6 +306,8 @@ const CONFIG = {
   aagamanRouteMap: true,
   aagamanRouteMapStyle: 'schematic',
   aagamanRouteCamera: false,
+  gallerySource: 'satpura',
+  marathiJodaksharFix: true,
   envelopeCardArt: 'assets/ganesh-invitation-card.png',
 
   sealImage:
@@ -279,30 +345,9 @@ const CONFIG = {
     { icon: '🎁', title: 'Offerings', text: 'Flowers, modak and fruits are welcome. Please avoid plastic garlands.', tag: 'Puja' },
   ],
 
-  events: [
-    { day: 'Aagaman', dayDate: '7th September 2026', name: 'Aagaman Sohala', date: 'September 7, 2026', time: '05:00 PM onwards', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Grand arrival procession welcoming Bappa to Satpur — dhol, tasha, lezim, flowers and the collective devotion of the entire mandal.', image: LALBAGH.visarjan, alt: 'Ganesh Aagaman Sohala procession' },
-    { day: 'Day One', dayDate: '14th September 2026', name: 'Ganpati Sthapana', date: 'September 14, 2026', time: '08:00 AM onwards', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Sacred installation of Lord Ganesha with Vedic mantras, pranpratishtha, kalash puja and the first family aarti welcoming Bappa home.', image: LALBAGH.rajaClassic, alt: 'Lalbaug Cha Raja — Sthapana' },
-    { day: 'Day One', dayDate: '14th September 2026', name: 'Madhyahna Aarti', date: 'September 14, 2026', time: '12:00 PM', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Midday aarti with camphor, flowers and devotional hymns — the heart of daily worship during the Utsav.', image: LALBAGH.rajaClose, alt: 'Lalbaug Cha Raja — Aarti' },
-    { day: 'Day One', dayDate: '14th September 2026', name: 'Miravnuk', date: 'September 14, 2026', time: '05:00 PM onwards', venue: 'Om Sai Ram Mitra Mandal to Main Road, Satpur', description: "Traditional Miravnuk procession with lezim, dhol, tasha and folk dance — Bappa's grand welcome parade!", image: LALBAGH.pandal, alt: 'Lalbaug Cha Raja — Miravnuk procession' },
-    { day: 'Day One', dayDate: '14th September 2026', name: 'Bhajan Sandhya', date: 'September 14, 2026', time: '07:00 PM onwards', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Evenings filled with soulful bhajans, kirtan and devotional singing under diyas and festoon lights.', image: LALBAGH.ganpatiDays, alt: 'Lalbaug Cha Raja — Bhajan Sandhya' },
-    { day: 'Day Two', dayDate: '15th September 2026', name: 'Dhol Tasha Pathak', date: 'September 15, 2026', time: '06:00 PM onwards', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Thunderous dhol-tasha performance — rhythm, energy and pure Maharashtrian festive spirit!', image: LALBAGH.folk, alt: 'Lalbaug Cha Raja — Dhol Tasha' },
-    { day: 'Day Two', dayDate: '15th September 2026', name: 'Lezim & Folk Dance', date: 'September 15, 2026', time: '08:00 PM onwards', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: "Vibrant lezim, lavani and folk dance celebrating Maharashtra's rich cultural heritage.", image: LALBAGH.festival, alt: 'Lalbaug Cha Raja — Folk dance' },
-    { day: 'Day Three', dayDate: '16th September 2026', name: 'Atharvashirsha Paath', date: 'September 16, 2026', time: '07:30 AM', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Morning recitation of Ganesh Atharvashirsha — a sacred Vedic hymn for wisdom and prosperity.', image: LALBAGH.raja2011, alt: 'Lalbaug Cha Raja 2011 — Paath' },
-    { day: 'Day Three', dayDate: '16th September 2026', name: 'Haldi-Kumkum', date: 'September 16, 2026', time: '04:00 PM onwards', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Traditional haldi-kumkum for women devotees — suhasini puja, songs and celebration.', image: LALBAGH.raja2011alt, alt: 'Lalbaug Cha Raja — Haldi Kumkum' },
-    { day: 'Daily', dayDate: 'During Utsav', name: 'Mahaprasad & Modak', date: 'Daily during Utsav', time: '01:00 PM & 08:00 PM', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Blessed prasad and freshly prepared ukdiche modak served with love to all devotees and guests.', image: LALBAGH.bappa, alt: 'Lalbaug Cha Raja — Mahaprasad' },
-    { day: 'Visarjan', dayDate: '19th September 2026', name: 'Visarjan', date: 'September 19, 2026', time: '06:00 PM onwards', venue: 'Mula-Mutha River Ghat, Pune', description: 'Emotional farewell procession — Ganpati Bappa Morya, Pudhchya Varshi Lavkar Ya!', image: LALBAGH.visarjan, alt: 'Lalbaug Cha Raja — Visarjan' },
-  ],
+  events: null,
 
-  gallery: [
-    { src: LALBAGH.rajaClassic, alt: 'Lalbaug Cha Raja — Classic' },
-    { src: LALBAGH.rajaClose, alt: 'Lalbaug Cha Raja — Close up' },
-    { src: LALBAGH.raja2011, alt: 'Lalbaug Cha Raja 2011' },
-    { src: LALBAGH.pandal, alt: 'Lalbaug Cha Raja — Pandal' },
-    { src: LALBAGH.ganpatiDays2, alt: 'Lalbaug — Ganpati days' },
-    { src: LALBAGH.visarjan, alt: 'Lalbaug Cha Raja — Visarjan' },
-    { src: LALBAGH.pundal, alt: 'Lalbaug Cha Raja — Ganesh Pandal' },
-    { src: LALBAGH.chaRaja, alt: 'Lalbaug Cha Raja' },
-  ],
+  gallery: null,
 
   mainMap: {
     lat: 19.9905579,
@@ -413,6 +458,10 @@ function pauseBgMusic() {
 }
 
 function initContent() {
+  document.documentElement.classList.toggle(
+    'marathi-jodakshar-fix',
+    CONFIG.marathiJodaksharFix !== false
+  );
   const cardVisual = document.getElementById('roopaCardVisual');
   const bgFill = document.getElementById('roopaBgFill');
   const cardArt = CONFIG.envelopeCardArt || 'assets/ganesh-invitation-card.png';
@@ -425,11 +474,14 @@ function initContent() {
   const heroIdol = document.getElementById('heroGaneshIdol');
   if (heroIdol) heroIdol.src = CONFIG.heroGaneshIdol || 'assets/ganesh-idol.png';
   document.getElementById('heroInviteLead').textContent = CONFIG.heroInviteLead;
-  document.getElementById('introImage').src = CONFIG.introImage;
+  document.getElementById('introImage').src = getIntroImage();
+  document.getElementById('introImage').alt = usesSatpuraImages()
+    ? 'सातपुरचा राजा — Mandal darshan'
+    : 'Lalbaug Cha Raja';
   document.getElementById('introVerse').textContent = CONFIG.introVerse;
   document.getElementById('introParaLead').innerHTML = CONFIG.introTextLead;
   document.getElementById('introPara').textContent = CONFIG.introText;
-  document.getElementById('closingGaneshImg').src = CONFIG.closingGanesh;
+  document.getElementById('closingGaneshImg').src = getClosingGanesh();
   document.getElementById('heroTitle').textContent = CONFIG.heroTitle;
   document.getElementById('introTitle').textContent = CONFIG.heroTitle;
   document.getElementById('heroFamily').textContent = CONFIG.familyName;
@@ -555,7 +607,7 @@ function renderEventsStack() {
         <div class="events-stack-bg-overlay"></div>
       </div>
       <div class="events-stack-cards">
-        ${CONFIG.events
+        ${getEvents()
           .map((ev, i) => {
             const theme = EVENT_STACK_THEMES[i % EVENT_STACK_THEMES.length];
             const meta = getShowcaseMeta(ev);
@@ -581,7 +633,7 @@ function renderEventsStack() {
 }
 
 function renderEventsShowcase() {
-  document.getElementById('eventsList').innerHTML = CONFIG.events
+  document.getElementById('eventsList').innerHTML = getEvents()
     .map(
       (ev, i) => {
         const meta = getShowcaseMeta(ev);
@@ -624,7 +676,7 @@ function renderEventsClassic() {
   const useGsap = CONFIG.eventsAnimations && CONFIG.eventsLayout === 'classic' && !useStackScroll;
 
   const groups = [];
-  CONFIG.events.forEach((ev, i) => {
+  getEvents().forEach((ev, i) => {
     const key = `${ev.day}|${ev.dayDate}`;
     let group = groups.find((g) => g.key === key);
     if (!group) {
@@ -695,8 +747,30 @@ function renderDetails() {
     .join('');
 }
 
+function usesSatpuraImages() {
+  return CONFIG.gallerySource === 'satpura';
+}
+
+function getIntroImage() {
+  return usesSatpuraImages() ? SATPURA.goldenThrone1 : CONFIG.introImage;
+}
+
+function getClosingGanesh() {
+  return usesSatpuraImages() ? SATPURA.goldenThrone2 : CONFIG.closingGanesh;
+}
+
+function getEvents() {
+  if (CONFIG.events?.length) return CONFIG.events;
+  return usesSatpuraImages() ? EVENTS_SATPURA : EVENTS_LALBAGH;
+}
+
+function getGalleryItems() {
+  if (CONFIG.gallery?.length) return CONFIG.gallery;
+  return CONFIG.gallerySource === 'lalbaug' ? GALLERY_LALBAGH : GALLERY_SATPURA;
+}
+
 function renderGallery() {
-  document.getElementById('galleryGrid').innerHTML = CONFIG.gallery
+  document.getElementById('galleryGrid').innerHTML = getGalleryItems()
     .map(
       (g, i) => `
       <figure class="gallery-item reveal" style="--delay:${i * 0.05}s" data-src="${g.src}" data-alt="${g.alt}">
