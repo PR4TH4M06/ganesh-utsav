@@ -27,8 +27,14 @@ jobs:
       - name: Prepare site bundle
         run: |
           mkdir -p _site
-          cp index.html script.js styles.css CNAME .nojekyll _site/
-          cp -r assets public _site/
+          cp index.html script.js styles.css .nojekyll _site/
+          cp -r assets public _site/ 2>/dev/null || cp -r assets _site/
+          if [ -f CNAME ]; then
+            cp CNAME _site/CNAME
+          else
+            echo "satpuracharaja.work.gd" > _site/CNAME
+          fi
+          test -s _site/CNAME
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

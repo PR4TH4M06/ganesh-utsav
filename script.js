@@ -201,6 +201,8 @@ const AAGAMAN_SHOWCASE = {
  * aagamanSectionMode: 'route' → miravnuk route section · 'partners' = sponsor cards
  * aagamanRouteLayout: 'showcase' → horizontal location scroll (current, no map)
  * aagamanRouteLayout: 'map'       → old scroll map (undo only — needs map HTML in index.html)
+ * aagamanRouteShowcaseStyle: 'premium' → rich step cards + panel (current)
+ * aagamanRouteShowcaseStyle: 'classic' → small emoji + name cards only
  * aagamanRouteMap: true     → scroll route animation (when layout is 'map')
  * aagamanRouteMapStyle: 'schematic' → point map only · 'real' = photo/satellite map
  * aagamanRouteCamera: false   → fixed map + path draw (schematic default, no glitch)
@@ -217,6 +219,12 @@ const AAGAMAN_SHOWCASE = {
  * eventsSchedule: 'legacy'     → previous multi-day program (Miravnuk, Bhajan, etc.)
  * aagamanShowInstagram: true  → Instagram profile link in route section (current)
  * aagamanShowInstagram: false → hide Instagram link
+ * aagamanShowPrerana: true   → Prerana Sthan section under Vishesh Aakarshan (current)
+ * aagamanShowPrerana: false  → hide Prerana Sthan
+ * aagamanPreranaStyle: 'royal' → deep maroon-gold tribute panel (current)
+ * aagamanPreranaStyle: 'plain' → light cream panel like attractions
+ * showFounderCard: true  → Sansthapak card after closing (current)
+ * showFounderCard: false → hide founder card
  * ═══════════════════════════════════════════════════════════════════════
  */
 const CONFIG = {
@@ -260,7 +268,7 @@ const CONFIG = {
       label: 'Miravnuk Route',
       title: 'आगमन मिरवणूक',
       titleEn: 'Aagaman Miravnuk Route',
-      subtitle: 'Five sacred stops on Bappa\'s miravnuk — one route through Satpur',
+      subtitle: 'बाप्पाच्या आगमन मिरवणुकीचे पाच थांबे — एकच मार्ग, संपूर्ण सातपूर',
       hint: '',
       googleMapsUrl: 'https://maps.app.goo.gl/RS6Uuq6bHGiZwdTp8?g_st=aw',
       mapStyle: 'schematic',
@@ -291,6 +299,44 @@ const CONFIG = {
             image: 'assets/partners/event-decor-nashik.jpg',
             imageAlt: 'RB Event — stage and mandal decoration',
             tag: 'Decor · Stage · Lighting',
+          },
+        ],
+      },
+      prerana: {
+        label: 'Prerana Sthan',
+        title: 'प्रेरणा स्थान',
+        titleEn: 'Source of Inspiration',
+        subtitle: 'आमच्या उत्सवाला प्रेरणा देणारे मार्गदर्शक',
+        people: [
+          {
+            id: 'salim-mama-sheikh',
+            featured: true,
+            name: 'मा. श्री. सलीम (मामा) शेख',
+            role: 'प्रदेश उपाध्यक्ष, महाराष्ट्र नवनिर्माण सेना व मा. स्थायी समिती सभापती, मनपा नाशिक',
+            image: 'assets/prerana/salim-mama-sheikh.jpg',
+            imageAlt: 'मा. श्री. सलीम (मामा) शेख',
+          },
+          {
+            id: 'sanjay-jadhav',
+            lead: true,
+            name: 'मा. श्री. संजय (भाऊ) जाधव',
+            role: 'सामाजिक कार्यकर्ता',
+            image: 'assets/prerana/sanjay-jadhav.jpg',
+            imageAlt: 'मा. श्री. संजय (भाऊ) जाधव',
+          },
+          {
+            id: 'gita-jadhav',
+            name: 'मा. सौ. गीता (ताई) संजय जाधव',
+            role: 'सामाजिक कार्यकर्त्या',
+            image: 'assets/prerana/gita-jadhav.jpg',
+            imageAlt: 'मा. सौ. गीता (ताई) संजय जाधव',
+          },
+          {
+            id: 'juned-sheikh',
+            name: 'मा. श्री. जुनेद (भाऊ) शेख',
+            role: 'सामाजिक कार्यकर्ता',
+            image: 'assets/prerana/juned-sheikh.jpg',
+            imageAlt: 'मा. श्री. जुनेद (भाऊ) शेख',
           },
         ],
       },
@@ -442,6 +488,18 @@ const CONFIG = {
     'आपली उपस्थिती आणि आशीर्वाद आमचा गणेश उत्सव अधिक दिव्य बनवतील. आम्ही आपले उत्सुकतेने स्वागत करीत आहोत!',
   closingMessage: 'Your presence and blessings will make our Ganesh Utsav truly divine.<br>We eagerly await you!',
   closingSign: '— प्रेमाने, श्री ओम साई राम मित्र मंडळ —',
+  showFounderCard: true,
+  founder: {
+    label: 'Sansthapak / Adhyaksha',
+    name: 'Sagar (Bhau) Nagare',
+    nameMr: 'सागर (भाऊ) नागरे',
+    role: 'Sansthapak / Adhyaksha',
+    roleMr: 'संस्थापक / अध्यक्ष',
+    image: 'assets/founder/sagar-nagare.jpg',
+    imageAlt: 'Sagar (Bhau) Nagare — Sansthapak / Adhyaksha',
+    phone: '+918805410703',
+    phoneDisplay: '+91 88054 10703',
+  },
   hashtag: '#GanpatiBappaMorya #SatpurchaRaja',
   shareMessage: "You're invited to Om Sai Ram Mitra Mandal's Ganesh Utsav — Satpurcha Raja! 🙏 Ganpati Bappa Morya!",
   musicYoutubeId: '605C7BkrKTo',
@@ -455,6 +513,7 @@ const CONFIG = {
   eventsAnimations: true,
   aagamanSectionMode: 'route',
   aagamanRouteLayout: 'showcase',
+  aagamanRouteShowcaseStyle: 'premium',
   aagamanRouteMap: true,
   aagamanRouteMapStyle: 'schematic',
   aagamanRouteCamera: false,
@@ -463,6 +522,8 @@ const CONFIG = {
   aagamanShowAttractions: true,
   aagamanAttractionIcons: 'neumorphic',
   aagamanShowInstagram: true,
+  aagamanShowPrerana: true,
+  aagamanPreranaStyle: 'royal',
   instagramUrl: 'https://www.instagram.com/satpurcharaja',
   instagramHandle: '@satpurcharaja',
   instagramPhoto: null,
@@ -964,6 +1025,46 @@ function renderClosingSection() {
     igBtn.classList.toggle('hidden', !showIg);
   }
   if (igLabel) igLabel.textContent = CONFIG.instagramHandle || '@satpurcharaja';
+  renderFounderCard();
+}
+
+function renderFounderCard() {
+  const card = document.getElementById('founderCard');
+  const founder = CONFIG.founder;
+  const show = CONFIG.showFounderCard !== false && founder?.name;
+
+  if (!card) return;
+  card.classList.toggle('hidden', !show);
+  if (!show) return;
+
+  const label = document.getElementById('founderLabel');
+  const nameMr = document.getElementById('founderNameMr');
+  const nameEn = document.getElementById('founderNameEn');
+  const roleMr = document.getElementById('founderRoleMr');
+  const roleEn = document.getElementById('founderRoleEn');
+  const photo = document.getElementById('founderPhoto');
+  const callBtn = document.getElementById('founderCallBtn');
+  const callText = document.getElementById('founderCallText');
+
+  if (label) label.textContent = founder.label || 'Leadership';
+  if (nameMr) nameMr.textContent = founder.nameMr || founder.name;
+  if (nameEn) {
+    nameEn.textContent = founder.name || '';
+    nameEn.classList.toggle('hidden', !founder.name);
+  }
+  if (roleMr) roleMr.textContent = founder.roleMr || '';
+  if (roleEn) roleEn.textContent = founder.role || '';
+  if (photo) {
+    photo.src = founder.image || '';
+    photo.alt = founder.imageAlt || founder.name;
+  }
+  if (callBtn && founder.phone) {
+    callBtn.href = `tel:${founder.phone.replace(/\s/g, '')}`;
+    callBtn.classList.remove('hidden');
+  } else if (callBtn) {
+    callBtn.classList.add('hidden');
+  }
+  if (callText) callText.textContent = founder.phoneDisplay || founder.phone || '';
 }
 
 function renderDetails() {
@@ -1475,9 +1576,20 @@ function renderAagamanRoute() {
   }
 
   if (isShowcase) {
+    const stopsWrap = document.querySelector('.aagaman-route-stops-wrap');
+    const isPremium = CONFIG.aagamanRouteShowcaseStyle !== 'classic';
+    if (stopsWrap) stopsWrap.classList.toggle('is-premium-panel', isPremium);
     renderAagamanShowcaseCards(route);
     renderAagamanAttractions(route);
+    renderAagamanPrerana(route);
     renderAagamanInstagram();
+    const mapsWrap = document.getElementById('aagamanRouteMapsWrap');
+    const mapsLink = document.getElementById('aagamanShowcaseMapsLink');
+    if (mapsWrap && mapsLink) {
+      const showMaps = Boolean(route.googleMapsUrl);
+      mapsWrap.classList.toggle('hidden', !showMaps);
+      if (showMaps) mapsLink.href = route.googleMapsUrl;
+    }
     return;
   }
 
@@ -1525,19 +1637,47 @@ const AAGAMAN_ROUTE_ICONS = {
   'satpur-cha-raja': '🪔',
 };
 
+const AAGAMAN_ROUTE_TAG_MR = {
+  Start: 'प्रारंभ',
+  Stop: 'थांबा',
+  Destination: 'गंतव्य',
+};
+
 function renderAagamanShowcaseCards(route) {
   const track = document.getElementById('aagamanShowcaseTrack');
   const stops = route.stops || [];
   if (!track || !stops.length) return;
 
+  const isPremium = CONFIG.aagamanRouteShowcaseStyle !== 'classic';
+  track.classList.toggle('is-premium', isPremium);
+  track.classList.toggle('is-classic', !isPremium);
+
   track.innerHTML = stops
-    .map((stop) => {
+    .map((stop, index) => {
       const displayName = stop.shortName || stop.name;
       const icon = stop.icon || AAGAMAN_ROUTE_ICONS[stop.id] || '📍';
-      return `
-        <article class="aagaman-route-stop${stop.isEnd ? ' is-destination' : ''}${stop.tag === 'Start' ? ' is-start' : ''}" role="listitem" data-stop-id="${stop.id}" title="${stop.name}">
+      const stateClass = `${stop.isEnd ? ' is-destination' : ''}${stop.tag === 'Start' ? ' is-start' : ''}${stop.tag === 'Stop' ? ' is-mid' : ''}`;
+
+      if (!isPremium) {
+        return `
+        <article class="aagaman-route-stop${stateClass}" role="listitem" data-stop-id="${stop.id}" title="${stop.name}">
           <span class="aagaman-route-stop-icon" aria-hidden="true">${icon}</span>
           <h3 class="aagaman-route-stop-name">${displayName}</h3>
+        </article>`;
+      }
+
+      const tagLabel = AAGAMAN_ROUTE_TAG_MR[stop.tag] || stop.tag;
+      const step = stop.step || String(index + 1).padStart(2, '0');
+
+      return `
+        <article class="aagaman-route-stop aagaman-route-stop--premium${stateClass}" role="listitem" data-stop-id="${stop.id}" title="${stop.name}">
+          <span class="aagaman-route-stop-step">${step}</span>
+          <span class="aagaman-route-stop-icon-wrap" aria-hidden="true">${icon}</span>
+          <div class="aagaman-route-stop-body">
+            <p class="aagaman-route-stop-tag">${tagLabel}</p>
+            <h3 class="aagaman-route-stop-name">${displayName}</h3>
+            ${stop.area ? `<p class="aagaman-route-stop-area">${stop.area}</p>` : ''}
+          </div>
         </article>`;
     })
     .join('');
@@ -1579,6 +1719,52 @@ function renderAagamanAttractions(route) {
               <p class="aagaman-attraction-tag">${item.tag || item.category}</p>
               <h3 class="aagaman-attraction-name">${item.shortName || item.name}</h3>
             </div>
+          </div>
+        </article>`;
+    })
+    .join('');
+}
+
+function renderAagamanPrerana(route) {
+  const wrap = document.getElementById('aagamanPreranaWrap');
+  const track = document.getElementById('aagamanPreranaTrack');
+  const prerana = route.prerana;
+  const show = CONFIG.aagamanShowPrerana !== false && prerana?.people?.length;
+
+  if (!wrap || !track) return;
+  wrap.classList.toggle('hidden', !show);
+  wrap.classList.toggle('is-royal', CONFIG.aagamanPreranaStyle !== 'plain');
+  wrap.classList.toggle('is-plain', CONFIG.aagamanPreranaStyle === 'plain');
+  if (!show) return;
+
+  const label = document.getElementById('aagamanPreranaLabel');
+  const title = document.getElementById('aagamanPreranaTitle');
+  const titleEn = document.getElementById('aagamanPreranaTitleEn');
+  const subtitle = document.getElementById('aagamanPreranaSubtitle');
+  if (label) label.textContent = prerana.label;
+  if (title) title.textContent = prerana.title;
+  if (titleEn) titleEn.textContent = prerana.titleEn;
+  if (subtitle) subtitle.textContent = prerana.subtitle || '';
+
+  track.innerHTML = prerana.people
+    .map((person) => {
+      const cardClass = [
+        'aagaman-prerana-card',
+        `aagaman-prerana-card--${person.id}`,
+        person.featured ? 'is-featured' : '',
+        person.lead ? 'is-lead' : '',
+      ]
+        .filter(Boolean)
+        .join(' ');
+
+      return `
+        <article class="${cardClass}" role="listitem">
+          <div class="aagaman-prerana-photo-wrap">
+            <img class="aagaman-prerana-photo" src="${person.image}" alt="${person.imageAlt || person.name}" loading="lazy" width="320" height="400" />
+          </div>
+          <div class="aagaman-prerana-copy">
+            <h4 class="aagaman-prerana-name" lang="mr">${person.name}</h4>
+            <p class="aagaman-prerana-role" lang="mr">${person.role}</p>
           </div>
         </article>`;
     })
