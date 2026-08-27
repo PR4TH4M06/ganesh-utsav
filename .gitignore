@@ -1,2 +1,8 @@
 # Local Netlify folder
 .netlify
+
+# Local editor / reference files (not for deploy)
+.cursor/
+roopa-ref.*
+roopa-hero-snippet.txt
+roopa-ref-snippet.txt
