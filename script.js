@@ -220,12 +220,12 @@ const AAGAMAN_SHOWCASE = {
  * ═══════════════════════════════════════════════════════════════════════
  */
 const CONFIG = {
-  orgName: 'ओं साई राम मित्र मंडळ',
+  orgName: 'श्री ओम साई राम मित्र मंडळ',
   inviteEventLabel: 'Invitation',
   heroTitle: 'सातपुरचा राजा',
   heroInviteLead: 'We cordially invite you to join us in celebrating the divine arrival of',
   heroGaneshIdol: 'assets/ganesh-idol.png',
-  familyName: 'ॐ साई राम मित्र मंडळ — आपले स्वागत करीत आहे.',
+  familyName: 'श्री ओम साई राम मित्र मंडळ — आपले स्वागत करीत आहे.',
   mainDate: '14th September 2026',
   heroTagline: 'Because welcoming Bappa home requires twice the devotion — and you!',
   countdownTarget: '2026-09-07T17:00:00',
@@ -433,10 +433,10 @@ const CONFIG = {
     '<em>Om Sai Ram Mitra Mandal</em> warmly welcomes you to join us in welcoming <em>Lord Ganesha</em> into our hearts and community.<br><br>From Sthapana to Visarjan — every aarti, every Miravnuk, every modak — is shared with love. Your blessings complete our celebration.',
   familySection: {
     yearBadge: 'वर्ष १२ वे · सातपुरचा राजा · Satpur, Nashik',
-    taglineMr: 'तोच रубाब... तेच ठिकाण...',
+    taglineMr: 'तोच रुबाब... तेच ठिकाण...',
     taglineEn: 'Same devotion, same place — welcoming Bappa home since years with faith & joy',
     textMr:
-      'श्री ओं साई राम मित्र मंडळ, सातपूर, नाशिक तर्फे आपले मनःपूर्वक स्वागत. स्थापनेपासून विसर्जनापर्यंत — प्रत्येक आरती, मिरवणूक, महाप्रसाद आणि भक्तीचा क्षण आपल्या उपस्थितीने अधिक पावन होतो. आपले आशीर्वाद हा आमच्या उत्सवाचा सर्वात मोठा वैभव.',
+      'श्री ओम साई राम मित्र मंडळ, सातपूर, नाशिक तर्फे आपले मनःपूर्वक स्वागत. स्थापनेपासून विसर्जनापर्यंत — प्रत्येक आरती, मिरवणूक, महाप्रसाद आणि भक्तीचा क्षण आपल्या उपस्थितीने अधिक पावन होतो. आपले आशीर्वाद हा आमच्या उत्सवाचा सर्वात मोठा वैभव.',
     officeTitle: 'Mandal Padadhikari · 2026–27',
     officeBearers: [
       { role: 'Sansthapak / Adhyaksha', name: 'Sagar (Bhau) Nagare' },
@@ -447,11 +447,11 @@ const CONFIG = {
       { role: 'Sarchitnis', name: 'Amol Gopal' },
     ],
   },
-  familyNames: '— ओं साई राम मित्र मंडळ —',
+  familyNames: '— श्री ओम साई राम मित्र मंडळ —',
   closingMessageMr:
     'आपली उपस्थिती आणि आशीर्वाद आमचा गणेश उत्सव अधिक दिव्य बनवतील. आम्ही आपले उत्सुकतेने स्वागत करीत आहोत!',
   closingMessage: 'Your presence and blessings will make our Ganesh Utsav truly divine.<br>We eagerly await you!',
-  closingSign: '— प्रेमाने, ओं साई राम मित्र मंडळ —',
+  closingSign: '— प्रेमाने, श्री ओम साई राम मित्र मंडळ —',
   hashtag: '#GanpatiBappaMorya #SatpurchaRaja',
   shareMessage: "You're invited to Om Sai Ram Mitra Mandal's Ganesh Utsav — Satpurcha Raja! 🙏 Ganpati Bappa Morya!",
   musicYoutubeId: '605C7BkrKTo',
@@ -652,7 +652,9 @@ function initContent() {
   document.getElementById('closingGaneshImg').src = getClosingGanesh();
   document.getElementById('heroTitle').textContent = CONFIG.heroTitle;
   document.getElementById('introTitle').textContent = CONFIG.heroTitle;
-  document.getElementById('heroFamily').textContent = CONFIG.familyName;
+  document.getElementById('heroFamily').textContent = CONFIG.familyName || CONFIG.orgName;
+  const familySectionTitle = document.getElementById('familySectionTitle');
+  if (familySectionTitle) familySectionTitle.textContent = CONFIG.orgName;
   document.getElementById('heroDate').textContent = CONFIG.mainDate;
   document.getElementById('heroTagline').textContent = CONFIG.heroTagline;
   const heroHashtag = document.getElementById('heroHashtag');
@@ -947,7 +949,7 @@ function renderFamilySection() {
     }
   }
 
-  if (names) names.innerHTML = `<span>${CONFIG.familyNames || ''}</span>`;
+  if (names) names.innerHTML = `<span lang="mr">${CONFIG.familyNames || CONFIG.orgName}</span>`;
 }
 
 function renderClosingSection() {
