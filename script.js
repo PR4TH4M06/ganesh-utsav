@@ -53,7 +53,7 @@ const GALLERY_SATPURA = [
   { src: SATPURA.archerMiravnuk, alt: 'सातपुरचा राजा — Miravnuk darshan' },
 ];
 
-const EVENTS_LALBAGH = [
+const EVENTS_LEGACY_LALBAGH = [
   { day: 'Aagaman', dayDate: '7th September 2026', name: 'Aagaman Sohala', date: 'September 7, 2026', time: '05:00 PM onwards', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Grand arrival procession welcoming Bappa to Satpur — dhol, tasha, lezim, flowers and the collective devotion of the entire mandal.', image: LALBAGH.visarjan, alt: 'Ganesh Aagaman Sohala procession' },
   { day: 'Day One', dayDate: '14th September 2026', name: 'Ganpati Sthapana', date: 'September 14, 2026', time: '08:00 AM onwards', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Sacred installation of Lord Ganesha with Vedic mantras, pranpratishtha, kalash puja and the first family aarti welcoming Bappa home.', image: LALBAGH.rajaClassic, alt: 'Lalbaug Cha Raja — Sthapana' },
   { day: 'Day One', dayDate: '14th September 2026', name: 'Madhyahna Aarti', date: 'September 14, 2026', time: '12:00 PM', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Midday aarti with camphor, flowers and devotional hymns — the heart of daily worship during the Utsav.', image: LALBAGH.rajaClose, alt: 'Lalbaug Cha Raja — Aarti' },
@@ -67,7 +67,92 @@ const EVENTS_LALBAGH = [
   { day: 'Visarjan', dayDate: '19th September 2026', name: 'Visarjan', date: 'September 19, 2026', time: '06:00 PM onwards', venue: 'Mula-Mutha River Ghat, Pune', description: 'Emotional farewell procession — Ganpati Bappa Morya, Pudhchya Varshi Lavkar Ya!', image: LALBAGH.visarjan, alt: 'Lalbaug Cha Raja — Visarjan' },
 ];
 
-const EVENTS_SATPURA = [
+const MANDAL_VENUE = 'Shree Om Sai Ram Mitra Mandal, Satpur, Nashik';
+
+/** Official schedule from invitation card — कार्यक्रमाची रूपरेषा (2026) */
+const EVENTS_INVITATION_CORE = [
+  {
+    day: 'Aagaman',
+    dayDate: 'Monday, 7th September 2026',
+    name: 'श्री चा आगमन सोहळा',
+    nameEn: 'Aagaman Sohala',
+    date: 'Monday, 7 September 2026',
+    time: '05:00 PM onwards',
+    venue: MANDAL_VENUE,
+    description:
+      'Grand arrival of Bappa to Satpur — miravnuk, dhol-tasha, flowers and the collective devotion of Om Sai Ram Mitra Mandal. (Invitation: सोमवार, ७ सप्टेंबर २०२६)',
+  },
+  {
+    day: 'Sthapana',
+    dayDate: 'Monday, 14th September 2026',
+    name: 'श्री ची स्थापना व प्राणप्रतिष्ठा',
+    nameEn: 'Sthapana va Pranpratishtha',
+    date: 'Monday, 14 September 2026',
+    time: '08:00 AM onwards',
+    venue: MANDAL_VENUE,
+    description:
+      'Sacred installation and pranpratishtha of Lord Ganesha with Vedic mantras, kalash puja and the first family aarti. (Invitation: सोमवार, १४ सप्टेंबर २०२६)',
+  },
+  {
+    day: 'Spardha',
+    dayDate: 'Sunday, 20th September 2026',
+    name: 'चित्रकला / रंगभरण स्पर्धा',
+    nameEn: 'Chitrakala / Rangbharana Spardha',
+    date: 'Sunday, 20 September 2026',
+    time: '10:00 AM onwards',
+    venue: MANDAL_VENUE,
+    description:
+      'Drawing and colouring competition for devotees — creative celebration of Ganesh Utsav. (Invitation: रविवार, २० सप्टेंबर २०२६)',
+  },
+  {
+    day: 'Mahapuja',
+    dayDate: 'Wednesday, 23rd September 2026',
+    name: 'श्री गणेश याग',
+    nameEn: 'Shree Ganesh Yaag',
+    date: 'Wednesday, 23 September 2026',
+    time: '07:00 AM onwards',
+    venue: MANDAL_VENUE,
+    description:
+      'Holy Ganesh Yaag conducted by Dr. Tapan Shukla Shastri — Vedic fire ritual for blessings and prosperity. (Invitation: बुधवार, २३ सप्टेंबर २०२६)',
+  },
+  {
+    day: 'Mahapuja',
+    dayDate: 'Wednesday, 23rd September 2026',
+    name: 'श्री सत्यनारायण महापूजा व महाप्रसाद',
+    nameEn: 'Shree Satyanarayan Mahapuja va Mahaprasad',
+    date: 'Wednesday, 23 September 2026',
+    time: '06:00 PM onwards',
+    venue: MANDAL_VENUE,
+    description:
+      'Grand Satyanarayan puja followed by mahaprasad for all devotees and guests. (Invitation: बुधवार, २३ सप्टेंबर २०२६)',
+  },
+  {
+    day: 'Visarjan',
+    dayDate: 'Friday, 25th September 2026',
+    name: 'श्री ची आरती, विसर्जन तथा निरोप सोहळा',
+    nameEn: 'Aarti, Visarjan & Niroap Sohala',
+    date: 'Friday, 25 September 2026',
+    time: '05:00 PM onwards',
+    venue: MANDAL_VENUE,
+    description:
+      'Final aarti, visarjan procession and emotional farewell — Ganpati Bappa Morya, Pudhchya Varshi Lavkar Ya! (Invitation: शुक्रवार, २५ सप्टेंबर २०२६)',
+  },
+];
+
+function mapInvitationEvents(images, altPrefix) {
+  return EVENTS_INVITATION_CORE.map((ev, i) => ({
+    ...ev,
+    image: images[i],
+    alt: `${altPrefix} — ${ev.nameEn || ev.name}`,
+  }));
+}
+
+const EVENTS_LALBAGH = mapInvitationEvents(
+  [LALBAGH.visarjan, LALBAGH.rajaClassic, LALBAGH.ganpatiDays, LALBAGH.raja2011, LALBAGH.bappa, LALBAGH.visarjan],
+  'Satpurcha Raja'
+);
+
+const EVENTS_LEGACY_SATPURA = [
   { day: 'Aagaman', dayDate: '7th September 2026', name: 'Aagaman Sohala', date: 'September 7, 2026', time: '05:00 PM onwards', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Grand arrival procession welcoming Bappa to Satpur — dhol, tasha, lezim, flowers and the collective devotion of the entire mandal.', image: SATPURA.archerMiravnuk, alt: 'सातपुरचा राजा — Aagaman Sohala' },
   { day: 'Day One', dayDate: '14th September 2026', name: 'Ganpati Sthapana', date: 'September 14, 2026', time: '08:00 AM onwards', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Sacred installation of Lord Ganesha with Vedic mantras, pranpratishtha, kalash puja and the first family aarti welcoming Bappa home.', image: SATPURA.goldenThrone1, alt: 'सातपुरचा राजा — Sthapana' },
   { day: 'Day One', dayDate: '14th September 2026', name: 'Madhyahna Aarti', date: 'September 14, 2026', time: '12:00 PM', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Midday aarti with camphor, flowers and devotional hymns — the heart of daily worship during the Utsav.', image: SATPURA.goldenThrone2, alt: 'सातपुरचा राजा — Madhyahna Aarti' },
@@ -80,6 +165,18 @@ const EVENTS_SATPURA = [
   { day: 'Daily', dayDate: 'During Utsav', name: 'Mahaprasad & Modak', date: 'Daily during Utsav', time: '01:00 PM & 08:00 PM', venue: 'Om Sai Ram Mitra Mandal, Satpur', description: 'Blessed prasad and freshly prepared ukdiche modak served with love to all devotees and guests.', image: SATPURA.goldenThrone2, alt: 'सातपुरचा राजा — Mahaprasad' },
   { day: 'Visarjan', dayDate: '19th September 2026', name: 'Visarjan', date: 'September 19, 2026', time: '06:00 PM onwards', venue: 'Mula-Mutha River Ghat, Pune', description: 'Emotional farewell procession — Ganpati Bappa Morya, Pudhchya Varshi Lavkar Ya!', image: SATPURA.archerStanding, alt: 'सातपुरचा राजा — Visarjan' },
 ];
+
+const EVENTS_SATPURA = mapInvitationEvents(
+  [
+    SATPURA.archerMiravnuk,
+    SATPURA.goldenThrone1,
+    SATPURA.orangeEightArm,
+    SATPURA.blueShankha,
+    SATPURA.goldenThrone2,
+    SATPURA.archerStanding,
+  ],
+  'सातपुरचा राजा'
+);
 
 /** Showcase-only images — not used elsewhere on the site */
 const AAGAMAN_SHOWCASE = {
@@ -112,6 +209,14 @@ const AAGAMAN_SHOWCASE = {
  * gallerySource: 'lalbaug'    → Wikimedia Lalbaug placeholder images
  * marathiJodaksharFix: true  → Tiro Devanagari + conjunct-safe typography (current)
  * marathiJodaksharFix: false → legacy AMS Aakash / letter-spacing (jodakshar may break)
+ * aagamanShowAttractions: true  → Vishesh Aakarshan strip under route (current)
+ * aagamanShowAttractions: false → route stops only
+ * aagamanAttractionIcons: 'neumorphic' → soft white circle + vector SVG icons (current)
+ * aagamanAttractionIcons: 'photo'      → partner logo photos in circles
+ * eventsSchedule: 'invitation' → official card schedule — कार्यक्रमाची रूपरेषा (current)
+ * eventsSchedule: 'legacy'     → previous multi-day program (Miravnuk, Bhajan, etc.)
+ * aagamanShowInstagram: true  → Instagram profile link in route section (current)
+ * aagamanShowInstagram: false → hide Instagram link
  * ═══════════════════════════════════════════════════════════════════════
  */
 const CONFIG = {
@@ -161,6 +266,44 @@ const CONFIG = {
       mapStyle: 'schematic',
       mapViewBox: '0 0 900 700',
       scrollHeight: '220vh',
+      attractions: {
+        label: 'Vishesh Aakarshan',
+        title: 'विशेष आकर्षण',
+        titleEn: 'Special Attractions',
+        subtitle: 'Sound, pathak & festive teams powering Bappa\'s miravnuk',
+        items: [
+          {
+            id: 'sjj-sound',
+            category: 'Sound',
+            shortName: 'SJJ Sound',
+            name: 'SJJ Sound',
+            iconKey: 'sound',
+            image: 'assets/partners/sjj-sound.png',
+            imageAlt: 'SJJ Sound — PA and sound system',
+            tag: 'Sound · PA',
+          },
+          {
+            id: 'mangala-banjo',
+            category: 'Pathak',
+            shortName: 'Mangala Devi Banjo Party',
+            name: 'Mangala Devi Banjo Party',
+            iconKey: 'banjo',
+            image: wiki('Ganesh Chaturthi Festival (12).jpg', 320),
+            imageAlt: 'Mangala Devi Banjo Party — lezim and banjo pathak',
+            tag: 'Banjo · Pathak',
+          },
+          {
+            id: 'malhar-gajar',
+            category: 'Pathak',
+            shortName: 'Malhar Gajar',
+            name: 'Malhar Gajar Dhol Tasha Pathak',
+            iconKey: 'dhol',
+            image: 'assets/partners/malhar-gajar.jpg',
+            imageAlt: 'Malhar Gajar Dhol Tasha Pathak',
+            tag: 'Dhol · Tasha',
+          },
+        ],
+      },
       stops: [
         {
           id: 'sai-baba-temple',
@@ -284,11 +427,29 @@ const CONFIG = {
   },
   calendarTitle: 'Ganesh Utsav — Om Sai Ram Mitra Mandal',
   calendarStart: '20260914T080000',
-  calendarEnd: '20260919T210000',
+  calendarEnd: '20260925T210000',
   calendarLocation: 'Satpur Cha Raja, Satpur, Nashik, Maharashtra',
   familyText:
     '<em>Om Sai Ram Mitra Mandal</em> warmly welcomes you to join us in welcoming <em>Lord Ganesha</em> into our hearts and community.<br><br>From Sthapana to Visarjan — every aarti, every Miravnuk, every modak — is shared with love. Your blessings complete our celebration.',
+  familySection: {
+    yearBadge: 'वर्ष १२ वे · सातपुरचा राजा · Satpur, Nashik',
+    taglineMr: 'तोच रубाब... तेच ठिकाण...',
+    taglineEn: 'Same devotion, same place — welcoming Bappa home since years with faith & joy',
+    textMr:
+      'श्री ओं साई राम मित्र मंडळ, सातपूर, नाशिक तर्फे आपले मनःपूर्वक स्वागत. स्थापनेपासून विसर्जनापर्यंत — प्रत्येक आरती, मिरवणूक, महाप्रसाद आणि भक्तीचा क्षण आपल्या उपस्थितीने अधिक पावन होतो. आपले आशीर्वाद हा आमच्या उत्सवाचा सर्वात मोठा वैभव.',
+    officeTitle: 'Mandal Padadhikari · 2026–27',
+    officeBearers: [
+      { role: 'Sansthapak / Adhyaksha', name: 'Sagar (Bhau) Nagare' },
+      { role: 'Adhyaksha', name: 'Mayur Bairagi' },
+      { role: 'Upadhyaksha', name: 'Nikhil Hire' },
+      { role: 'Karyadhyaksha', name: 'Aditya Kadam' },
+      { role: 'Khajindar', name: 'Jayesh Marathe' },
+      { role: 'Sarchitnis', name: 'Amol Gopal' },
+    ],
+  },
   familyNames: '— ओं साई राम मित्र मंडळ —',
+  closingMessageMr:
+    'आपली उपस्थिती आणि आशीर्वाद आमचा गणेश उत्सव अधिक दिव्य बनवतील. आम्ही आपले उत्सुकतेने स्वागत करीत आहोत!',
   closingMessage: 'Your presence and blessings will make our Ganesh Utsav truly divine.<br>We eagerly await you!',
   closingSign: '— प्रेमाने, ओं साई राम मित्र मंडळ —',
   hashtag: '#GanpatiBappaMorya #SatpurchaRaja',
@@ -298,6 +459,7 @@ const CONFIG = {
 
   // Events layout: 'stack' | 'classic' | 'showcase'
   eventsLayout: 'classic',
+  eventsSchedule: 'invitation',
   eventsStackScroll: false,
   eventsStackBg: 'assets/roopa-hero-desktop.jpg',
   eventsAnimations: true,
@@ -308,6 +470,12 @@ const CONFIG = {
   aagamanRouteCamera: false,
   gallerySource: 'satpura',
   marathiJodaksharFix: true,
+  aagamanShowAttractions: true,
+  aagamanAttractionIcons: 'neumorphic',
+  aagamanShowInstagram: true,
+  instagramUrl: 'https://www.instagram.com/satpurcharaja',
+  instagramHandle: '@satpurcharaja',
+  instagramPhoto: null,
   envelopeCardArt: 'assets/ganesh-invitation-card.png',
 
   sealImage:
@@ -370,7 +538,7 @@ const CONFIG = {
       name: 'Visarjan Ghat',
       address: 'Near Godavari River Ghat, Nashik, Maharashtra',
       mapUrl: 'https://maps.google.com/?q=Godavari+Ghat+Nashik+Visarjan',
-      note: 'Final Visarjan procession on 19th September',
+      note: 'Final Visarjan procession on 25th September 2026',
     },
   ],
 };
@@ -540,9 +708,8 @@ function initContent() {
   setText('scratchInnerTitle', utsav.scratchTitle);
   setText('countdownMessage', utsav.countdownMessage);
   document.getElementById('familyText').innerHTML = CONFIG.familyText;
-  document.getElementById('familyNames').innerHTML = `<span>${CONFIG.familyNames}</span>`;
-  document.getElementById('closingMessage').innerHTML = CONFIG.closingMessage;
-  document.getElementById('closingSign').textContent = CONFIG.closingSign;
+  renderFamilySection();
+  renderClosingSection();
   document.getElementById('footerHashtag').textContent = CONFIG.hashtag;
   document.getElementById('footerYear').textContent = new Date().getFullYear();
 
@@ -567,8 +734,14 @@ function initContent() {
 }
 
 function getShowcaseMeta(ev) {
+  const key = ev.nameEn || ev.name;
   const map = {
     'Aagaman Sohala': { hashtag: '#BappaAagman', join: 'Please join us for the grand arrival', decor: '🥁 🪔 🥁 🪔' },
+    'Sthapana va Pranpratishtha': { hashtag: '#BappaSthapana', join: 'Please join us for a sacred morning', decor: '🪔 🪷 🪔 🪷' },
+    'Chitrakala / Rangbharana Spardha': { hashtag: '#ChitrakalaSpardha', join: 'Please join us for a creative morning', decor: '🎨 🪷 🎨 🪷' },
+    'Shree Ganesh Yaag': { hashtag: '#GaneshYaag', join: 'Please join us for a sacred yaag', decor: '🔥 📿 🔥 📿' },
+    'Shree Satyanarayan Mahapuja va Mahaprasad': { hashtag: '#Mahaprasad', join: 'Please join us for evening puja & prasad', decor: '🍬 🪔 🍬 🪔' },
+    'Aarti, Visarjan & Niroap Sohala': { hashtag: '#PudhchyaVarshi', join: 'Please join us for the farewell evening', decor: '🌊 🪷 🌊 🪷' },
     'Ganpati Sthapana': { hashtag: '#BappaAagman', join: 'Please join us for a sacred morning', decor: '🪔 🪷 🪔 🪷' },
     'Madhyahna Aarti': { hashtag: '#GanpatiBappaMorya', join: 'Please join us for a noon aarti', decor: '🪷 ✨ 🪷 ✨' },
     Miravnuk: { hashtag: '#MiravnukMoments', join: 'Please join us for an afternoon procession', decor: '🏵️ 🥁 🏵️ 🥁' },
@@ -580,7 +753,7 @@ function getShowcaseMeta(ev) {
     'Mahaprasad & Modak': { hashtag: '#Mahaprasad', join: 'Please join us daily', decor: '🍬 🪔 🍬 🪔' },
     Visarjan: { hashtag: '#PudhchyaVarshi', join: 'Please join us for a farewell evening', decor: '🌊 🪷 🌊 🪷' },
   };
-  return map[ev.name] || { hashtag: '#SatpurchaRaja', join: 'Please join us in celebration', decor: '✨ 🪷 ✨ 🪷' };
+  return map[key] || { hashtag: '#SatpurchaRaja', join: 'Please join us in celebration', decor: '✨ 🪷 ✨ 🪷' };
 }
 
 function renderEvents() {
@@ -711,7 +884,7 @@ function renderEventsClassic() {
             </div>
             <div class="event-details">
               <div class="event-details-inner">
-                <h3 class="event-name">${ev.name}</h3>
+                <h3 class="event-name"${ev.nameEn ? ' lang="mr"' : ''}>${ev.name}</h3>
                 <div class="event-meta">
                   <span class="event-meta-item"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>${ev.time}</span>
                   <span class="event-meta-item"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>${ev.venue}</span>
@@ -728,6 +901,77 @@ function renderEventsClassic() {
     .join('');
 
   if (useStackScroll) injectClassicStackBg();
+}
+
+function renderFamilySection() {
+  const fs = CONFIG.familySection || {};
+  const tagline = document.getElementById('familyTagline');
+  const yearBadge = document.getElementById('familyYearBadge');
+  const textMr = document.getElementById('familyTextMr');
+  const textEn = document.getElementById('familyText');
+  const office = document.getElementById('familyOffice');
+  const names = document.getElementById('familyNames');
+
+  if (tagline) {
+    tagline.textContent = fs.taglineMr || '';
+    tagline.classList.toggle('hidden', !fs.taglineMr);
+  }
+  if (yearBadge) {
+    yearBadge.textContent = fs.yearBadge || '';
+    yearBadge.classList.toggle('hidden', !fs.yearBadge);
+  }
+  if (textMr) {
+    textMr.textContent = fs.textMr || '';
+    textMr.classList.toggle('hidden', !fs.textMr);
+  }
+  if (textEn && CONFIG.familyText) textEn.innerHTML = CONFIG.familyText;
+
+  if (office) {
+    const bearers = fs.officeBearers || [];
+    const showOffice = bearers.length > 0;
+    office.hidden = !showOffice;
+    if (showOffice) {
+      office.innerHTML = `
+        <p class="family-office-title">${fs.officeTitle || 'Mandal Padadhikari'}</p>
+        <ul class="family-office-grid" role="list">
+          ${bearers
+            .map(
+              (b) => `
+            <li class="family-office-item">
+              <span class="family-office-role">${b.role}</span>
+              <span class="family-office-name">${b.name}</span>
+            </li>`
+            )
+            .join('')}
+        </ul>`;
+    }
+  }
+
+  if (names) names.innerHTML = `<span>${CONFIG.familyNames || ''}</span>`;
+}
+
+function renderClosingSection() {
+  const msgMr = document.getElementById('closingMessageMr');
+  const msgEn = document.getElementById('closingMessage');
+  const sign = document.getElementById('closingSign');
+  const hashtag = document.getElementById('closingHashtag');
+  const igBtn = document.getElementById('closingInstagram');
+  const igLabel = document.getElementById('closingInstagramLabel');
+
+  if (msgMr) {
+    msgMr.textContent = CONFIG.closingMessageMr || '';
+    msgMr.classList.toggle('hidden', !CONFIG.closingMessageMr);
+  }
+  if (msgEn) msgEn.innerHTML = CONFIG.closingMessage || '';
+  if (sign) sign.textContent = CONFIG.closingSign || '';
+  if (hashtag) hashtag.textContent = CONFIG.hashtag || '';
+
+  const showIg = CONFIG.instagramUrl && CONFIG.aagamanShowInstagram !== false;
+  if (igBtn) {
+    igBtn.href = CONFIG.instagramUrl || '#';
+    igBtn.classList.toggle('hidden', !showIg);
+  }
+  if (igLabel) igLabel.textContent = CONFIG.instagramHandle || '@satpurcharaja';
 }
 
 function renderDetails() {
@@ -761,7 +1005,9 @@ function getClosingGanesh() {
 
 function getEvents() {
   if (CONFIG.events?.length) return CONFIG.events;
-  return usesSatpuraImages() ? EVENTS_SATPURA : EVENTS_LALBAGH;
+  const invitation = usesSatpuraImages() ? EVENTS_SATPURA : EVENTS_LALBAGH;
+  const legacy = usesSatpuraImages() ? EVENTS_LEGACY_SATPURA : EVENTS_LEGACY_LALBAGH;
+  return CONFIG.eventsSchedule === 'legacy' ? legacy : invitation;
 }
 
 function getGalleryItems() {
@@ -1238,12 +1484,38 @@ function renderAagamanRoute() {
 
   if (isShowcase) {
     renderAagamanShowcaseCards(route);
+    renderAagamanAttractions(route);
+    renderAagamanInstagram();
     return;
   }
 
   if (route.scrollHeight) section.style.setProperty('--aagaman-route-scroll', route.scrollHeight);
   renderAagamanRouteMap(route, section);
 }
+
+const ATTRACTION_ICONS = {
+  sound: `<svg class="aagaman-attraction-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M10 18h8l9-6v24l-9-6h-8V18z" fill="currentColor"/>
+    <path d="M30 19.5c2.2 1.8 3.5 4.4 3.5 4.5s-1.3 2.7-3.5 4.5M34.5 15c3.8 3.1 6 7.5 6 9s-2.2 5.9-6 9" stroke="var(--attraction-accent)" stroke-width="2.8" stroke-linecap="round"/>
+  </svg>`,
+  banjo: `<svg class="aagaman-attraction-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <circle cx="30" cy="28" r="11" fill="currentColor" opacity="0.12"/>
+    <circle cx="30" cy="28" r="11" stroke="currentColor" stroke-width="2.4"/>
+    <circle cx="30" cy="28" r="4.5" fill="var(--attraction-accent)"/>
+    <path d="M19 34L30 28" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/>
+    <rect x="11" y="31" width="11" height="5" rx="2.5" fill="currentColor"/>
+    <path d="M14 31V24" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M17 31V22" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+  </svg>`,
+  dhol: `<svg class="aagaman-attraction-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <ellipse cx="24" cy="14" rx="14" ry="5.5" fill="currentColor"/>
+    <path d="M10 14v18c0 3 6.3 5.5 14 5.5s14-2.5 14-5.5V14" fill="currentColor" opacity="0.85"/>
+    <ellipse cx="24" cy="32" rx="14" ry="5.5" fill="currentColor" opacity="0.55"/>
+    <ellipse cx="24" cy="14" rx="14" ry="5.5" stroke="currentColor" stroke-width="2"/>
+    <path d="M24 19v8" stroke="var(--attraction-accent)" stroke-width="2.8" stroke-linecap="round"/>
+    <path d="M20 23h8" stroke="var(--attraction-accent)" stroke-width="2.8" stroke-linecap="round"/>
+  </svg>`,
+};
 
 const AAGAMAN_ROUTE_ICONS = {
   'sai-baba-temple': '🛕',
@@ -1269,6 +1541,64 @@ function renderAagamanShowcaseCards(route) {
         </article>`;
     })
     .join('');
+}
+
+function renderAagamanAttractions(route) {
+  const wrap = document.getElementById('aagamanAttractionsWrap');
+  const track = document.getElementById('aagamanAttractionsTrack');
+  const attractions = route.attractions;
+  const show = CONFIG.aagamanShowAttractions !== false && attractions?.items?.length;
+
+  if (!wrap || !track) return;
+  wrap.classList.toggle('hidden', !show);
+  if (!show) return;
+
+  const label = document.getElementById('aagamanAttractionsLabel');
+  const title = document.getElementById('aagamanAttractionsTitle');
+  const titleEn = document.getElementById('aagamanAttractionsTitleEn');
+  const subtitle = document.getElementById('aagamanAttractionsSubtitle');
+  if (label) label.textContent = attractions.label;
+  if (title) title.textContent = attractions.title;
+  if (titleEn) titleEn.textContent = attractions.titleEn;
+  if (subtitle) subtitle.textContent = attractions.subtitle || '';
+
+  track.innerHTML = attractions.items
+    .map((item) => {
+      const usePhoto = CONFIG.aagamanAttractionIcons === 'photo' && item.image;
+      const iconMarkup = usePhoto
+        ? `<img class="aagaman-attraction-icon-img" src="${item.image}" alt="${item.imageAlt || item.name}" loading="lazy" />`
+        : ATTRACTION_ICONS[item.iconKey] ||
+          `<span class="aagaman-route-stop-icon">${item.icon || '✦'}</span>`;
+      return `
+        <article class="aagaman-route-stop aagaman-attraction aagaman-attraction--${item.id}" role="listitem" data-attraction-id="${item.id}" title="${item.name}">
+          <span class="aagaman-attraction-icon-wrap" aria-hidden="true">
+            ${iconMarkup}
+          </span>
+          <p class="aagaman-attraction-tag">${item.tag || item.category}</p>
+          <h3 class="aagaman-route-stop-name">${item.shortName || item.name}</h3>
+        </article>`;
+    })
+    .join('');
+}
+
+function renderAagamanInstagram() {
+  const wrap = document.getElementById('aagamanInstagramWrap');
+  const link = document.getElementById('aagamanInstagramLink');
+  const avatar = document.getElementById('aagamanInstagramAvatar');
+  const handle = document.getElementById('aagamanInstagramHandle');
+  const show = CONFIG.aagamanShowInstagram !== false && CONFIG.instagramUrl;
+
+  if (!wrap) return;
+  wrap.classList.toggle('hidden', !show);
+  if (!show || !link) return;
+
+  link.href = CONFIG.instagramUrl;
+  if (handle) handle.textContent = CONFIG.instagramHandle || '@satpurcharaja';
+  if (avatar) {
+    const photo = CONFIG.instagramPhoto || CONFIG.sealImage;
+    avatar.src = photo || '';
+    avatar.alt = `${CONFIG.instagramHandle || 'Satpuracha Raja'} — Instagram profile`;
+  }
 }
 
 function renderAagamanRouteMap(route, section) {

@@ -221,6 +221,32 @@
           <div class="aagaman-route-stops-wrap">
             <div class="aagaman-route-stops" id="aagamanShowcaseTrack" role="list" aria-label="Miravnuk route stops"></div>
           </div>
+
+          <div class="aagaman-attractions-wrap reveal" id="aagamanAttractionsWrap">
+            <header class="aagaman-attractions-head">
+              <p class="section-label aagaman-attractions-label" id="aagamanAttractionsLabel">Vishesh Aakarshan</p>
+              <h3 class="aagaman-attractions-title" id="aagamanAttractionsTitle" lang="mr">विशेष आकर्षण</h3>
+              <p class="aagaman-attractions-title-en" id="aagamanAttractionsTitleEn">Special Attractions</p>
+              <div class="section-divider aagaman-attractions-divider" aria-hidden="true"><span>✦</span><span>🎵</span><span>✦</span></div>
+              <p class="aagaman-attractions-subtitle" id="aagamanAttractionsSubtitle"></p>
+            </header>
+            <div class="aagaman-attractions-grid" id="aagamanAttractionsTrack" role="list" aria-label="Vishesh Aakarshan"></div>
+          </div>
+
+          <div class="aagaman-instagram-wrap reveal hidden" id="aagamanInstagramWrap">
+            <a class="aagaman-instagram-link" id="aagamanInstagramLink" href="https://www.instagram.com/satpurcharaja" target="_blank" rel="noopener noreferrer" aria-label="Follow Satpuracha Raja on Instagram">
+              <span class="aagaman-instagram-avatar-wrap" aria-hidden="true">
+                <img class="aagaman-instagram-avatar" id="aagamanInstagramAvatar" src="" alt="" loading="lazy" width="52" height="52" />
+              </span>
+              <span class="aagaman-instagram-copy">
+                <span class="aagaman-instagram-label">Follow on Instagram</span>
+                <span class="aagaman-instagram-handle" id="aagamanInstagramHandle">@satpurcharaja</span>
+              </span>
+              <svg class="aagaman-instagram-icon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+                <path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -295,10 +321,10 @@
       <div class="events-timeline" id="eventsTimeline" aria-hidden="true"><span class="events-timeline-fill"></span></div>
       <div class="container-wide">
         <div class="section-header reveal">
-          <p class="section-label">Events Schedule</p>
+          <p class="section-label">कार्यक्रमाची रूपरेषा</p>
           <h2 class="section-title">Utsav Celebrations</h2>
           <div class="section-divider" aria-hidden="true"><span>✦</span><span>🪷</span><span>✦</span></div>
-          <p class="section-subtitle">Five days of devotion, dance &amp; divine blessings with Bappa</p>
+          <p class="section-subtitle">Official program — 7 to 25 September 2026 · वर्ष १२ वे · सातपुरचा राजा</p>
         </div>
         <div class="events-list" id="eventsList"></div>
       </div>
@@ -357,13 +383,22 @@
     <section class="family-section section" id="section-family">
       <div class="container">
         <div class="section-header reveal section-header--light">
-          <p class="section-label">With Love</p>
-          <h2 class="section-title">Our Mandal</h2>
+          <p class="section-label">With Love · प्रेमाने</p>
+          <h2 class="section-title family-section-title" lang="mr">ओं साई राम मित्र मंडळ</h2>
+          <p class="family-section-tagline" id="familyTagline" lang="mr"></p>
           <div class="section-divider" aria-hidden="true"><span>✦</span><span>🪷</span><span>✦</span></div>
+          <p class="family-year-badge" id="familyYearBadge"></p>
         </div>
         <div class="family-card reveal">
-          <p class="family-text" id="familyText"></p>
-          <div class="family-names" id="familyNames"></div>
+          <p class="family-om" lang="mr">॥ श्री गणेशाय नमः ॥</p>
+          <p class="family-text-mr" id="familyTextMr" lang="mr"></p>
+          <p class="family-text-en" id="familyText"></p>
+          <div class="family-office" id="familyOffice" hidden></div>
+          <div class="family-sign-wrap">
+            <span class="family-sign-line" aria-hidden="true"></span>
+            <div class="family-names" id="familyNames"></div>
+            <span class="family-sign-line" aria-hidden="true"></span>
+          </div>
         </div>
       </div>
     </section>
@@ -371,11 +406,26 @@
     <section class="closing-section section" id="section-closing">
       <div class="container">
         <div class="closing-card reveal">
-          <img class="closing-ganesh" id="closingGaneshImg" src="" alt="" aria-hidden="true" width="80" />
+          <div class="closing-card-ornament" aria-hidden="true"><span>✦</span><span>🪔</span><span>✦</span></div>
+          <img class="closing-ganesh" id="closingGaneshImg" src="" alt="" aria-hidden="true" width="88" />
+          <p class="closing-blessing-mr" lang="mr">गणपती बाप्पा मोरया!</p>
           <p class="closing-blessing">Ganpati Bappa Morya!</p>
+          <p class="closing-sub-blessing" lang="mr">पुढच्या वर्षी लवकर या!</p>
+          <div class="closing-divider" aria-hidden="true"><span>🪷</span></div>
+          <p class="closing-message-mr" id="closingMessageMr" lang="mr"></p>
           <p class="closing-message" id="closingMessage"></p>
           <p class="closing-sign" id="closingSign"></p>
-          <button class="btn btn-gold" id="shareWhatsApp">Share on WhatsApp</button>
+          <p class="closing-hashtag" id="closingHashtag"></p>
+          <div class="closing-actions">
+            <button class="btn btn-gold closing-share-btn" id="shareWhatsApp" type="button">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path fill="currentColor" d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.75.75 0 0 0 .917.917l4.458-1.495A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.006-1.366l-.358-.213-2.642.886.886-2.642-.213-.358A9.818 9.818 0 1 1 12 21.818z"/></svg>
+              Share on WhatsApp
+            </button>
+            <a class="closing-instagram-btn hidden" id="closingInstagram" href="#" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+              <span id="closingInstagramLabel">@satpurcharaja</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -389,11 +439,18 @@
         <p class="footer-blessing-sub">Pudhchya Varshi Lavkar Ya!</p>
 
         <div class="footer-contact reveal">
-          <p class="footer-contact-label">Custom invitation websites available</p>
-          <div class="footer-contact-row">
-            <a class="footer-contact-link" href="tel:+919822866632">9822866632</a>
-            <span class="footer-contact-sep" aria-hidden="true">|</span>
-            <a class="footer-contact-link footer-contact-link--wa" href="https://wa.me/919822866632?text=Hi%2C%20I%20need%20a%20custom%20invitation%20website" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          <p class="footer-contact-kicker">✦ Your invite, our craft ✦</p>
+          <p class="footer-contact-label">Custom Invitation Websites</p>
+          <p class="footer-contact-sub">Ganesh Utsav · Wedding · Event invites — beautiful &amp; share-ready</p>
+          <div class="footer-contact-actions">
+            <a class="footer-contact-btn footer-contact-btn--call" href="tel:+919822866632">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.07 21 3 13.93 3 5a1 1 0 0 1 1-1h3.47a1 1 0 0 1 1 .75c.08.59.2 1.17.36 1.73a1 1 0 0 1-.23 1L6.62 10.79z"/></svg>
+              <span class="footer-contact-btn-text">9822866632</span>
+            </a>
+            <a class="footer-contact-btn footer-contact-btn--wa" href="https://wa.me/919822866632?text=Hi%2C%20I%20need%20a%20custom%20invitation%20website" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path fill="currentColor" d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.75.75 0 0 0 .917.917l4.458-1.495A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+              <span class="footer-contact-btn-text">WhatsApp</span>
+            </a>
           </div>
         </div>
 
