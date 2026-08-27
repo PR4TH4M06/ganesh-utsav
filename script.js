@@ -270,7 +270,7 @@ const CONFIG = {
         label: 'Vishesh Aakarshan',
         title: 'विशेष आकर्षण',
         titleEn: 'Special Attractions',
-        subtitle: 'Sound, pathak & festive teams powering Bappa\'s miravnuk',
+        subtitle: 'मिरवणुकीला साजरा देणारे साउंड, पथक आणि उत्सवी साथ',
         items: [
           {
             id: 'sjj-sound',
@@ -1572,12 +1572,16 @@ function renderAagamanAttractions(route) {
         : ATTRACTION_ICONS[item.iconKey] ||
           `<span class="aagaman-route-stop-icon">${item.icon || '✦'}</span>`;
       return `
-        <article class="aagaman-route-stop aagaman-attraction aagaman-attraction--${item.id}" role="listitem" data-attraction-id="${item.id}" title="${item.name}">
-          <span class="aagaman-attraction-icon-wrap" aria-hidden="true">
-            ${iconMarkup}
-          </span>
-          <p class="aagaman-attraction-tag">${item.tag || item.category}</p>
-          <h3 class="aagaman-route-stop-name">${item.shortName || item.name}</h3>
+        <article class="aagaman-attraction aagaman-attraction--${item.id}" role="listitem" data-attraction-id="${item.id}" title="${item.name}">
+          <div class="aagaman-attraction-card">
+            <span class="aagaman-attraction-icon-wrap" aria-hidden="true">
+              ${iconMarkup}
+            </span>
+            <div class="aagaman-attraction-body">
+              <p class="aagaman-attraction-tag">${item.tag || item.category}</p>
+              <h3 class="aagaman-attraction-name">${item.shortName || item.name}</h3>
+            </div>
+          </div>
         </article>`;
     })
     .join('');

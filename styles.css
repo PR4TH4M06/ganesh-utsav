@@ -66,6 +66,7 @@ html.marathi-jodakshar-fix .invite-event-marathi,
 html.marathi-jodakshar-fix .aagaman-title-marathi,
 html.marathi-jodakshar-fix .aagaman-showcase-title,
 html.marathi-jodakshar-fix .aagaman-attractions-title,
+html.marathi-jodakshar-fix .aagaman-attractions-subtitle,
 html.marathi-jodakshar-fix .aagaman-date-popup-marathi,
 html.marathi-jodakshar-fix .aagaman-date-popup-verse,
 html.marathi-jodakshar-fix .aagaman-verse,
@@ -93,11 +94,11 @@ html.marathi-jodakshar-fix .footer-om {
 }
 
 html.marathi-jodakshar-fix .intro-title-marathi,
-html.marathi-jodakshar-fix .hero-roopa .hero-title-marathi,
 html.marathi-jodakshar-fix .invite-event-marathi,
 html.marathi-jodakshar-fix .aagaman-partners-title,
 html.marathi-jodakshar-fix .aagaman-showcase-title,
 html.marathi-jodakshar-fix .aagaman-attractions-title,
+html.marathi-jodakshar-fix .aagaman-attractions-subtitle,
 html.marathi-jodakshar-fix .family-section-title,
 html.marathi-jodakshar-fix .event-name[lang="mr"],
 html.marathi-jodakshar-fix .closing-blessing-mr {
@@ -107,8 +108,7 @@ html.marathi-jodakshar-fix .closing-blessing-mr {
   -webkit-text-fill-color: currentColor !important;
 }
 
-html.marathi-jodakshar-fix .intro-title-marathi,
-html.marathi-jodakshar-fix .hero-roopa .hero-title-marathi {
+html.marathi-jodakshar-fix .intro-title-marathi {
   color: #7A0F28;
   font-weight: 700;
   text-shadow:
@@ -116,6 +116,31 @@ html.marathi-jodakshar-fix .hero-roopa .hero-title-marathi {
     0 2px 0 rgba(212, 175, 55, 0.3),
     0 4px 16px rgba(139, 21, 56, 0.28),
     0 8px 28px rgba(74, 5, 18, 0.14);
+}
+
+html.marathi-jodakshar-fix .hero-roopa .hero-title-marathi {
+  font-family: 'AMS Aakash', 'Yatra One', serif;
+  letter-spacing: 0 !important;
+  font-weight: normal;
+  background: linear-gradient(
+    120deg,
+    #8B1538 0%,
+    #B91C48 18%,
+    #D4AF37 42%,
+    #FFD700 58%,
+    #FF9933 72%,
+    #B91C48 86%,
+    #8B1538 100%
+  ) !important;
+  background-size: 240% 240% !important;
+  background-position: 0% 50%;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent;
+  text-shadow: none;
+  filter: drop-shadow(0 4px 16px rgba(139, 21, 56, 0.24));
+  animation: hero-title-gradient-flow 5.5s ease-in-out infinite;
 }
 
 html.marathi-jodakshar-fix .invite-event-marathi {
@@ -742,23 +767,36 @@ a { color: inherit; text-decoration: none; }
   padding: 0 8px;
 }
 
+@keyframes hero-title-gradient-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 .hero-roopa .hero-title-marathi {
   margin-top: 8px;
-  font-family: var(--font-marathi-display);
-  font-size: clamp(2.85rem, 11.5vw, 4.65rem);
-  font-weight: 700;
-  line-height: 1.06;
+  font-family: 'AMS Aakash', 'Yatra One', var(--font-marathi-display);
+  font-size: clamp(2.9rem, 11.5vw, 4.75rem);
+  font-weight: normal;
+  line-height: 1.08;
   letter-spacing: 0;
-  color: #7A0F28;
-  background: none;
-  -webkit-background-clip: unset;
-  -webkit-text-fill-color: currentColor;
-  background-clip: unset;
-  text-shadow:
-    0 1px 0 rgba(255, 215, 0, 0.55),
-    0 3px 14px rgba(139, 21, 56, 0.2);
-  filter: none;
-  animation: none;
+  background: linear-gradient(
+    120deg,
+    #8B1538 0%,
+    #B91C48 18%,
+    #D4AF37 42%,
+    #FFD700 58%,
+    #FF9933 72%,
+    #B91C48 86%,
+    #8B1538 100%
+  );
+  background-size: 240% 240%;
+  background-position: 0% 50%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 4px 14px rgba(139, 21, 56, 0.22));
+  animation: hero-title-gradient-flow 5.5s ease-in-out infinite;
 }
 
 .hero-org {
@@ -1956,51 +1994,49 @@ a { color: inherit; text-decoration: none; }
   .aagaman-route-stop-icon {
     font-size: 1.1rem;
   }
-
-  .aagaman-attractions-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 4px;
-  }
-
-  .aagaman-attraction-tag {
-    font-size: 0.42rem;
-  }
 }
 
 /* Vishesh Aakarshan — special attractions (undo: aagamanShowAttractions: false) */
 .aagaman-attractions-wrap {
-  margin-top: clamp(28px, 4vw, 40px);
-  padding-top: clamp(20px, 3vw, 28px);
-  border-top: 1px solid rgba(212, 175, 55, 0.28);
+  margin-top: clamp(28px, 4vw, 44px);
+  padding: clamp(24px, 4vw, 36px) clamp(14px, 3vw, 28px) clamp(20px, 3.5vw, 28px);
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(255, 252, 247, 0.98) 0%, rgba(255, 241, 224, 0.92) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.42);
+  box-shadow:
+    0 18px 48px rgba(139, 21, 56, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
   --aagaman-neu-bg: #F0EBE3;
 }
 
 .aagaman-attractions-head {
   text-align: center;
-  margin-bottom: clamp(16px, 3vw, 24px);
+  margin-bottom: clamp(20px, 3.5vw, 28px);
 }
 
 .aagaman-attractions-label {
   color: var(--saffron);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .aagaman-attractions-title {
   font-family: var(--font-marathi-display);
-  font-size: clamp(1.45rem, 4.5vw, 2rem);
+  font-size: clamp(1.55rem, 4.8vw, 2.15rem);
+  font-weight: 600;
   line-height: 1.12;
   color: #7A0F28;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .aagaman-attractions-title-en {
   font-family: var(--font-display);
-  font-size: clamp(0.62rem, 1.6vw, 0.74rem);
+  font-size: clamp(0.64rem, 1.6vw, 0.76rem);
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--maroon);
   font-weight: 600;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .aagaman-attractions-divider span {
@@ -2009,42 +2045,77 @@ a { color: inherit; text-decoration: none; }
 
 .aagaman-attractions-subtitle {
   font-family: var(--font-body);
-  font-size: clamp(0.86rem, 2vw, 0.98rem);
-  line-height: 1.55;
-  color: rgba(74, 5, 18, 0.78);
-  max-width: 34rem;
+  font-size: clamp(0.9rem, 2vw, 1.02rem);
+  line-height: 1.6;
+  color: rgba(74, 5, 18, 0.76);
+  max-width: 36rem;
   margin: 0 auto;
   font-style: italic;
+}
+
+html.marathi-jodakshar-fix .aagaman-attractions-subtitle {
+  font-style: normal;
 }
 
 .aagaman-attractions-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(10px, 1.6vw, 16px);
-  max-width: 44rem;
+  gap: clamp(12px, 2vw, 20px);
+  max-width: 52rem;
   margin: 0 auto;
 }
 
 .aagaman-attraction {
   position: relative;
   overflow: hidden;
-  gap: clamp(5px, 0.9vw, 8px);
-  padding: clamp(12px, 2vw, 16px) clamp(6px, 1vw, 10px) clamp(14px, 2.2vw, 18px);
+  border-radius: 20px;
+  min-height: 100%;
   transition: transform 0.35s var(--transition-elegant), box-shadow 0.35s var(--transition-elegant);
 }
 
+.aagaman-attraction::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 14%;
+  right: 14%;
+  height: 3px;
+  border-radius: 0 0 6px 6px;
+  background: var(--attraction-accent, var(--gold));
+  opacity: 0.9;
+  z-index: 2;
+}
+
 .aagaman-attraction:hover {
-  transform: translateY(-3px);
+  transform: translateY(-5px);
+}
+
+.aagaman-attraction-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: clamp(10px, 1.8vw, 14px);
+  height: 100%;
+  padding: clamp(18px, 2.8vw, 24px) clamp(10px, 1.6vw, 14px) clamp(16px, 2.4vw, 20px);
+  text-align: center;
+}
+
+.aagaman-attraction-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
 }
 
 .aagaman-attraction-icon-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: clamp(3rem, 7vw, 4.1rem);
-  height: clamp(3rem, 7vw, 4.1rem);
+  width: clamp(3.35rem, 7.5vw, 4.5rem);
+  height: clamp(3.35rem, 7.5vw, 4.5rem);
   border-radius: 50%;
-  margin-bottom: 4px;
   flex-shrink: 0;
   background: linear-gradient(145deg, #ffffff 0%, #f7f4ef 100%);
   border: 1px solid rgba(255, 255, 255, 0.92);
@@ -2057,6 +2128,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .aagaman-attraction:hover .aagaman-attraction-icon-wrap {
+  transform: scale(1.05);
   box-shadow:
     8px 8px 18px rgba(160, 140, 120, 0.26),
     -6px -6px 14px rgba(255, 255, 255, 1),
@@ -2092,38 +2164,44 @@ a { color: inherit; text-decoration: none; }
 .aagaman-attraction-tag {
   display: inline-block;
   font-family: var(--font-display);
-  font-size: clamp(0.44rem, 0.95vw, 0.52rem);
-  letter-spacing: 0.12em;
+  font-size: clamp(0.5rem, 1vw, 0.58rem);
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   margin: 0;
   line-height: 1.2;
-  padding: 3px 8px;
+  padding: 4px 10px;
   border-radius: 999px;
   border: 1px solid transparent;
 }
 
-.aagaman-attraction .aagaman-route-stop-name {
-  max-width: none;
-  font-size: clamp(0.5rem, 1.05vw, 0.62rem);
-  line-height: 1.28;
+.aagaman-attraction-name {
+  font-family: var(--font-display);
+  font-size: clamp(0.72rem, 1.45vw, 0.88rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1.35;
+  margin: 0;
+  max-width: 16ch;
   text-wrap: pretty;
-  font-weight: 600;
+  color: var(--attraction-name, #4A0512);
 }
 
 /* Gold — SJJ Sound */
 .aagaman-attraction--sjj-sound {
   --attraction-icon: #3a3228;
   --attraction-accent: #c99700;
-  background: linear-gradient(165deg, #fffdf8 0%, rgba(255, 215, 0, 0.14) 55%, rgba(212, 175, 55, 0.1) 100%);
-  border-color: rgba(212, 175, 55, 0.45);
+  --attraction-name: #5C4200;
+  background: linear-gradient(165deg, #fffdf8 0%, rgba(255, 215, 0, 0.16) 55%, rgba(212, 175, 55, 0.12) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.48);
   box-shadow:
-    0 10px 26px rgba(212, 175, 55, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.65);
+    0 12px 30px rgba(212, 175, 55, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 .aagaman-attraction--sjj-sound:hover {
   box-shadow:
-    0 14px 32px rgba(212, 175, 55, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.75);
+    0 18px 38px rgba(212, 175, 55, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 .aagaman-attraction--sjj-sound .aagaman-attraction-icon-wrap {
   box-shadow:
@@ -2133,27 +2211,25 @@ a { color: inherit; text-decoration: none; }
 }
 .aagaman-attraction--sjj-sound .aagaman-attraction-tag {
   color: #7A5A00;
-  background: rgba(255, 215, 0, 0.18);
-  border-color: rgba(212, 175, 55, 0.35);
-}
-.aagaman-attraction--sjj-sound .aagaman-route-stop-name {
-  color: #5C4200;
+  background: rgba(255, 215, 0, 0.22);
+  border-color: rgba(212, 175, 55, 0.38);
 }
 
 /* Saffron — Mangala Devi Banjo Party */
 .aagaman-attraction--mangala-banjo {
   --attraction-icon: #3d2a18;
   --attraction-accent: #e85d04;
-  background: linear-gradient(165deg, #fffdf8 0%, rgba(255, 107, 0, 0.1) 50%, rgba(255, 153, 51, 0.08) 100%);
-  border-color: rgba(255, 107, 0, 0.4);
+  --attraction-name: #7A2800;
+  background: linear-gradient(165deg, #fffdf8 0%, rgba(255, 107, 0, 0.12) 50%, rgba(255, 153, 51, 0.1) 100%);
+  border: 1px solid rgba(255, 107, 0, 0.42);
   box-shadow:
-    0 10px 26px rgba(255, 107, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.65);
+    0 12px 30px rgba(255, 107, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 .aagaman-attraction--mangala-banjo:hover {
   box-shadow:
-    0 14px 32px rgba(255, 107, 0, 0.16),
-    inset 0 1px 0 rgba(255, 255, 255, 0.75);
+    0 18px 38px rgba(255, 107, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 .aagaman-attraction--mangala-banjo .aagaman-attraction-icon-wrap {
   box-shadow:
@@ -2163,27 +2239,28 @@ a { color: inherit; text-decoration: none; }
 }
 .aagaman-attraction--mangala-banjo .aagaman-attraction-tag {
   color: #9A3D00;
-  background: rgba(255, 107, 0, 0.12);
-  border-color: rgba(255, 107, 0, 0.3);
+  background: rgba(255, 107, 0, 0.14);
+  border-color: rgba(255, 107, 0, 0.32);
 }
-.aagaman-attraction--mangala-banjo .aagaman-route-stop-name {
-  color: #7A2800;
+.aagaman-attraction--mangala-banjo .aagaman-attraction-name {
+  max-width: 18ch;
 }
 
 /* Maroon — Malhar Gajar Pathak */
 .aagaman-attraction--malhar-gajar {
   --attraction-icon: #3a1520;
   --attraction-accent: #c41e3a;
-  background: linear-gradient(165deg, #fffafb 0%, rgba(139, 21, 56, 0.1) 52%, rgba(74, 5, 18, 0.06) 100%);
-  border-color: rgba(139, 21, 56, 0.38);
+  --attraction-name: #4A0512;
+  background: linear-gradient(165deg, #fffafb 0%, rgba(139, 21, 56, 0.12) 52%, rgba(74, 5, 18, 0.08) 100%);
+  border: 1px solid rgba(139, 21, 56, 0.4);
   box-shadow:
-    0 10px 26px rgba(139, 21, 56, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.65);
+    0 12px 30px rgba(139, 21, 56, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 .aagaman-attraction--malhar-gajar:hover {
   box-shadow:
-    0 14px 32px rgba(139, 21, 56, 0.16),
-    inset 0 1px 0 rgba(255, 255, 255, 0.75);
+    0 18px 38px rgba(139, 21, 56, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 .aagaman-attraction--malhar-gajar .aagaman-attraction-icon-wrap {
   box-shadow:
@@ -2193,11 +2270,32 @@ a { color: inherit; text-decoration: none; }
 }
 .aagaman-attraction--malhar-gajar .aagaman-attraction-tag {
   color: #8B1538;
-  background: rgba(139, 21, 56, 0.08);
-  border-color: rgba(139, 21, 56, 0.24);
+  background: rgba(139, 21, 56, 0.1);
+  border-color: rgba(139, 21, 56, 0.26);
 }
-.aagaman-attraction--malhar-gajar .aagaman-route-stop-name {
-  color: #4A0512;
+
+@media (max-width: 680px) {
+  .aagaman-attractions-grid {
+    grid-template-columns: 1fr;
+    max-width: 20rem;
+  }
+
+  .aagaman-attraction-card {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    gap: 14px;
+    padding: 16px 18px;
+  }
+
+  .aagaman-attraction-body {
+    align-items: flex-start;
+  }
+
+  .aagaman-attraction-name {
+    max-width: none;
+    text-align: left;
+  }
 }
 
 /* Instagram — route section (undo: aagamanShowInstagram: false) */
